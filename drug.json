@@ -1,0 +1,351 @@
+[{
+    "_id": {
+      "$oid": "5eee651f739f8c674fd736ee"
+    },
+    "image": "drug1.jpg",
+    "categoryName": "diabetes",
+    "drugName": "Pramlintide",
+    "productionDate": "January 01, 2021",
+    "expirationDate": "January 31, 2023",
+    "comment": "34",
+    "price": "100",
+    "genericName": "pramlintide (PRAM lin tide)",
+    "brandName": "SymlinPen 120",
+    "description": "Pramlintide is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5exe6671a27a66807cf2beb2"
+    },
+    "image": "drug3.jpg",
+    "categoryName": "diabetes",
+    "drugName": "Octreotide",
+    "productionDate": "January 01, 2021",
+    "expirationDate": "January 31, 2023",
+    "comment": "34",
+    "price": "100",
+    "genericName": "octreotide systemic",
+    "brandName": "SymlinPen 120",
+    "description": "Octreotide is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5eel6671a27a66807cf2bea3"
+    },
+    "image": "drug76.jpg",
+    "categoryName": "diabetes",
+    "drugName": "Admelog",
+    "productionDate": "January 01, 2021",
+    "expirationDate": "January 31, 2023",
+    "comment": "34",
+    "price": "120",
+    "genericName": "pramlintide (PRAM lin tide)",
+    "brandName": "SymlinPen 120",
+    "description": "Admelog is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5ete6692a27a66807cf2bea4"
+    },
+    "image": "drug4.jfif",
+    "categoryName": "diabetes",
+    "drugName": "Levemir",
+    "productionDate": "January 01, 2021",
+    "expirationDate": "January 31, 2023",
+    "comment": "38",
+    "price": "140",
+    "genericName": "detemir systemic",
+    "brandName": "SymlinPen 120",
+    "description": "Levemir is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways" 
+  },{
+    "_id": {
+      "$oid": "5eee66a5a27a6c807cf2bea5"
+    },
+    "image": "drug5.jfif",
+    "categoryName": "diabetes",
+    "drugName": "Tresiba",
+    "productionDate": "January 01, 2021",
+    "expirationDate": "January 31, 2023",
+    "comment": "20",
+    "price": "160",
+    "genericName": "degludec systemic",
+    "brandName": "SymlinPen 120",
+    "description": "Tresiba is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5eae66b4a27a66807cf2bea6"
+    },
+    "image": "drug6.jpg",
+    "categoryName": "cancer",
+    "drugName": "Carboplatin",
+    "productionDate": "January 21, 2021",
+    "expirationDate": "February 31, 2025",
+    "comment": "34",
+    "price": "180",
+    "genericName": "carboplatin systemic",
+    "brandName": "Paraplatin",
+    "description": "Carboplatin is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5eee66cfa2c166807cf2bea7"
+    },
+    "image": "drugs57.jfif",
+    "categoryName": "cancer",
+    "drugName": "Toposar",
+    "productionDate": "January 21, 2021",
+    "expirationDate": "February 31, 2025",
+    "comment": "24",
+    "price": "110",
+    "genericName": "etoposide systemic",
+    "brandName": "Paraplatin",
+    "description": "Toposar is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5eee66eea26a66807cf2bea8"
+    },
+    "image": "drug7.jpg",
+    "categoryName": "cancer",
+    "drugName": "Adriamycin",
+    "productionDate": "February 01, 2021",
+    "expirationDate": "March 31, 2028",
+    "comment": "88",
+    "price": "200",
+    "genericName": "doxorubicin systemic",
+    "brandName": "Paraplatin",
+    "description": "Adriamycin is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5eee6717a27a66807cf2bea9"
+    },
+    "image": "drug8.jfif",
+    "categoryName": "cancer",
+    "drugName": "Leukeran",
+    "productionDate": "February 01, 2021",
+    "expirationDate": "March 31, 2028",
+    "comment": "34",
+    "price": "100",
+    "genericName": "chlorambucil systemic",
+    "brandName": "Paraplatin",
+    "description": "Leukeran is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5eee6717a47a66807cf1cea9"
+    },
+    "image": "drug11.jpg",
+    "categoryName": "cancer",
+    "drugName": "Cosmegen",
+    "productionDate": "January 01, 2021",
+    "expirationDate": "January 31, 2023",
+    "comment": "54",
+    "price": "230",
+    "genericName": "dactinomycin systemic",
+    "brandName": "Paraplatin",
+    "description": "Cosmegen is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5eee6717a27a66807cf2bea9"
+    },
+    "image": "drug15.jfif",
+    "categoryName": "heart",
+    "drugName": "Rifadin",
+    "productionDate": "March 01, 2021",
+    "expirationDate": "June 30, 2027",
+    "comment": "34",
+    "price": "130",
+    "genericName": "rifampin systemic",
+    "brandName": "Paraplatin",
+    "description": "Rifadin is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5qee6717a27a66807cf2bca0"
+    },
+    "image": "drug21.jfif",
+    "categoryName": "heart",
+    "drugName": "Flagyl",
+    "productionDate": "January 01, 2021",
+    "expirationDate": "January 31, 2023",
+    "comment": "22",
+    "price": "150",
+    "genericName": "metronidazole systemic",
+    "brandName": "Paraplatin",
+    "description": "Flagyl is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5eae3717a27b66807cf2bea2"
+    },
+    "image": "drug23.jfif",
+    "categoryName": "heart",
+    "drugName": "Cubicin",
+    "productionDate": "May 01, 2021",
+    "expirationDate": "July 31, 2029",
+    "comment": "44",
+    "price": "115",
+    "genericName": "daptomycin systemic",
+    "brandName": "Paraplatin",
+    "description": "Cubicin is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5ee5a717a27a66807cf2bea9"
+    },
+    "image": "drug24.jfif",
+    "categoryName": "heart",
+    "drugName": "Vancocin",
+    "productionDate": "February 28, 2021",
+    "expirationDate": "January 31, 2023",
+    "comment": "27",
+    "price": "145",
+    "genericName": "vancomycin systemic",
+    "brandName": "Paraplatin",
+    "description": "Vancocin is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "56ee6717a27a66807cf2bea9"
+    },
+    "image": "drug25.jfif",
+    "categoryName": "heart",
+    "drugName": "Tazicef",
+    "productionDate": "February 28, 2021",
+    "expirationDate": "January 31, 2023",
+    "comment": "87",
+    "price": "185",
+    "genericName": "ceftazidime systemic",
+    "brandName": "Paraplatin",
+    "description": "Tazicef is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5eee6717a27a6m00zcf2bea9"
+    },
+    "image": "drug28.jfif",
+    "categoryName": "insomnia",
+    "drugName": "Lunesta",
+    "productionDate": "February 01, 2021",
+    "expirationDate": "June 31, 2025",
+    "comment": "35",
+    "price": "150",
+    "genericName": "eszopiclone systemic",
+    "brandName": "Paraplatin",
+    "description": "Lunesta is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5e5e6d17am7a66807cf2bea9"
+    },
+    "image": "drug30.jfif",
+    "categoryName": "insomnia",
+    "drugName": "Restoril",
+    "productionDate": "January 01, 2021",
+    "expirationDate": "January 31, 2023",
+    "comment": "56",
+    "price": "150",
+    "genericName": "temazepam systemic",
+    "brandName": "Paraplatin",
+    "description": "Restoril is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5e4ex717a27a66807cf2bea9"
+    },
+    "image": "drug31.jpg",
+    "categoryName": "insomnia",
+    "drugName": "Ativan",
+    "productionDate": "May 01, 2021",
+    "expirationDate": "July 31, 2023",
+    "comment": "44",
+    "price": "166",
+    "genericName": "lorazepam systemic",
+    "brandName": "Paraplatin",
+    "description": "Ativan is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5epe6717a27a62307cf2bea9"
+    },
+    "image": "drug32.jpeg",
+    "categoryName": "insomnia",
+    "drugName": "Halcion",
+    "productionDate": "January 01, 2021",
+    "expirationDate": "January 31, 2023",
+    "comment": "55",
+    "price": "145",
+    "genericName": "triazolam systemic",
+    "brandName": "Paraplatin",
+    "description": "Halcion is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5eee6u17ag7a668c7cf2bva9"
+    },
+    "image": "drug34.jfif",
+    "categoryName": "insomnia",
+    "drugName": "Rozerem",
+    "productionDate": "March 01, 2021",
+    "expirationDate": "January 31, 2028",
+    "comment": "65",
+    "price": "167",
+    "genericName": "ramelteon systemic",
+    "brandName": "Rozerem",
+    "description": "Rozerem is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5eee61w7ac7a66807cf2bea9"
+    },
+    "image": "drug35.jfif",
+    "categoryName": "stroke",
+    "drugName": "Plavix",
+    "productionDate": "March 01, 2021",
+    "expirationDate": "January 31, 2029",
+    "comment": "43",
+    "price": "170",
+    "genericName": "clopidogrel systemic",
+    "brandName": "Plavix",
+    "description": "Plavix is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5dee6717ax7a8u807cf2bea9"
+    },
+    "image": "drug38.jpg",
+    "categoryName": "stroke",
+    "drugName": "Ecotrin",
+    "productionDate": "January 01, 2021",
+    "expirationDate": "January 31, 2023",
+    "comment": "49",
+    "price": "175",
+    "genericName": "aspirin systemic",
+    "brandName": "Aspirin",
+    "description": "Ecotrin is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5eee67170o7a668e7cf2bea7"
+    },
+    "image": "drug42.jpg",
+    "categoryName": "stroke",
+    "drugName": "Bufferin",
+    "productionDate": "March 01, 2021",
+    "expirationDate": "March 31, 2023",
+    "comment": "43",
+    "price": "170",
+    "genericName": "aspirin systemic",
+    "brandName": "Bufferin",
+    "description": "Bufferin is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5ere6t1ya26a66807cf2bea9"
+    },
+    "image": "drug48.jpg",
+    "categoryName": "stroke",
+    "drugName": "Easprin",
+    "productionDate": "May 01, 2021",
+    "expirationDate": "July 31, 2023",
+    "comment": "53",
+    "price": "158",
+    "genericName": "aspirin systemic",
+    "brandName": "Easprin",
+    "description": "Easprin is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  },{
+    "_id": {
+      "$oid": "5eee6717a47a16r07cf2tea9"
+    },
+    "image": "drug64.jpg",
+    "categoryName": "stroke",
+    "drugName": "Aspirtab",
+    "productionDate": "February 01, 2021",
+    "expirationDate": "March 31, 2026",
+    "comment": "66",
+    "price": "186",
+    "genericName": "aspirin systemic",
+    "brandName": "Aspirtab",
+    "description": "Aspirtab is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
+  }]

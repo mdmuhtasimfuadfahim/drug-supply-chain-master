@@ -1,0 +1,92 @@
+<%- include('../_layouts/header.ejs') %>
+<%- include('../toast.ejs') %>
+
+
+<section class="tutorials cart py-2">
+    <% if(session.cart) { %> 
+    <div class ="changeTo order container1 mx-auto py-2 xl:w-1/2">
+
+        <div class ="flex items-center border-b border-gray-300 pb-4 ">
+            <img src="/img/cart-black.png" alt="cart-black">
+            <h1 class="font-bold ml-4 text-2xl">Order Summary</h1>
+        </div>
+
+        <div class="drug-list mr-8">
+          
+            <% for(let drug of Object.values(session.cart.drugs)){ %>
+            <div class="flex items-center my-8">
+                <img class="w-24 rounded-full" src="/img/<%= drug.drug.image %>" alt="placeholder+image">
+                <div class="flex-1 ml-3">
+                    <h1><%= drug.drug.drugName %></h1>
+                   <h2><span><%= drug.drug.categoryName %></span></h2> 
+                </div>
+                <select id="qty" name="quantity" class="block appearance-none bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
+                    <option value="<%= drug.qty %>"><%= drug.qty %></option>
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                    <option value="500">500</option>
+                    <option value="800">800</option>
+                    <option value="1000">1000</option>
+                  </select>
+                <span class="font-bold text-lg ml-20"><%= drug.drug.price * drug.qty  %> Tk</span>
+            </div>
+            <% } %>         
+        </div>
+        <hr>
+        <div class="text-right py-9 mr-8">
+            <div>
+                <span class="text-lg font-bold">Total Amount:</span>
+                <span class="amount text-2xl font-bold ml-2 color"><%= session.cart.totalPrice %> Tk</span>
+            </div>
+            
+            <div>
+                <form action="/orders" method="POST" class="mt-12" id="payment-form">
+                    <div class="relative w-1/2 ml-auto mb-4">
+                        <select id="paymentType" name="paymentType" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
+                          <option value="cod">Cash on delivery</option>
+                          <option value="card">Pay with card</option>
+                        </select>
+
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                        </div>
+                    </div>
+
+                    <input 
+                    name="phone"
+                    class="border border-gray-400 p-2 w-1/2 mb-4" type="text" placeholder="Phone Number">
+                    <input 
+                    name="address" class="border border-gray-400 p-2 w-1/2" type="text" placeholder="Address">
+                   <div class="mt-4"> 
+                    <div id="card-element">
+                           
+                    </div>
+                    <button 
+                    class=" inline-block read-btn mt-10" type="submit">Order Now</button> 
+                   </div>
+                </form>
+            </div>
+            
+            <!-- <a href="/login" class="inline-block read-btn mt-10">Login to continue</a> -->
+    
+        </div> 
+    </div>
+    <% }else{ %>
+    
+
+    <div class="changeTo empty-cart py-2">
+        <div class="container1 mx-auto text-center">
+            <h1 class="text-3xl font-bold mb-2">Cart Empty 😭</h1>
+            <p class="text-gray-500 text-lg mb-12">You probably haven't ordered any drug yet.<br>To order, go to the main page</p>
+            <img class="w-2/5 mx-auto" src="/img/empty-cart.png" alt="empty-cart">
+    
+            <a href="/" class="inline-block read-btn mt-20">Go back</a>
+        </div>
+    </div>
+
+    <% } %>
+
+   
+</section>
+
+<script src="js/app.js" type="text/javascript" charset="utf-8"></script>

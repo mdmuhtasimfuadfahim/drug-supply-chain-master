@@ -1,0 +1,85 @@
+<%- include('../../_layouts/header3.ejs') %>
+<%- include('../../toast.ejs') %>
+
+<section class="tutorials">
+<div class="containerHomeMan">
+<%- include('../../_layouts/head.ejs') %>
+<div class="accountsCon">
+    <div id="header2">
+        <nav>
+            <div class="container3 text-3xl font-bold">
+                <div class="text-center">
+                    <a href="/manufacturer/add_user" class="nav-brand text-dark">User Control Panel</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    <div id="site-main">
+        <div class="ml-10 container4">
+            <div class="box-nav d-flex justify-between">
+                <div class="filter">
+                    <a href="/manufacturer/accounts" class="border-shadow">
+                        <i class="fas fa-angle-double-left"></i> <span class="text-gradient">All User</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="form-title text-center">
+                <h2 class="text-2xl font-bold text-dark">Update User</h2>
+                <span class="text-light">Use the below form to upate a account</span>
+            </div>
+             <!-- form handling -->
+             <form id="update_user" class="py-8" method="POST">
+                    <div class="new_user">
+                     <div class="form-group">
+                         <label for="name" class="text-light">Name</label>
+                         <input type="hidden" name="id" value="">
+                         <input type="text" name="name" value="" placeholder="Muhtasim Fuad Fahim">
+                     </div>
+                     <div class="form-group">
+                         <label for="Email" class="text-light">Email</label>
+                         <input type="text" name="email" value="" placeholder="example@gmail.com">
+                     </div>
+                     <div class="form-group">
+                         <label for="position" class="text-light">Position</label>
+                         <div class="radio inline">
+                             <input type="radio" id="radio-2" name="position" value="Depot In-charge" >
+                             <label for="radio-2" class="radio-label">Depot In-charge</label>
+                         </div>
+                         <div class="radio inline">
+                             <input type="radio" id="radio-3" name="position" value="pharmacist" >
+                             <label for="radio-3" class="radio-label">Pharmacist</label>
+                         </div>
+                     </div>
+
+                     <div class="form-group">
+                         <label for="address" class="text-light">Address</label>
+                         <input type="text" name="address" value="" placeholder="Mirpur 2, Dhaka">
+                     </div>
+
+                     <div class="form-group">
+                         <label for="private_key" class="text-light">Private Key</label>
+                         <input type="text" name="private_key" value="" placeholder="93na*******">
+                     </div>
+             
+                     <div class="form-group">
+                         <label for="public_key" class="text-light">Public Key</label>
+                         <input type="text" name="public_key" value="" placeholder="h1na*******">
+                     </div>
+
+
+                     <div class="form-group">
+                         <button type="submit" class="btn update">Save</button>
+                     </div>
+
+                 </div>
+             </form>
+        </div>
+    </div>
+</div>
+<%- include('../../_layouts/sidebar.ejs') %>
+</div>
+</section>
+
+<script src="/js/app.js" type="text/javascript" charset="utf-8"></script>

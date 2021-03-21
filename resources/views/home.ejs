@@ -1,0 +1,176 @@
+<%- include('./_layouts/header.ejs') %>
+<%- include('./toast.ejs') %>
+
+<section class="tutorials">
+    <div class = "main-container py-3">
+        <p class="changeTo text-2xl font-bold">We Provide Best Durgs to Save Your Life</p>
+        <div class = "filter-container">
+            <div class = "category-head">
+                <ul>
+                    <div class = "category-title active" id = "all">
+                        <li>All</li>
+                        <span><i class="fas fa-clinic-medical"></i></span>
+                    </div>
+                    <div class = "category-title" id = "diabetes">
+                        <li>Diabetes</li>
+                        <span><i class="fas fa-capsules"></i></span>
+                    </div>
+                    <div class = "category-title" id = "cancer">
+                        <li>Cancer</li>
+                        <span><i class="fas fa-capsules"></i></i></span>
+                    </div>
+                    <div class = "category-title" id = "heart">
+                        <li>Heart Disease</li>
+                        <span><i class="fas fa-capsules"></i></span>
+                    </div>
+                    <div class = "category-title" id = "insomnia">
+                        <li>Insomnia</li>
+                        <span><i class="fas fa-capsules"></i></i></span>
+                    </div>
+                    <div class = "category-title" id = "stroke">
+                        <li>Stroke</li>
+                        <span><i class="fas fa-capsules"></i></i></span>
+                    </div>
+                </ul>
+            </div>
+
+            <div class = "posts-collect">
+                <div class = "posts-main-container">
+                   
+                    <!-- single post -->
+                    <% drugs.forEach(function(drugs){ %>
+                        <% if(drugs.categoryName === "diabetes"){ %>
+                        <div class = "all diabetes">
+                            <div class = "post-img">
+                                <img class="cat" src = "/img/<%= drugs.image %>" alt = "post">
+                               <p><span class = "category-name"><%= drugs.categoryName %></span>
+                            </div>
+    
+                            <div class = "post-content">
+                                <div class = "post-content-top">
+                                    <h2 class="text-2xl font-bold"><%= drugs.drugName %></h2>
+                                    <p><span class="text-1xl font-bold">Production Date: </span><span><i class = "fas fa-calendar"></i><%= drugs.productionDate %></span></p>
+                                    <p><span class="text-1xl font-bold">Expiration Date: </span><span><i class = "fas fa-calendar"></i><%= drugs.expirationDate %></span></p>
+                                    <span>
+                                        <i class = "fas fa-comment"></i><%= drugs.comment %>
+                                    </span>
+                                </div>
+                                <h2><span class="price text-1xl font-bold"><%= drugs.price %> Tk </span> (per box)</h2>
+                                <h2><span class="text-1xl font-bold">Generic Name: </span> <%= drugs.genericName %></h2>
+                                <h2><span class="text-1xl font-bold">Brand Name: </span> <%= drugs.brandName %></h2>
+                                <p><%= drugs.description %></p>
+                            </div>
+                            <button data-drug="<%= JSON.stringify(drugs) %>" type = "button" class = "add-to-cart mx-auto flex items-center read-btn">Order</button>
+                        </div>
+                        <% } else if(drugs.categoryName === "cancer"){ %>
+                        <!-- single post -->
+                        <div class = "all cancer">
+                            <div class = "post-img">
+                                <img class="cat" src = "/img/<%= drugs.image %>" alt = "post">
+                               <p><span class = "category-name"><%= drugs.categoryName %></span>
+                            </div>
+    
+                            <div class = "post-content">
+                                <div class = "post-content-top">
+                                    <h2 class="text-2xl font-bold"><%= drugs.drugName %></h2>
+                                    <p><span class="text-1xl font-bold">Production Date: </span><span><i class = "fas fa-calendar"></i><%= drugs.productionDate %></span></p>
+                                    <p><span class="text-1xl font-bold">Expiration Date: </span><span><i class = "fas fa-calendar"></i><%= drugs.expirationDate %></span></p>
+                                    <span>
+                                        <i class = "fas fa-comment"></i><%= drugs.comment %>
+                                    </span>
+                                </div>
+                                <h2><span class="price text-1xl font-bold"><%= drugs.price %> Tk </span> (per box)</h2>
+                                <h2><span class="text-1xl font-bold">Generic Name: </span> <%= drugs.genericName %></h2>
+                                <h2><span class="text-1xl font-bold">Brand Name: </span> <%= drugs.brandName %></h2>
+                                <p><%= drugs.description %></p>
+                            </div>
+                            <button data-drug="<%= JSON.stringify(drugs) %>" type = "button" class = "add-to-cart mx-auto flex items-center read-btn">Order</button>
+                            </div>
+                            <!-- end of single post -->
+                        <% } else if(drugs.categoryName === "heart"){ %>
+                            <!-- single post -->
+                            <div class = "all heart">
+                                 <div class = "post-img">
+                                     <img class="cat" src = "/img/<%= drugs.image %>" alt = "post">
+                                    <p><span class = "category-name"><%= drugs.categoryName %></span>
+                                 </div>
+        
+                                 <div class = "post-content">
+                                      <div class = "post-content-top">
+                                           <h2 class="text-2xl font-bold"><%= drugs.drugName %></h2>
+                                         <p><span class="text-1xl font-bold">Production Date: </span><span><i class = "fas fa-calendar"></i><%= drugs.productionDate %></span></p>
+                                          <p><span class="text-1xl font-bold">Expiration Date: </span><span><i class = "fas fa-calendar"></i><%= drugs.expirationDate %></span></p>
+                                         <span>
+                                               <i class = "fas fa-comment"></i><%= drugs.comment %>
+                                         </span>
+                                    </div>
+                                    <h2><span class="price text-1xl font-bold"><%= drugs.price %> Tk </span> (per box)</h2>
+                                    <h2><span class="text-1xl font-bold">Generic Name: </span> <%= drugs.genericName %></h2>
+                                    <h2><span class="text-1xl font-bold">Brand Name: </span> <%= drugs.brandName %></h2>
+                                    <p><%= drugs.description %></p>
+                                 </div>
+                                 <button data-drug="<%= JSON.stringify(drugs) %>" type = "button" class = "add-to-cart mx-auto flex items-center read-btn">Order</button>
+                            </div>
+                            <!-- end of single post -->
+                        <% } else if(drugs.categoryName === "insomnia"){ %>
+                            <!-- single post -->
+                            <div class = "all insomnia">
+                                <div class = "post-img">
+                                      <img class="cat" src = "/img/<%= drugs.image %>" alt = "post">
+                                    <p><span class = "category-name"><%= drugs.categoryName %></span>
+                                </div>
+                            
+                                <div class = "post-content">
+                                     <div class = "post-content-top">
+                                         <h2 class="text-2xl font-bold"><%= drugs.drugName %></h2>
+                                         <p><span class="text-1xl font-bold">Production Date: </span><span><i class = "fas fa-calendar"></i><%= drugs.productionDate %></span></p>
+                                        <p><span class="text-1xl font-bold">Expiration Date: </span><span><i class = "fas fa-calendar"></i><%= drugs.expirationDate %></span></p>
+                                        <span>
+                                             <i class = "fas fa-comment"></i><%= drugs.comment %>
+                                         </span>
+                                     </div>
+                                    <h2><span class="price text-1xl font-bold"><%= drugs.price %> Tk </span> (per box)</h2>
+                                     <h2><span class="text-1xl font-bold">Generic Name: </span> <%= drugs.genericName %></h2>
+                                     <h2><span class="text-1xl font-bold">Brand Name: </span> <%= drugs.brandName %></h2>
+                                     <p><%= drugs.description %></p>
+                                 </div>
+                                 <button data-drug="<%= JSON.stringify(drugs) %>" type = "button" class = "add-to-cart mx-auto flex items-center read-btn">Order</button>
+                             </div>
+                             <!-- end of single post -->
+                        <% } else { %>
+                         <!-- single post -->
+                        <div class = "all stroke">
+                              <div class = "post-img">
+                                 <img class="cat" src = "/img/<%= drugs.image %>" alt = "post">
+                                <p><span class = "category-name"><%= drugs.categoryName %></span>
+                             </div>
+                            
+                             <div class = "post-content">
+                                 <div class = "post-content-top">
+                                    <h2 class="text-2xl font-bold"><%= drugs.drugName %></h2>
+                                    <p><span class="text-1xl font-bold">Production Date: </span><span><i class = "fas fa-calendar"></i><%= drugs.productionDate %></span></p>
+                                     <p><span class="text-1xl font-bold">Expiration Date: </span><span><i class = "fas fa-calendar"></i><%= drugs.expirationDate %></span></p>
+                                     <span>
+                                          <i class = "fas fa-comment"></i><%= drugs.comment %>
+                                     </span>
+                                 </div>
+                                <h2><span class="price text-1xl font-bold"><%= drugs.price %> Tk </span> (per box)</h2>
+                                <h2><span class="text-1xl font-bold">Generic Name: </span> <%= drugs.genericName %></h2>
+                                <h2><span class="text-1xl font-bold">Brand Name: </span> <%= drugs.brandName %></h2>
+                                <p><%= drugs.description %></p>
+                            </div>
+                            <button data-drug="<%= JSON.stringify(drugs) %>" type = "button" class = "add-to-cart mx-auto flex items-center read-btn">Order</button>
+                        </div>
+                         <!-- end of single post -->
+                         <% } %>
+                   <% }) %>
+                    
+                    <!-- end of single post -->
+                    
+                </div>
+            </div> 
+        </div>
+    </div>
+</section>
+
+    <script src="js/app.js" type="text/javascript" charset="utf-8"></script>
