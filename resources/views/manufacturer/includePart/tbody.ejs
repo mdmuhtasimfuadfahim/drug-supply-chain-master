@@ -1,16 +1,27 @@
-<td><img class="rounded-full" src="/img/image.jpeg" height="40px" width="40px" alt=""></td>
-<td>1</td>
-<td>Ornab</td>
-<td>muhtasim@gmail.com</td>
-<td>Depot Incharge</td>
-<td>Mirpur</td>
-<td>key</td>
-<td>key</td>
-<td><a href="update_user" class="btn border-shadow update">
- <span class="text-gradient"><i class="fas fa-user-edit"></i></span>
- </a>
- <a class="btn border-shadow update">
-     <span class="text-gradient"><i class="fas fa-times"></i></span>
- </a></td>
+
+<% for(var i = 0; i < users.length; i++) { %>
+    
+<tr>
+    <td><img class="rounded-full" src="/img/<%= users[i].image %>" height="40px" width="40px" alt=""></td>
+    <td><%= i + 1  %></td>
+    <td><%= users[i].name %></td>
+    <td><%= users[i].email %></td>
+    <td><%= users[i].role %></td>
+    <td><%= users[i].address %></td>
+    <td><%= users[i].phone %></td>
+    <td><%= users[i].public_key %></td>
+    <td><a href="/manufacturer/update_user?id=<%= users[i]._id %>" class="btn border-shadow update">
+     <span class="text-gradient"><i class="fas fa-user-edit"></i></span>
+     </a>
+     <a class="btn border-shadow delete" data-id=<%= users[i]._id %> >
+         <span class="text-gradient"><i class="fas fa-times"></i></span>
+     </a></td>
+</tr>
+   
+<% } %>
+
+
+
+
 
  

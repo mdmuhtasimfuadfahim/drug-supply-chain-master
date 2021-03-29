@@ -1,2 +1,0 @@
-https://github.com/dappuniversity/eth_swap - change_Ether_to_Token
-https://www.dappuniversity.com/articles/learn-blockchain - documentation

@@ -15,7 +15,7 @@
           
             <% for(let drug of Object.values(session.cart.drugs)){ %>
             <div class="flex items-center my-8">
-                <img class="w-24 rounded-full" src="/img/<%= drug.drug.image %>" alt="placeholder+image">
+                <img class="w-24 rounded-full" src="<%= drug.drug.image %>" alt="placeholder+image">
                 <div class="flex-1 ml-3">
                     <h1><%= drug.drug.drugName %></h1>
                    <h2><span><%= drug.drug.categoryName %></span></h2> 
@@ -53,8 +53,11 @@
                     </div>
 
                     <input 
-                    name="phone"
-                    class="border border-gray-400 p-2 w-1/2 mb-4" type="text" placeholder="Phone Number">
+                    name="email"
+                    class="border border-gray-400 p-2 w-1/2 mb-4" type="text" placeholder="Email">
+                    <input 
+                    name="private_key"
+                    class="border border-gray-400 p-2 w-1/2 mb-4" type="password" placeholder="**************">
                     <input 
                     name="address" class="border border-gray-400 p-2 w-1/2" type="text" placeholder="Address">
                    <div class="mt-4"> 

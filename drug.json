@@ -1,8 +1,8 @@
 [{
     "_id": {
-      "$oid": "5eee651f739f8c674fd736ee"
+      "$oid": "5weew51f73938c174fd736ee"
     },
-    "image": "drug1.jpg",
+    "image": "http://localhost:3040/img/drug1.jpg",
     "categoryName": "diabetes",
     "drugName": "Pramlintide",
     "productionDate": "January 01, 2021",
@@ -16,7 +16,7 @@
     "_id": {
       "$oid": "5exe6671a27a66807cf2beb2"
     },
-    "image": "drug3.jpg",
+    "image": "http://localhost:3040/img/drug3.jpg",
     "categoryName": "diabetes",
     "drugName": "Octreotide",
     "productionDate": "January 01, 2021",
@@ -28,9 +28,9 @@
     "description": "Octreotide is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
   },{
     "_id": {
-      "$oid": "5eel6671a27a66807cf2bea3"
+      "$oid": "5eel4671a27a66807cf2bea3"
     },
-    "image": "drug76.jpg",
+    "image": "http://localhost:3040/img/drug76.jpg",
     "categoryName": "diabetes",
     "drugName": "Admelog",
     "productionDate": "January 01, 2021",
@@ -44,7 +44,7 @@
     "_id": {
       "$oid": "5ete6692a27a66807cf2bea4"
     },
-    "image": "drug4.jfif",
+    "image": "http://localhost:3040/img/drug4.jfif",
     "categoryName": "diabetes",
     "drugName": "Levemir",
     "productionDate": "January 01, 2021",
@@ -56,9 +56,9 @@
     "description": "Levemir is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways" 
   },{
     "_id": {
-      "$oid": "5eee66a5a27a6c807cf2bea5"
+      "$oid": "5eee66a5a17a6c807cf2rea5"
     },
-    "image": "drug5.jfif",
+    "image": "http://localhost:3040/img/drug5.jfif",
     "categoryName": "diabetes",
     "drugName": "Tresiba",
     "productionDate": "January 01, 2021",
@@ -70,9 +70,9 @@
     "description": "Tresiba is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
   },{
     "_id": {
-      "$oid": "5eae66b4a27a66807cf2bea6"
+      "$oid": "53ad46b4a27a66807cf2bve6"
     },
-    "image": "drug6.jpg",
+    "image": "http://localhost:3040/img/drug6.jpg",
     "categoryName": "cancer",
     "drugName": "Carboplatin",
     "productionDate": "January 21, 2021",
@@ -84,9 +84,9 @@
     "description": "Carboplatin is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
   },{
     "_id": {
-      "$oid": "5eee66cfa2c166807cf2bea7"
+      "$oid": "5e4e66cfa2c166807cf2bea7"
     },
-    "image": "drugs57.jfif",
+    "image": "http://localhost:3040/img/drugs57.jfif",
     "categoryName": "cancer",
     "drugName": "Toposar",
     "productionDate": "January 21, 2021",
@@ -98,9 +98,9 @@
     "description": "Toposar is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
   },{
     "_id": {
-      "$oid": "5eee66eea26a66807cf2bea8"
+      "$oid": "5e5e66eea26a66807cf2bea8"
     },
-    "image": "drug7.jpg",
+    "image": "http://localhost:3040/img/drug7.jpg",
     "categoryName": "cancer",
     "drugName": "Adriamycin",
     "productionDate": "February 01, 2021",
@@ -112,9 +112,9 @@
     "description": "Adriamycin is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
   },{
     "_id": {
-      "$oid": "5eee6717a27a66807cf2bea9"
+      "$oid": "5eee6727a27a66807cf2bea9"
     },
-    "image": "drug8.jfif",
+    "image": "http://localhost:3040/img/drug8.jfif",
     "categoryName": "cancer",
     "drugName": "Leukeran",
     "productionDate": "February 01, 2021",
@@ -126,9 +126,9 @@
     "description": "Leukeran is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
   },{
     "_id": {
-      "$oid": "5eee6717a47a66807cf1cea9"
+      "$oid": "5eee6737a47a66807cf1cea9"
     },
-    "image": "drug11.jpg",
+    "image": "http://localhost:3040/img/drug11.jpg",
     "categoryName": "cancer",
     "drugName": "Cosmegen",
     "productionDate": "January 01, 2021",
@@ -140,9 +140,9 @@
     "description": "Cosmegen is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
   },{
     "_id": {
-      "$oid": "5eee6717a27a66807cf2bea9"
+      "$oid": "5e2e2717a27a66807cf2bea9"
     },
-    "image": "drug15.jfif",
+    "image": "http://localhost:3040/img/drug15.jfif",
     "categoryName": "heart",
     "drugName": "Rifadin",
     "productionDate": "March 01, 2021",
@@ -154,9 +154,9 @@
     "description": "Rifadin is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
   },{
     "_id": {
-      "$oid": "5qee6717a27a66807cf2bca0"
+      "$oid": "5qe36727a27a66807cf2bca0"
     },
-    "image": "drug21.jfif",
+    "image": "http://localhost:3040/img/drug21.jfif",
     "categoryName": "heart",
     "drugName": "Flagyl",
     "productionDate": "January 01, 2021",
@@ -170,7 +170,7 @@
     "_id": {
       "$oid": "5eae3717a27b66807cf2bea2"
     },
-    "image": "drug23.jfif",
+    "image": "http://localhost:3040/img/drug23.jfif",
     "categoryName": "heart",
     "drugName": "Cubicin",
     "productionDate": "May 01, 2021",
@@ -184,7 +184,7 @@
     "_id": {
       "$oid": "5ee5a717a27a66807cf2bea9"
     },
-    "image": "drug24.jfif",
+    "image": "http://localhost:3040/img/drug24.jfif",
     "categoryName": "heart",
     "drugName": "Vancocin",
     "productionDate": "February 28, 2021",
@@ -198,7 +198,7 @@
     "_id": {
       "$oid": "56ee6717a27a66807cf2bea9"
     },
-    "image": "drug25.jfif",
+    "image": "http://localhost:3040/img/drug25.jfif",
     "categoryName": "heart",
     "drugName": "Tazicef",
     "productionDate": "February 28, 2021",
@@ -212,7 +212,7 @@
     "_id": {
       "$oid": "5eee6717a27a6m00zcf2bea9"
     },
-    "image": "drug28.jfif",
+    "image": "http://localhost:3040/img/drug28.jfif",
     "categoryName": "insomnia",
     "drugName": "Lunesta",
     "productionDate": "February 01, 2021",
@@ -226,7 +226,7 @@
     "_id": {
       "$oid": "5e5e6d17am7a66807cf2bea9"
     },
-    "image": "drug30.jfif",
+    "image": "http://localhost:3040/img/drug30.jfif",
     "categoryName": "insomnia",
     "drugName": "Restoril",
     "productionDate": "January 01, 2021",
@@ -240,7 +240,7 @@
     "_id": {
       "$oid": "5e4ex717a27a66807cf2bea9"
     },
-    "image": "drug31.jpg",
+    "image": "http://localhost:3040/img/drug31.jpg",
     "categoryName": "insomnia",
     "drugName": "Ativan",
     "productionDate": "May 01, 2021",
@@ -254,7 +254,7 @@
     "_id": {
       "$oid": "5epe6717a27a62307cf2bea9"
     },
-    "image": "drug32.jpeg",
+    "image": "http://localhost:3040/img/drug32.jpeg",
     "categoryName": "insomnia",
     "drugName": "Halcion",
     "productionDate": "January 01, 2021",
@@ -268,7 +268,7 @@
     "_id": {
       "$oid": "5eee6u17ag7a668c7cf2bva9"
     },
-    "image": "drug34.jfif",
+    "image": "http://localhost:3040/img/drug34.jfif",
     "categoryName": "insomnia",
     "drugName": "Rozerem",
     "productionDate": "March 01, 2021",
@@ -280,9 +280,9 @@
     "description": "Rozerem is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
   },{
     "_id": {
-      "$oid": "5eee61w7ac7a66807cf2bea9"
+      "$oid": "5tee61w7ac7a66807cf2bea9"
     },
-    "image": "drug35.jfif",
+    "image": "http://localhost:3040/img/drug35.jfif",
     "categoryName": "stroke",
     "drugName": "Plavix",
     "productionDate": "March 01, 2021",
@@ -294,9 +294,9 @@
     "description": "Plavix is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
   },{
     "_id": {
-      "$oid": "5dee6717ax7a8u807cf2bea9"
+      "$oid": "5dee67175x7a8u807cf2bea9"
     },
-    "image": "drug38.jpg",
+    "image": "http://localhost:3040/img/drug38.jpg",
     "categoryName": "stroke",
     "drugName": "Ecotrin",
     "productionDate": "January 01, 2021",
@@ -310,7 +310,7 @@
     "_id": {
       "$oid": "5eee67170o7a668e7cf2bea7"
     },
-    "image": "drug42.jpg",
+    "image": "http://localhost:3040/img/drug42.jpg",
     "categoryName": "stroke",
     "drugName": "Bufferin",
     "productionDate": "March 01, 2021",
@@ -324,7 +324,7 @@
     "_id": {
       "$oid": "5ere6t1ya26a66807cf2bea9"
     },
-    "image": "drug48.jpg",
+    "image": "http://localhost:3040/img/drug48.jpg",
     "categoryName": "stroke",
     "drugName": "Easprin",
     "productionDate": "May 01, 2021",
@@ -336,9 +336,9 @@
     "description": "Easprin is a man-made form of a hormone that occurs naturally in the body. Pramlintide lowers blood sugar in three ways"
   },{
     "_id": {
-      "$oid": "5eee6717a47a16r07cf2tea9"
+      "$oid": "5eee671534qa16r07cf2tea9"
     },
-    "image": "drug64.jpg",
+    "image": "http://localhost:3040/img/drug64.jpg",
     "categoryName": "stroke",
     "drugName": "Aspirtab",
     "productionDate": "February 01, 2021",

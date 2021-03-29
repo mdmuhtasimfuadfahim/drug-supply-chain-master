@@ -5,6 +5,12 @@ import { initFilesShare } from './fileShare'
 import { initTheme } from './themeSwitcher'
 import { initSun } from './sunSwitecher'
 import { initNew } from './new'
+import { initAdmin } from './admin'
+import jQuery from 'jquery'
+window.$ = window.jQuery = jQuery
+// export for others scripts to use
+
+
 
 const categoryTitle = document.querySelectorAll('.category-title');
 const allCategoryPosts = document.querySelectorAll('.all');
@@ -82,8 +88,62 @@ initSun()
 initNew()
 
 
+//--------------Update User--------------
+// const updateUser = document.querySelector('#update_user')
 
 
 
+$("#update_user").submit(function(event){
+    event.preventDefault();
+    var unindexed_array = $(this).serializeArray();
+    //console.log(unindexed_array)
+    var data = {}
 
+    $.map(unindexed_array, function(n, i){
+        data[n['name']] = n['value']
+    })
 
+    // console.log(data)
+
+    // const base = 'http://localhost:3040',
+    var request = {
+        "url" : `http://localhost:3040/api/drug/manufacturer/users/${data.id}`,
+        "method" : "PUT",
+        "data" : data
+    }
+
+    $.ajax(request).done(function(response){
+        alert("Data Updated Successfully!");
+    })
+})
+
+if(window.location.pathname == "/manufacturer/accounts"){
+    window.$ondelete = $(".table tbody td a.delete");
+    $ondelete.click(function(){
+        var id = $(this).attr("data-id")
+
+        var request = {
+            "url" : `http://localhost:3040/api/drug/manufacturer/users/${id}`,
+            "method" : "DELETE"
+        }
+
+        if(confirm("Do You Want to Revocate this Member?")){
+            $.ajax(request).done(function(response){
+                alert("Member Informations Deleted Successfully!");
+                location.reload();
+            })
+        }
+
+    })
+}
+
+//--------- Remove Alert---------
+const alertMsg = document.querySelector('#success-alert')
+if(alertMsg){
+    setTimeout(()=>{
+        alertMsg.remove()
+    },2000)
+}
+
+//----------Admin JS File
+initAdmin()

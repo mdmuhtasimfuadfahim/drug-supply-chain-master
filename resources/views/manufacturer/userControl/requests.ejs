@@ -1,0 +1,65 @@
+<%- include('../../_layouts/header3.ejs') %>
+<%- include('../../toast.ejs') %>
+
+<section class="tutorials">
+<div class="containerHomeMan">
+<%- include('../../_layouts/head.ejs') %>
+<div class="accountsCon">
+    <div id="header2">
+        <nav>
+            <div class="container3 text-3xl font-bold">
+                <div class="text-center">
+                    <a href="/manufacturer/accounts" class="nav-brand text-dark">User Requests</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    <div id="site-main">
+        <div class="container4">
+            <!-- <div class="box-nav d-flex justify-between">
+                <a href="/manufacturer/add_user" class="border-shadow">
+                    <span class="text-gradient">New User <i class="fas fa-user"></i></span>
+                </a>
+            </div> -->
+    
+            <!-- form handling -->
+            <section class="py-8 ml-10">
+                <table class="table accounts">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>@Email</th>
+                            <th>Contact</th>
+                            <th>Role</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    
+                   
+                    <tbody>  
+                        <% requests.forEach(function(requests){ %>  
+                        <tr>
+                            <td><img class="rounded-full" src="<%= requests.image %>" height="40px" width="40px" alt=""></td>
+                            <td><%= requests.name %></td>
+                            <td><%= requests.email %></td>
+                            <td><%= requests.phone %></td>
+                            <td><%= requests.role %></td>
+                            <td><%= requests.address %></td>  
+                        </tr> 
+                        <% }) %>   
+                    </tbody>
+                   
+                   
+                </table>
+            </section>
+        </div>
+    </div>
+</div>
+<%- include('../../_layouts/sidebar.ejs') %>
+</div>
+</section>
+
+
+<script src="/js/app.js" type="text/javascript" charset="utf-8"></script>

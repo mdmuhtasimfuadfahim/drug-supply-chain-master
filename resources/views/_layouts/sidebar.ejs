@@ -1,7 +1,7 @@
 <div id="sidebar">
     <div class="sidebar__title">
       <div class="sidebar__img">
-        <img src="/img/image.jpeg" width="15px" height="15px" class="rounded-full" alt="logo" />
+        <img src="/img/salma.jpg" width="15px" height="15px" class="rounded-full" alt="logo" />
         <h1>DrugGuard</h1>
       </div>
       <i
@@ -14,7 +14,7 @@
     <div class="sidebar__menu">
       <div class="sidebar__link active_menu_link">
         <i class="fa fa-home"></i>
-        <a href="#">Dashboard</a>
+        <a href="/manufacturer/home">Home</a>
       </div>
       <h2>Features</h2>
       <div class="sidebar__link">
@@ -22,21 +22,29 @@
         <a href="/manufacturer/accounts">Employee Management</a>
       </div>
       <div class="sidebar__link">
-        <i class="fa fa-archive"></i>
-        <a href="#">Depots</a>
+        <i class="fa fa-key"></i>
+        <a href="/manufacturer/generatekey">Keys</a>
+      </div>
+      <div class="sidebar__link">
+        <i class="fas fa-sort"></i>
+        <a href="/manufacturer/orders">Orders</a>
       </div>
       <div class="sidebar__link">
         <i class="fa fa-handshake-o"></i>
         <a href="#">Contracts</a>
       </div>
-      <h2>LEAVE</h2>
+      <div class="sidebar__link">
+        <i class="fas fa-store"></i>
+        <a href="/manufacturer/drop">Drop</a>
+      </div>
+      <h2>Checks</h2>
       <div class="sidebar__link">
         <i class="fa fa-question"></i>
-        <a href="#">Requests</a>
+        <a href="/manufacturer/requests">Requests</a>
       </div>
       <div class="sidebar__link">
-        <i class="fa fa-sign-out"></i>
-        <a href="#">Leave Policy</a>
+        <i class="fa fa-registered"></i>
+        <a href="#">Registered</a>
       </div>
       <div class="sidebar__link">
         <i class="fa fa-calendar-check-o"></i>
@@ -57,7 +65,9 @@
       </div>
       <div class="sidebar__logout">
         <i class="fa fa-power-off"></i>
-        <a href="#">Log out</a>
+        <form id="logout" action="/logout" method="POST">
+         <a onclick="document.getElementById('logout').submit()" href="#">Logout</a>
+      </form>
       </div>
     </div>
   </div>

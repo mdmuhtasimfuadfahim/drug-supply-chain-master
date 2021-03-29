@@ -1,40 +1,52 @@
  <!-- form handling -->
- <form id="add_user" class="py-8" method="POST">
+ <form action="/api/drug/manufacturer/users" id="add_user" class="py-4" method="POST">
+    <% if(messages.error){ %>
+    <span class="ml-10 text-red-500 text-sm"><%= messages.error %></span> 
+    <% } %>
+
     <div class="new_user">
         <div class="form-group">
             <label for="name" class="text-light">Name</label>
             <input type="hidden" name="id" value="">
-            <input type="text" name="name" value="" placeholder="Muhtasim Fuad Fahim">
+            <input type="text" name="name" value="<%= messages.name %>" placeholder="Muhtasim Fuad Fahim">
         </div>
         <div class="form-group">
-            <label for="Email" class="text-light">Email</label>
-            <input type="text" name="email" value="" placeholder="example@gmail.com">
+            <label for="Image" class="text-light">Image</label>
+            <input type="file" name="image" value="<%= messages.image %>" placeholder="filename">
         </div>
         <div class="form-group">
-            <label for="position" class="text-light">Position</label>
+            <label for="username" class="text-light">Email</label>
+            <input type="text" name="email" value="<%= messages.email %>" placeholder="example@gmail.com">
+        </div>
+        <div class="form-group">
+            <label for="Conatct" class="text-light">Contact</label>
+            <input type="text" name="phone" value="<%= messages.number %>" placeholder="016********">
+        </div>
+        <div class="form-group">
+            <label for="role" class="text-light">Role</label>
             <div class="radio inline">
-                <input type="radio" id="radio-2" name="position" value="Depot In-charge" >
+                <input type="radio" id="radio-2" name="role" value="Depot In-charge" >
                 <label for="radio-2" class="radio-label">Depot In-charge</label>
             </div>
             <div class="radio inline">
-                <input type="radio" id="radio-3" name="position" value="pharmacist" >
+                <input type="radio" id="radio-3" name="role" value="Pharmacist" >
                 <label for="radio-3" class="radio-label">Pharmacist</label>
             </div>
         </div>
 
         <div class="form-group">
             <label for="address" class="text-light">Address</label>
-            <input type="text" name="address" value="" placeholder="Mirpur 2, Dhaka">
+            <input type="text" name="address" value="<%= messages.address %>" placeholder="Mirpur 2, Dhaka">
         </div>
 
         <div class="form-group">
             <label for="private_key" class="text-light">Private Key</label>
-            <input type="text" name="private_key" value="" placeholder="93na*******">
+            <input type="text" name="private_key" value="<%= messages.private_key %>" placeholder="*************">
         </div>
 
         <div class="form-group">
             <label for="public_key" class="text-light">Public Key</label>
-            <input type="text" name="public_key" value="" placeholder="h1na*******">
+            <input type="text" name="public_key" value="<%= messages.public_key %>" placeholder="*************">
         </div>
 
 

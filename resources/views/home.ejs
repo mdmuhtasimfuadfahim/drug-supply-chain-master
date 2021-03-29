@@ -42,7 +42,7 @@
                         <% if(drugs.categoryName === "diabetes"){ %>
                         <div class = "all diabetes">
                             <div class = "post-img">
-                                <img class="cat" src = "/img/<%= drugs.image %>" alt = "post">
+                                <img class="cat" src = "<%= drugs.image %>" alt = "post">
                                <p><span class = "category-name"><%= drugs.categoryName %></span>
                             </div>
     
@@ -60,13 +60,17 @@
                                 <h2><span class="text-1xl font-bold">Brand Name: </span> <%= drugs.brandName %></h2>
                                 <p><%= drugs.description %></p>
                             </div>
-                            <button data-drug="<%= JSON.stringify(drugs) %>" type = "button" class = "add-to-cart mx-auto flex items-center read-btn">Order</button>
-                        </div>
+                            <% if(user) { %>
+                               <button data-drug="<%= JSON.stringify(drugs) %>" type = "button" class = "add-to-cart mx-auto flex items-center read-btn">Order</button>
+                            <% } else { %>
+                                <h2><span class="flex justify-center price text-1xl font-bold">You Must Have Account</span></h2>
+                            <% } %>
+                            </div>
                         <% } else if(drugs.categoryName === "cancer"){ %>
                         <!-- single post -->
                         <div class = "all cancer">
                             <div class = "post-img">
-                                <img class="cat" src = "/img/<%= drugs.image %>" alt = "post">
+                                <img class="cat" src = "<%= drugs.image %>" alt = "post">
                                <p><span class = "category-name"><%= drugs.categoryName %></span>
                             </div>
     
@@ -84,14 +88,18 @@
                                 <h2><span class="text-1xl font-bold">Brand Name: </span> <%= drugs.brandName %></h2>
                                 <p><%= drugs.description %></p>
                             </div>
-                            <button data-drug="<%= JSON.stringify(drugs) %>" type = "button" class = "add-to-cart mx-auto flex items-center read-btn">Order</button>
-                            </div>
+                            <% if(user) { %>
+                                <button data-drug="<%= JSON.stringify(drugs) %>" type = "button" class = "add-to-cart mx-auto flex items-center read-btn">Order</button>
+                            <% } else { %>
+                                <h2><span class="flex justify-center price text-1xl font-bold">You Must Have Account</span></h2>
+                            <% } %>
+                        </div>
                             <!-- end of single post -->
                         <% } else if(drugs.categoryName === "heart"){ %>
                             <!-- single post -->
                             <div class = "all heart">
                                  <div class = "post-img">
-                                     <img class="cat" src = "/img/<%= drugs.image %>" alt = "post">
+                                     <img class="cat" src = "<%= drugs.image %>" alt = "post">
                                     <p><span class = "category-name"><%= drugs.categoryName %></span>
                                  </div>
         
@@ -109,14 +117,18 @@
                                     <h2><span class="text-1xl font-bold">Brand Name: </span> <%= drugs.brandName %></h2>
                                     <p><%= drugs.description %></p>
                                  </div>
-                                 <button data-drug="<%= JSON.stringify(drugs) %>" type = "button" class = "add-to-cart mx-auto flex items-center read-btn">Order</button>
+                                <% if(user) { %>
+                                    <button data-drug="<%= JSON.stringify(drugs) %>" type = "button" class = "add-to-cart mx-auto flex items-center read-btn">Order</button>
+                                <% } else { %>
+                                    <h2><span class="flex justify-center price text-1xl font-bold">You Must Have Account</span></h2>
+                                <% } %>
                             </div>
                             <!-- end of single post -->
                         <% } else if(drugs.categoryName === "insomnia"){ %>
                             <!-- single post -->
                             <div class = "all insomnia">
                                 <div class = "post-img">
-                                      <img class="cat" src = "/img/<%= drugs.image %>" alt = "post">
+                                      <img class="cat" src = "<%= drugs.image %>" alt = "post">
                                     <p><span class = "category-name"><%= drugs.categoryName %></span>
                                 </div>
                             
@@ -134,14 +146,18 @@
                                      <h2><span class="text-1xl font-bold">Brand Name: </span> <%= drugs.brandName %></h2>
                                      <p><%= drugs.description %></p>
                                  </div>
+                                <% if(user) { %>
                                  <button data-drug="<%= JSON.stringify(drugs) %>" type = "button" class = "add-to-cart mx-auto flex items-center read-btn">Order</button>
-                             </div>
+                                <% } else { %>
+                                    <h2><span class="flex justify-center price text-1xl font-bold">You Must Have Account</span></h2>
+                                <% } %>
+                            </div>
                              <!-- end of single post -->
                         <% } else { %>
                          <!-- single post -->
                         <div class = "all stroke">
                               <div class = "post-img">
-                                 <img class="cat" src = "/img/<%= drugs.image %>" alt = "post">
+                                 <img class="cat" src = "<%= drugs.image %>" alt = "post">
                                 <p><span class = "category-name"><%= drugs.categoryName %></span>
                              </div>
                             
@@ -159,7 +175,11 @@
                                 <h2><span class="text-1xl font-bold">Brand Name: </span> <%= drugs.brandName %></h2>
                                 <p><%= drugs.description %></p>
                             </div>
+                            <% if(user) { %>
                             <button data-drug="<%= JSON.stringify(drugs) %>" type = "button" class = "add-to-cart mx-auto flex items-center read-btn">Order</button>
+                            <% } else { %>
+                                <h2><span class="flex justify-center price text-1xl font-bold">You Must Have Account</span></h2>
+                            <% } %>
                         </div>
                          <!-- end of single post -->
                          <% } %>

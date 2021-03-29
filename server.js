@@ -10,13 +10,19 @@ const session = require('express-session')
 const MongoDbStore = require('connect-mongo')
 const flash = require('express-flash')
 const morgan = require('morgan')
-const bodyparser = require('body-parser')
 const cors = require('cors')
+const passport = require('passport')
+
+
 
 
 //------------DataBase Connection----------------
 const connectDB = require('./app/config/db')
 connectDB()
+
+//------------Delete Files------------------
+const fetchData = require('./script')
+fetchData()
 
 
 // -------------- Session Store ----------
@@ -43,20 +49,28 @@ app.use(session({
     //cookie: {maxAge: 1000 * 10} //10 seconds
 }))
 
+
+
 app.use(flash())
 //---------------Log Requests----------------
 app.use(morgan('tiny'))
 
-//---------------Body Parser----------------
-app.use(bodyparser.urlencoded({ extended : true}))
 
 //---------------Assets----------------
 app.use(express.static('public'))
+app.use(express.urlencoded({ extended: false}))
 app.use(express.json())
+
+// --------------- Passport Config ---------
+const passportInit = require('./app/config/passport')
+passportInit(passport)
+app.use(passport.initialize())
+app.use(passport.session()) 
 
 //---------------GLobal Middleware-----------
 app.use((req, res, next)=>{
     res.locals.session = req.session
+    res.locals.user = req.user
     next()
 })
 
