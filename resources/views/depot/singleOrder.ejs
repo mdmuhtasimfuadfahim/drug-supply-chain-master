@@ -1,0 +1,27 @@
+<%- include('../_layouts/header.ejs') %>
+<%- include('../toast.ejs') %>
+
+<section class="status">
+   
+    <div class="container mx-auto">
+        <div class="status-box w-full lg:w-2/3 mx-auto">
+            <div class="flex items-center justify-between mb-12">
+                <h1 class="text-xl font-bold">Track Delivery Status</h1>
+                <a href="#"><h6 class="bg-white py-1 rounded-full px-4 text-green-600 text-xs"><%= order._id%></h6></a>
+                <input id="hiddenInput" type="hidden" value="<%= JSON.stringify(order) %>">
+            </div>
+
+            <ul>
+                <li class="status-line text-xm md:text-xl pb-16" data-status="order_placed"><span>Order Placed</span></li>
+                <li class="status-line text-xm md:text-xl pb-16" data-status="confirmed"><span>Order Confirmation</span></li>
+                <li class="status-line text-xm md:text-xl pb-16" data-status="prepared"><span>Order Preparation</span></li>
+                <li class="status-line text-xm md:text-xl pb-16" data-status="delivered"><span>Out for Delivery</span></li>
+                <li class="status-line text-xm md:text-xl" data-status="completed"><span>Completed</span></li>
+            </ul>
+        </div>
+    </div>
+
+</section>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/app.js" type="text/javascript" charset="utf-8"></script>

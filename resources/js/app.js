@@ -7,6 +7,7 @@ import { initSun } from './sunSwitecher'
 import { initNew } from './new'
 import { initAdmin } from './admin'
 import jQuery from 'jquery'
+import moment from 'moment'
 window.$ = window.jQuery = jQuery
 // export for others scripts to use
 
@@ -145,5 +146,78 @@ if(alertMsg){
     },2000)
 }
 
-//----------Admin JS File
-initAdmin()
+
+
+
+//--------Change Order Status-----------
+let statuses = document.querySelectorAll('.status-line')
+// console.log(statuses)
+
+let hiddenInput = document.querySelector('#hiddenInput')
+let order = hiddenInput ? hiddenInput.value : null
+
+order = JSON.parse(order)
+// console.log(order)
+
+let time = document.createElement('small')
+
+
+function updateStatus(order){
+    statuses.forEach((status)=>{
+        status.classList.remove('step-completed')
+        status.classList.remove('current')
+    })
+
+    let stepCompleted = true;
+    statuses.forEach((status) =>{
+     let dataPro = status.dataset.status
+     if(stepCompleted){
+         status.classList.add('step-completed')
+     }
+     if(dataPro === order.status){
+        stepCompleted = false
+        time.innerText = moment(order.updatedAt).format('hh:mm A')
+        status.appendChild(time)
+        if(status.nextElementSibling){
+            status.nextElementSibling.classList.add('current')
+        }
+         
+     }
+    })
+}
+
+updateStatus(order);
+
+//---------Socket-----------
+let socket = io()
+
+//----------Admin JS File----------------
+initAdmin(socket)
+
+//--------Join-----------
+if(order){
+    socket.emit('join', `order_${order._id}`)
+}
+
+let manufacturerAreaPath = window.location.pathname
+//console.log(manufacturerArea)
+
+if(manufacturerAreaPath.includes('manufacturer')){
+    socket.emit('join', 'manufacturerRoom')
+}
+
+socket.on('orderUpdated', (data)=>{
+    const updatedOrder = { ...order }
+    updatedOrder.updatedAt = moment().format()
+    updatedOrder.status = data.status
+    updateStatus(updatedOrder)
+    new Noty({
+        type: 'success',
+        timeout: 1000,
+        text: 'Updated Order',
+        progressBar: false
+    }).show();
+    // console.log(data)
+})
+
+

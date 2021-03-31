@@ -1,14 +1,15 @@
 const Drug = require('../../models/drug')
-
+const User = require('../../models/user')
 
 function homeController(){
     return{
         async index (req, res){
 
             const drugs = await Drug.find()
+           // const users = await User.find()
             // console.log(drugs)
             return res.render('home', {drugs: drugs})
-
+            //console.log(users)
             // Drug.find().then(function(drug){
             //     console.log(drug)
             //     return res.render('home', {drug: drug})

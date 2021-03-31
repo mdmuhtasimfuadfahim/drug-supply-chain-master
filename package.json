@@ -38,6 +38,7 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "query": "^0.2.0",
+    "socket.io": "^4.0.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

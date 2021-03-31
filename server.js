@@ -12,6 +12,7 @@ const flash = require('express-flash')
 const morgan = require('morgan')
 const cors = require('cors')
 const passport = require('passport')
+const Emitter = require('events')
 
 
 
@@ -38,6 +39,9 @@ const corsOptions = {
 }
 app.use(cors(corsOptions))
 
+//---------------Event Emitter--------------
+const eventEmitter = new Emitter()
+app.set('eventEmitter', eventEmitter)
 
 //---------------Session Config--------------
 app.use(session({
@@ -88,6 +92,29 @@ app.set('view engine', 'ejs')
 
 
 const PORT = process.env.PORT || 3040
-app.listen(3040, '0.0.0.0', ()=>{
+const server = app.listen(3040, '0.0.0.0', ()=>{
     console.log(`Listening on port ${PORT}`)
+})
+
+
+//------------Socket---------------
+const io = require('socket.io')(server)
+io.on('connection', (socket)=>{
+    //Join
+
+    //console.log(socket.id)
+    socket.on('join', (orderId)=>{
+        // console.log(orderId)
+        socket.join(orderId)
+    })
+})
+
+
+eventEmitter.on('orderUpdated', (data)=>{
+    io.to(`order_${data.id}`).emit('orderUpdated', data)
+})
+
+
+eventEmitter.on('orderPlaced', (data)=>{
+    io.to('manufacturerRoom').emit('orderPlaced', data)
 })
