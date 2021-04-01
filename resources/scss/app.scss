@@ -179,204 +179,6 @@ nav li a{
   }
   
 
-
-//---------------Admin Panel Design
-// .sidebar{
-//     width: 250px;
-//     position: fixed;
-//     left: 0;
-//     top: 0;
-//     height: 100%;
-//     background: $mainColor;
-//     z-index: 100;
-// }
-
-// .sidebar-brand{
-//     height: 90px;
-//     padding: 1rem 0rem 1rem 2rem;
-//     color: #fff;
-// }
-
-// .sidebar-brand span{
-//     display: inline-block;
-//     padding-right: .5rem;
-// }
-
-// .sidebar-menu{
-//     margin-top: .5rem;
-// }
-
-// .sidebar-menu li{
-//     width: 100%;
-//     margin-bottom: 1.7rem;
-//     padding-left: 1rem;
-// }
- 
-// .sidebar-menu a{
-//     padding-left: 1rem;
-//     display: block;
-//     color: #fff;
-//     font-size: 1.1rem;
-// }
-
-// .sidebar-menu a.active{
-//     background: #fff;
-//     padding-top: .5rem;
-//     padding-bottom: 1rem;
-//     color: $mainColor;
-//     border-radius: 30px 0px 0px 30px;
-// }
-
-// .sidebar-menu a span:first-child{
-//     font-size: .7rem;
-//     padding-right: .5rem;
-// }
-
-// .div-content{
-//     margin-left: 250px;
-// }
-
-// .adminhead{
-//     display: flex;
-//     justify-content: space-between;
-//     padding: .3rem 1rem;
-//     height: 50px;
-//     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-//     position: fixed;
-//     // left: 345px;
-//     width: calc(100% - 250px);
-//     top: 0;
-//     z-index: 100;
-// }
-
-// .div-title h2{
-//   color: #222;
-// }
-
-// .div-title label span{
-//   font-size: 1.7rem;
-//   font: bold;
-//   padding-right: 1rem;
-// }
-
-
-// .search-wrapper{
-//   margin-top: 4px;
-//     border: 1px solid #ccc;
-//     border-radius: 30px;
-//     height: 30px;
-//     display: flex;
-//     align-items: center;
-//     overflow-x: hidden;
-// }
-
-// .search-wrapper span{
-//     display: inline-block;
-//     padding: 0rem 1rem;
-//     font-size: .8rem;
-// }
-
-// .search-wrapper input{
-//     height: 100%;
-//     padding: .1rem;
-//     border: none;
-//     outline: none;
-// }
-
-// .user-wrapper{
-//     display: flex;
-//     align-items: center;
-// }
-
-// .user-wrapper img{
-//     border-radius: 50%;
-//     margin-right: .5rem;
-// }
-
-// .user-wrapper h4{
-//   margin-bottom: 0rem !important;
-// }
-
-// .user-wrapper small{
-//     display: inline-block;
-//     color: $textGray;
-//     margin-top: -3px !important;
-// }
-
-// .adminmain{
-//     margin-top: 45px;
-//     padding: 2rem 1.5rem;
-//     background: #f1f5f9;
-//     min-height: calc(100vh - 45px);
-// }
-
-// .cards{
-//     display: grid;
-//     grid-template-columns: repeat(4, 1fr);
-//     grid-gap: 2rem;
-//     margin-top: 1.5rem;
-// }
-
-// .card-single{
-//     display: flex;
-//     justify-content: space-between;
-//     background: #fff;
-//     padding: .3rem;
-//     border-radius: 2px;
-// }
-
-// .card-single div:last-child span{
-//     color: $mainColor;
-//     font-size: 1.5rem;
-// }
-
-// .card-single div:first-child span{
-//     color: $textGray;
-// }
-
-// .card-single:last-child{
-//     background: $mainColor;
-// }
-// .card-single:last-child h1,
-// .card-single:last-child div:last-child span,
-// .card-single:last-child div:first-child span{
-//     color: #fff;   
-// }
-
-// .recent-grid{
-//     margin-top: 1.5rem;
-//     display: grid;
-//     grid-template-columns: 70% auto;
-// }
-
-// .card{
-//     background: #fff;
-//     border-radius: 5px;
-// }
-
-// .card-header,
-// .card-body{
-//     padding: .5rem;
-// }
-
-// .card-header{
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-// }
-
-// .card-header button{
-//     background: $mainColor;
-//     border-radius: 10px;
-//     color: #fff;
-//     font-size: .8rem;
-//     padding: .5rem .5rem;
-//     border: 1px solid $mainColor;
-// }
-// .admintable{
-//     border-collapse: collapse;
-// }
-
 //---------------Categories Design-----------------
 .main-container{
     width: 90vw;
@@ -540,6 +342,26 @@ nav li a{
 @media(max-width: 768px){
     .posts-main-container{
         grid-template-columns: 1fr;
+    }
+    .container{
+      max-width: 90%;
+    }
+    .customerT{
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .tableRequest, .addUser, .adminT{
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .chains{
+      max-width: 90%;
+    }
+
+    .status-box ul li span::before{
+      font-size: 34px;
     }
 }
 
@@ -843,8 +665,13 @@ nav li a{
   }
   
   @media screen and (max-width: 900px) {
-    :root {
-      --container-width: 320px;
+    .dropZoneD{
+      max-width: 90%;
+    }
+
+    .upload-container{
+      display: block;
+      overflow-x: auto;
     }
     .image-vector {
       display: none;
@@ -1585,4 +1412,111 @@ section.status{
 // }
 
 
+// -----------Location Change------------
+section.chains{
+  background-color: $secondary;
+  min-height: calc(100vh - 86px);
+}
+.status-box-2{
+  padding: 60px 0 0;
+}
+.status-box-2{
+  .lines{
+      position: absolute;
+      margin-left: 15px;
+  }
+  .myImages{
+      position: relative;;
+      height: 60px;
+      width: 60px;
+      .im1{
+          border-radius: 50%;
+          border: 4px solid inherit;
+      }
+      .im2{
+          margin-top: 30px ;
+          border-radius: 50%;
+          border: 4px solid inherit;
+      }
+      .im3{
+          margin-top: 30px ;
+          border-radius: 50%;
+          border: 4px solid inherit;
+      }
+  }
+}
+
+// ---------- Dots
+.status-box-2 ul li span{
+  position: relative;
+  padding-left: 20px;
+}
+
+.status-box-2 ul{
+  margin-left: 84px;
+}
+
+.status-box-2 ul li span::after{
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  background-color: $dark;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 1px 10px $secondary;
+}
+
+// line
+.status-box-2 ul li{
+  position: relative;
+}
+.status-box-2 ul li::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -6px;
+  width: 2px;
+  height: 100%;
+  background-color: $dark;
+  margin-top: 10px;
+}
+
+// last dot
+.status-box-2 ul li:nth-child(4) span::after{
+  box-shadow: 1px 30px 1px 20px $secondary;
+}
+
+// line gray
+.status-box-2 ul li.step-completed2::before{
+  background: $green-one;
+}
+
+// dots gray
+.status-box-2 ul li.step-completed2 span::after{
+  background: $green-one;
+}
+
+
+// text gray
+.status-box-2 ul li.step-completed2 span{
+  color: $green-one;
+}
+
+// Current Status
+.status-box-2 ul li.current2 span{
+  color: $primary;
+}
+.status-box-2 ul li.current2 span::after{
+  background: $primary;
+}
+
+.status-box-2 ul li small2{
+  margin-left: 100px;
+  float: right;
+  font-size: 14px;
+  margin-top: 8px;
+}
 

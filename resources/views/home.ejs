@@ -61,11 +61,15 @@
                                 <h2><span class="text-1xl font-bold">Brand Name: </span> <%= drugs.brandName %></h2>
                                 <p><%= drugs.description %></p>
                             </div>
-                            <% if(user) { %>
+                        <% if(user) { %>
+                            <% if(user.role === "Depot In-charge") { %>
                                <button data-drug="<%= JSON.stringify(drugs) %>" type = "button" class = "add-to-cart mx-auto flex items-center read-btn">Order</button>
-                            <% } else { %>
-                                <h2><span class="flex justify-center price text-1xl font-bold">You Must Have Account</span></h2>
+                            <% } else{ %>
+                                <h2><span class="flex justify-center price text-1xl font-bold">You Shouldn't Order Drugs</span></h2>
                             <% } %>
+                        <% } else { %>
+                            <h2><span class="flex justify-center price text-1xl font-bold">You Must Have Account</span></h2>
+                        <% } %>
                             </div>
                         <% } else if(drugs.categoryName === "cancer"){ %>
                         <!-- single post -->
@@ -90,7 +94,11 @@
                                 <p><%= drugs.description %></p>
                             </div>
                             <% if(user) { %>
+                                <% if(user.role === "Depot In-charge") { %>
                                 <button data-drug="<%= JSON.stringify(drugs) %>" type = "button" class = "add-to-cart mx-auto flex items-center read-btn">Order</button>
+                                <% } else{ %>
+                                    <h2><span class="flex justify-center price text-1xl font-bold">You Shouldn't Order Drugs</span></h2>
+                                <% } %>
                             <% } else { %>
                                 <h2><span class="flex justify-center price text-1xl font-bold">You Must Have Account</span></h2>
                             <% } %>
@@ -119,7 +127,11 @@
                                     <p><%= drugs.description %></p>
                                  </div>
                                 <% if(user) { %>
+                                    <% if(user.role === "Depot In-charge") { %>
                                     <button data-drug="<%= JSON.stringify(drugs) %>" type = "button" class = "add-to-cart mx-auto flex items-center read-btn">Order</button>
+                                    <% } else{ %>
+                                        <h2><span class="flex justify-center price text-1xl font-bold">You Shouldn't Order Drugs</span></h2>
+                                    <% } %>
                                 <% } else { %>
                                     <h2><span class="flex justify-center price text-1xl font-bold">You Must Have Account</span></h2>
                                 <% } %>
@@ -148,10 +160,14 @@
                                      <p><%= drugs.description %></p>
                                  </div>
                                 <% if(user) { %>
-                                 <button data-drug="<%= JSON.stringify(drugs) %>" type = "button" class = "add-to-cart mx-auto flex items-center read-btn">Order</button>
-                                <% } else { %>
-                                    <h2><span class="flex justify-center price text-1xl font-bold">You Must Have Account</span></h2>
+                                    <% if(user.role === "Depot In-charge") { %>
+                                   <button data-drug="<%= JSON.stringify(drugs) %>" type = "button" class = "add-to-cart mx-auto flex items-center read-btn">Order</button>
+                                 <% } else{ %>
+                                    <h2><span class="flex justify-center price text-1xl font-bold">You Shouldn't Order Drugs</span></h2>
                                 <% } %>
+                            <% } else { %>
+                                <h2><span class="flex justify-center price text-1xl font-bold">You Must Have Account</span></h2>
+                            <% } %>
                             </div>
                              <!-- end of single post -->
                         <% } else { %>
@@ -176,11 +192,15 @@
                                 <h2><span class="text-1xl font-bold">Brand Name: </span> <%= drugs.brandName %></h2>
                                 <p><%= drugs.description %></p>
                             </div>
-                            <% if(user) { %>
+                        <% if(user) { %>
+                            <% if(user.role === "Depot In-charge") { %>
                             <button data-drug="<%= JSON.stringify(drugs) %>" type = "button" class = "add-to-cart mx-auto flex items-center read-btn">Order</button>
-                            <% } else { %>
-                                <h2><span class="flex justify-center price text-1xl font-bold">You Must Have Account</span></h2>
+                            <% } else{ %>
+                                <h2><span class="flex justify-center price text-1xl font-bold">You Shouldn't Order Drugs</span></h2>
                             <% } %>
+                        <% } else { %>
+                            <h2><span class="flex justify-center price text-1xl font-bold">You Must Have Account</span></h2>
+                        <% } %>
                         </div>
                          <!-- end of single post -->
                          <% } %>

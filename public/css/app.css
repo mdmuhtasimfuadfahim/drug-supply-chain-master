@@ -673,6 +673,30 @@ nav li a:hover {
   .posts-main-container {
     grid-template-columns: 1fr;
   }
+
+  .container {
+    max-width: 90%;
+  }
+
+  .customerT {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .tableRequest, .addUser, .adminT {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .chains {
+    max-width: 90%;
+  }
+
+  .status-box ul li span::before {
+    font-size: 34px;
+  }
 }
 /***********/
 .active {
@@ -974,8 +998,13 @@ nav li a:hover {
 }
 
 @media screen and (max-width: 900px) {
-  :root {
-    --container-width: 320px;
+  .dropZoneD {
+    max-width: 90%;
+  }
+
+  .upload-container {
+    display: block;
+    overflow-x: auto;
   }
 
   .image-vector {
@@ -1690,6 +1719,107 @@ section.status {
 }
 
 .status-box ul li small {
+  float: right;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+section.chains {
+  background-color: #F8F8F8;
+  min-height: calc(100vh - 86px);
+}
+
+.status-box-2 {
+  padding: 60px 0 0;
+}
+
+.status-box-2 .lines {
+  position: absolute;
+  margin-left: 15px;
+}
+.status-box-2 .myImages {
+  position: relative;
+  height: 60px;
+  width: 60px;
+}
+.status-box-2 .myImages .im1 {
+  border-radius: 50%;
+  border: 4px solid inherit;
+}
+.status-box-2 .myImages .im2 {
+  margin-top: 30px;
+  border-radius: 50%;
+  border: 4px solid inherit;
+}
+.status-box-2 .myImages .im3 {
+  margin-top: 30px;
+  border-radius: 50%;
+  border: 4px solid inherit;
+}
+
+.status-box-2 ul li span {
+  position: relative;
+  padding-left: 20px;
+}
+
+.status-box-2 ul {
+  margin-left: 84px;
+}
+
+.status-box-2 ul li span::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  background-color: #2b2d42;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 0 1px 10px #F8F8F8;
+}
+
+.status-box-2 ul li {
+  position: relative;
+}
+
+.status-box-2 ul li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -6px;
+  width: 2px;
+  height: 100%;
+  background-color: #2b2d42;
+  margin-top: 10px;
+}
+
+.status-box-2 ul li:nth-child(4) span::after {
+  box-shadow: 1px 30px 1px 20px #F8F8F8;
+}
+
+.status-box-2 ul li.step-completed2::before {
+  background: #56ab2f;
+}
+
+.status-box-2 ul li.step-completed2 span::after {
+  background: #56ab2f;
+}
+
+.status-box-2 ul li.step-completed2 span {
+  color: #56ab2f;
+}
+
+.status-box-2 ul li.current2 span {
+  color: #FE5F1E;
+}
+
+.status-box-2 ul li.current2 span::after {
+  background: #FE5F1E;
+}
+
+.status-box-2 ul li small2 {
+  margin-left: 100px;
   float: right;
   font-size: 14px;
   margin-top: 8px;

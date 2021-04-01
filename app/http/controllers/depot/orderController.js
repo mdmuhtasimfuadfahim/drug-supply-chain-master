@@ -1,5 +1,6 @@
 const passport = require('passport')
 const Order = require('../../../models/order')
+const Location = require('../../../models/location')
 const moment = require('moment')
 const bcrypt = require('bcrypt')
 function orderController(){
@@ -16,17 +17,29 @@ function orderController(){
                 return res.redirect('/cart')
             }
 
-            if(email === req.user.email && address == req.user.address){
+            
                 const hashed = await bcrypt.hash(private_key, 10)
                 const order = new Order({
                     depotId: req.user._id,
+                    sender: "606060b0f87ae52f5ceed7d5",
                     drugs: req.session.cart.drugs,
                     email,
                     private_key: hashed,
                     address   
                 })
+
+                // const location = new Location({
+                //     drugs: req.session.cart.drugs,
+                //     sender: "606060b0f87ae52f5ceed7d5",
+                //     receiver: req.user._id,
+                // })
+    
     
                 console.log(order)
+
+               // console.log(location)
+                
+               // const responsive= await location.save()
                 order.save().then(result =>{
                     Order.populate(result, {path: 'depotId'}, (err, placedOrder)=>{
                         
@@ -42,10 +55,7 @@ function orderController(){
                     req.flash('error', 'Something Went Wrong')
                     return res.redirect('/cart')
                 })
-            }
-            else{
-                return res.json({'error': 'Something is Going Wrong'})
-            }
+           
            // console.log(req.body)
         },
         async orderControl(req, res){
@@ -58,10 +68,15 @@ function orderController(){
         },
         async showStatus(req, res){
             const order = await Order.findById(req.params.id)
-         
+            //const location = await Location.find()
+            
             //---------------Authorize User------------
             if(req.user._id.toString() === order.depotId.toString()){
-                return res.render('depot/singleOrder', { order })
+               
+                // console.log(order + '\n' + location)
+                //location: location,
+                return res.render('depot/singleOrder', { order: order})
+                
             }
             return res.redirect('/')
             

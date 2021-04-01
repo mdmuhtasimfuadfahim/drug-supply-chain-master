@@ -14,13 +14,13 @@
         <div class="drug-list mr-8">
           
             <% for(let drug of Object.values(session.cart.drugs)){ %>
-            <div class="flex items-center my-8">
+            <div class="ml-10 container grid md:grid-cols-2 lg:grid-cols-4 flex items-center my-8">
                 <img class="w-24 rounded-full" src="<%= drug.drug.image %>" alt="placeholder+image">
-                <div class="flex-1 ml-3">
-                    <h1><%= drug.drug.drugName %></h1>
-                   <h2><span><%= drug.drug.categoryName %></span></h2> 
+                <div class="flex-1 ">
+                    <h1 class="text-xm md:text-xl"><%= drug.drug.drugName %></h1>
+                   <h2 class="text-xm md:text-xl"><span><%= drug.drug.categoryName %></span></h2> 
                 </div>
-                <select id="qty" name="quantity" class="block appearance-none bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
+                <select id="qty" name="quantity" class="block appearance-none bg-white border  w-full lg:w-2/3 border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
                     <option value="<%= drug.qty %>"><%= drug.qty %></option>
                     <option value="100">100</option>
                     <option value="200">200</option>
@@ -28,7 +28,7 @@
                     <option value="800">800</option>
                     <option value="1000">1000</option>
                   </select>
-                <span class="font-bold text-lg ml-20"><%= drug.drug.price * drug.qty  %> Tk</span>
+                <span class="font-bold text-xm md:text-xl"><%= drug.drug.price * drug.qty  %> Tk</span>
             </div>
             <% } %>         
         </div>

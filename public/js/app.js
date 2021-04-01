@@ -1866,8 +1866,8 @@ function initAdmin(socket) {
     orders = res.data;
     markup = generateMarkup(orders);
     orderTableBody.innerHTML = markup;
-  })["catch"](function (err) {
-    console.log(err);
+  })["catch"](function (err) {//req.flash('error', 'Something Went Wrong')
+    //console.log(err)
   });
 
   function renderItems(drugs) {
@@ -2094,9 +2094,7 @@ function updateStatus(order) {
 
 updateStatus(order); //---------Socket-----------
 
-var socket = io(); //----------Admin JS File----------------
-
-(0,_admin__WEBPACK_IMPORTED_MODULE_7__.initAdmin)(socket); //--------Join-----------
+var socket = io(); //--------Join-----------
 
 if (order) {
   socket.emit('join', "order_".concat(order._id));
@@ -2105,6 +2103,8 @@ if (order) {
 var manufacturerAreaPath = window.location.pathname; //console.log(manufacturerArea)
 
 if (manufacturerAreaPath.includes('manufacturer')) {
+  //----------Admin JS File----------------
+  (0,_admin__WEBPACK_IMPORTED_MODULE_7__.initAdmin)(socket);
   socket.emit('join', 'manufacturerRoom');
 }
 
@@ -2120,6 +2120,52 @@ socket.on('orderUpdated', function (data) {
     text: 'Updated Order',
     progressBar: false
   }).show(); // console.log(data)
+}); //-----------------Change Lcoation----------
+
+var hiddenInput2 = document.querySelector('#hiddenInput2');
+var roles = document.querySelectorAll('.status-line-2'); //console.log(roles)
+
+var order2 = hiddenInput2 ? hiddenInput2.value : null;
+order2 = JSON.parse(order2); //console.log(order2)
+
+function updateRole(order2) {
+  roles.forEach(function (role) {
+    role.classList.remove('step-completed2');
+    role.classList.remove('current2');
+  });
+  var stepCompleted2 = true;
+  roles.forEach(function (role) {
+    var dataPro2 = role.dataset.role;
+
+    if (stepCompleted2) {
+      role.classList.add('step-completed2');
+    }
+
+    if (dataPro2 === order2.role) {
+      stepCompleted2 = false;
+      time.innerText = moment__WEBPACK_IMPORTED_MODULE_9___default()(order2.updatedAt).format('hh:mm A');
+      role.appendChild(time);
+
+      if (role.nextElementSibling) {
+        role.nextElementSibling.classList.add('current2');
+      }
+    }
+  });
+}
+
+updateRole(order2);
+socket.on('locationUpdate', function (data) {
+  var locationUpdated = _objectSpread({}, order);
+
+  locationUpdated.updatedAt = moment__WEBPACK_IMPORTED_MODULE_9___default()().format();
+  locationUpdated.role = data.role;
+  updateRole(locationUpdated); // new Noty({
+  //     type: 'success',
+  //     timeout: 1000,
+  //     text: 'Location Updated',
+  //     progressBar: false
+  // }).show();
+  // console.log(data)
 });
 
 /***/ }),

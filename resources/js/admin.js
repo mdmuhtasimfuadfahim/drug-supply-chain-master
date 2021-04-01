@@ -20,7 +20,8 @@ export function initAdmin(socket){
         markup = generateMarkup(orders)
         orderTableBody.innerHTML = markup
     }).catch(err =>{
-        console.log(err)
+        //req.flash('error', 'Something Went Wrong')
+        //console.log(err)
     })
 
     function renderItems(drugs) {

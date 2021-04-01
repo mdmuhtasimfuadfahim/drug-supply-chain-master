@@ -191,8 +191,7 @@ updateStatus(order);
 //---------Socket-----------
 let socket = io()
 
-//----------Admin JS File----------------
-initAdmin(socket)
+
 
 //--------Join-----------
 if(order){
@@ -203,6 +202,8 @@ let manufacturerAreaPath = window.location.pathname
 //console.log(manufacturerArea)
 
 if(manufacturerAreaPath.includes('manufacturer')){
+    //----------Admin JS File----------------
+    initAdmin(socket)
     socket.emit('join', 'manufacturerRoom')
 }
 
@@ -217,6 +218,57 @@ socket.on('orderUpdated', (data)=>{
         text: 'Updated Order',
         progressBar: false
     }).show();
+    // console.log(data)
+})
+
+//-----------------Change Lcoation----------
+const hiddenInput2 = document.querySelector('#hiddenInput2')
+let roles = document.querySelectorAll('.status-line-2')
+//console.log(roles)
+
+let order2 = hiddenInput2 ? hiddenInput2.value : null
+
+order2 = JSON.parse(order2)
+//console.log(order2)
+
+
+function updateRole(order2){
+    roles.forEach((role)=>{
+        role.classList.remove('step-completed2')
+        role.classList.remove('current2')
+    })
+
+     let stepCompleted2 = true;
+    roles.forEach((role) =>{
+     let dataPro2 = role.dataset.role
+     if(stepCompleted2){
+         role.classList.add('step-completed2')
+     }
+     if(dataPro2 === order2.role){
+        stepCompleted2 = false
+        time.innerText = moment(order2.updatedAt).format('hh:mm A')
+        role.appendChild(time)
+        if(role.nextElementSibling){
+            role.nextElementSibling.classList.add('current2')
+        }
+         
+     }
+    })
+ }
+
+updateRole(order2);
+
+socket.on('locationUpdate', (data)=>{
+    const locationUpdated = { ...order }
+    locationUpdated.updatedAt = moment().format()
+    locationUpdated.role = data.role
+    updateRole(locationUpdated)
+    // new Noty({
+    //     type: 'success',
+    //     timeout: 1000,
+    //     text: 'Location Updated',
+    //     progressBar: false
+    // }).show();
     // console.log(data)
 })
 

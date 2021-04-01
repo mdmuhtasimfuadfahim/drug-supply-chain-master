@@ -7,6 +7,7 @@ const keyController = require('../app/http/controllers/manufacturer/keyControlle
 const orderController = require('../app/http/controllers/depot/orderController')
 const manufacturerOrderController = require('../app/http/controllers/manufacturer/manufacturerOrderController')
 const statusController = require('../app/http/controllers/manufacturer/statusController')
+const locationController = require('../app/http/controllers/locationController')
 
 //------------------Middlewares---------------
 const guest = require('../app/http/middlewares/guest')
@@ -51,7 +52,8 @@ function initRoutes(app){
     app.get('/files/:uuid', fileController().file)
     app.get('/files/download/:uuid', fileController().fileControl)
     
-    
+    app.get('/:id/location', auth, locationController().location)
+    app.post('/locationId/location/role', auth, locationController().locationControl)
 }
 
 

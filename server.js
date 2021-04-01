@@ -80,6 +80,9 @@ app.use((req, res, next)=>{
 
 //require('./routes/api')(app)
 require('./routes/web')(app)
+app.use((req, res)=>{
+    res.status(404).send('<h1>404, Page Not Found to Display</h1>')
+})
 app.use('/api/drug', require('./routes/api'))
 // app.use('/files/download', require('./routes/download'))
 // app.use('files', require('./routes/show'))
@@ -113,6 +116,12 @@ io.on('connection', (socket)=>{
 eventEmitter.on('orderUpdated', (data)=>{
     io.to(`order_${data.id}`).emit('orderUpdated', data)
 })
+
+
+eventEmitter.on('locationUpdate', (data)=>{
+    io.to(`order_${data.id}`).emit('locationUpdate', data)
+})
+
 
 
 eventEmitter.on('orderPlaced', (data)=>{

@@ -1,0 +1,67 @@
+<%- include('./_layouts/header.ejs') %>
+<%- include('./toast.ejs') %>
+
+<section class="chains">
+    
+  
+    <div class="chains mx-auto">
+        <div class="status-box-2 w-full lg:w-2/3 mx-auto">
+            
+            <% orders.forEach((order) => { %>
+        
+            <div id="tableforLocation" class="flex items-center justify-between mb-12">
+                <h1 class="text-xm md:text-xl font-bold">Location Status</h1>     
+                <input id="hiddenInput2" type="hidden" value="<%= JSON.stringify(order) %>">
+                <div class="inline-block relative w-64">
+                    
+                    <form action="/locationId/location/role" method="POST">
+                        <% if(user._id.equals(order.depotId._id)) {%>
+                        <input type="hidden" name="orderLID" value="<%= order._id %>">
+                        <select name="role" onchange="this.form.submit()"
+                            class="text-xm md:text-xl block appearance-none w-full lg:w-2/3 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                            <option value="Manufacturer"
+                                <%= order.role === 'Manufacturer' ? 'selected' : '' %> >
+                                Manufacturer</option>
+                            <option value="Depot In-charge"   <%= order.role === 'Depot In-charge' ? 'selected' : '' %>>
+                            Depot In-charge</option>
+                            <option value="Pharmacist" <%= order.role === 'Pharmacist' ? 'selected' : '' %> >
+                            Pharmacist</option>
+                        </select>
+                        <%} else {%>
+                            <p>View Only</p>
+                        <% } %>
+                    </form>
+                    
+                    <div
+                        class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="grid status-box-2 items-center px-10">
+          
+            <div class="myImages">
+                <img class="im1" src="/img/<%= order.sender.image %>" alt="">
+                <img class="im2" src="/img/<%= order.depotId.image %>" alt="">
+            </div>
+            <div class="lines"> 
+              <ul>
+                  <li class="status-line-2 text-xm md:text-xl pb-16" data-role="Manufacturer"><span><%= order.sender.role %></span></li>
+                  <li class="status-line-2 text-xm md:text-xl pb-16" data-role="Depot In-charge"><span><%= order.depotId.role %></span></li>
+              </ul>
+            </div>
+           
+            
+        </div> 
+        <%})%>
+        </div>
+    </div>
+
+</section>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/app.js" type="text/javascript" charset="utf-8"></script>
