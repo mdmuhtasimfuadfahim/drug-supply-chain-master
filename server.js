@@ -22,8 +22,13 @@ const connectDB = require('./app/config/db')
 connectDB()
 
 //------------Delete Files------------------
-const fetchData = require('./script')
+const fetchData = require('./app/config/script')
 fetchData()
+
+
+//------------Deploy Contract---------------
+const deployContract = require('./block')
+deployContract()
 
 
 // -------------- Session Store ----------

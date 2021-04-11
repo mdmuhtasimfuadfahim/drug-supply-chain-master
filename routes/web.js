@@ -52,6 +52,7 @@ function initRoutes(app){
     app.get('/files/:uuid', fileController().file)
     app.get('/files/download/:uuid', fileController().fileControl)
     
+    
     app.get('/:id/location', auth, locationController().location)
     app.post('/locationId/location/role', auth, locationController().locationControl)
 }

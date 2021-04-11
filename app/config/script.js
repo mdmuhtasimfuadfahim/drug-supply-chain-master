@@ -1,5 +1,5 @@
-const connectDB = require('./app/config/db');
-const File = require('./app/models/file');
+const connectDB = require('./db');
+const File = require('../models/file');
 const fs = require('fs');
 
 connectDB();

@@ -1,0 +1,1 @@
+geth --rpc --rpcport "8000" --rpccorsdomain "*" --datadir=./data --port "30303" --nodiscover --allow-insecure-unlock --rpcapi "eth,net,web3,personal,miner,admin" --networkid 23112 --nat "any" --syncmode="fast"
