@@ -21,14 +21,15 @@ const Emitter = require('events')
 const connectDB = require('./app/config/db')
 connectDB()
 
+
 //------------Delete Files------------------
 const fetchData = require('./app/config/script')
 fetchData()
 
 
 //------------Deploy Contract---------------
-const deployContract = require('./block')
-deployContract()
+// const deployContract = require('./block')
+// deployContract()
 
 
 // -------------- Session Store ----------
@@ -85,9 +86,9 @@ app.use((req, res, next)=>{
 
 //require('./routes/api')(app)
 require('./routes/web')(app)
-app.use((req, res)=>{
-    res.status(404).send('<h1>404, Page Not Found to Display</h1>')
-})
+// app.use((req, res)=>{
+//     res.status(404).send('<h1>404, Page Not Found to Display</h1>')
+// })
 app.use('/api/drug', require('./routes/api'))
 // app.use('/files/download', require('./routes/download'))
 // app.use('files', require('./routes/show'))

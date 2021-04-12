@@ -10,7 +10,8 @@ const userSchema = new Schema({
     role: String, 
     address:{type: String, required: true},
     private_key: {type: String, required: true},
-    public_key: {type: String, required: true}
+    public_key: {type: String, required: true},
+    accountAddress: {type: String, required: true}
 },{timestamps: true})
 
 module.exports = mongoose.model('User', userSchema)
