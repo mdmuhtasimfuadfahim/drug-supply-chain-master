@@ -1,63 +1,23 @@
 
 const order = require('../../models/order')
 const contract = require('../../models/contract')
+
+
+const Web3 = require('web3')
+const rpcUrl = "http://localhost:8000"
+const web3 = new Web3(rpcUrl) 
+var Accounts = require('web3-eth-accounts')
+var keyth = require('keythereum')
+const Tx = require('ethereumjs-tx').Transaction
+const { emit } = require('../../models/order')
+
 var abi = [
-	{
-		"inputs": [],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "constructor"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "orderId",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "depotId",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "seller",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "fromAdd",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "toAdd",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"internalType": "string",
-				"name": "role",
-				"type": "string"
-			}
-		],
-		"name": "logDrugInfo",
-		"type": "event"
-	},
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "depotId",
+		"name": "seller",
 		"outputs": [
 			{
-				"internalType": "address payable",
 				"name": "",
 				"type": "address"
 			}
@@ -68,13 +28,47 @@ var abi = [
 	},
 	{
 		"constant": true,
-		"inputs": [],
-		"name": "isDepotId_",
+		"inputs": [
+			{
+				"name": "_orderId",
+				"type": "string"
+			}
+		],
+		"name": "getStoreDrugs",
 		"outputs": [
 			{
-				"internalType": "bool",
 				"name": "",
-				"type": "bool"
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "depotId",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
 			}
 		],
 		"payable": false,
@@ -87,24 +81,8 @@ var abi = [
 		"name": "isSeller_",
 		"outputs": [
 			{
-				"internalType": "bool",
 				"name": "",
 				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "seller",
-		"outputs": [
-			{
-				"internalType": "address payable",
-				"name": "",
-				"type": "address"
 			}
 		],
 		"payable": false,
@@ -115,27 +93,22 @@ var abi = [
 		"constant": false,
 		"inputs": [
 			{
-				"internalType": "string",
 				"name": "_orderId",
 				"type": "string"
 			},
 			{
-				"internalType": "string",
 				"name": "_depotId",
 				"type": "string"
 			},
 			{
-				"internalType": "string",
 				"name": "_seller",
 				"type": "string"
 			},
 			{
-				"internalType": "string",
 				"name": "_fromAdd",
 				"type": "string"
 			},
 			{
-				"internalType": "string",
 				"name": "_toAdd",
 				"type": "string"
 			}
@@ -145,9 +118,67 @@ var abi = [
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "isDepotId_",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "orderId",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "depotId",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "seller",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "fromAdd",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "toAdd",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"name": "role",
+				"type": "string"
+			}
+		],
+		"name": "logDrugInfo",
+		"type": "event"
 	}
 ];
 
+var accoutOrpaKey = "63486cf0332b231a768b8cb4e1683f352532a22e37f5c778e61f016f3a314038";
 function locationController(){
     return{
         
@@ -177,37 +208,52 @@ function locationController(){
                 eventEmitter.emit('locationUpdate', {id: req.body.orderLID, role: req.body.role})
                
                 
-               async function returnContents(){
+             
                     const populateOrder = await updatedOrder.find({_id: req.body.orderLID}).populate('depotId', '-private-key').populate('sender', '-private_key');
                     const retunPopulateOrder = {populateOrder : populateOrder}
                     populateOrder.forEach(async function (populateOrder){
                         const Contract = await contract.find();
                  
                         const ContractGetData = {Contract: Contract}
+						web3.eth.getAccounts().then(async function(accounts){
                         Contract.forEach(function(contractAdd){
                              // console.log(contractAdd.contractAddress)
-                              const contractGetAddressHere = contractAdd.contractAddress 
-                            //   console.log("orderId:", populateOrder._id)
-                            //   console.log("depotAccout:", populateOrder.depotId.accountAddress)
-                            //   console.log(populateOrder.depotId.name)
-                            //   console.log(populateOrder.sender.name)
-                            //   console.log(populateOrder.sender.accountAddress)
-                            //   console.log(contractGetAddressHere) 
-                           // console.log(abi)
+                            const contractGetAddressHere = contractAdd.contractAddress;
 
+							//console.log(contractGetAddressHere)
+							
+                            var orderId = populateOrder._id.toString();
+							// console.log(orderGetId) 
+							var depotName = populateOrder.depotId.name.toString();
+							var sellerName = populateOrder.sender.name.toString();
+                            var depotAccount = populateOrder.depotId.accountAddress.toString();    
+                            var sellerAccount = populateOrder.sender.accountAddress.toString();
 
-                             var myContract =new web3.eth.Contract(abi,contractGetAddressHere);
+                            var myContract =new web3.eth.Contract(abi,contractGetAddressHere);
 
-                             const myContractFunction = myContract.methods.storeDrugs(String, String, String, String, String).encodeABI();
-                                 
-                        })  
-                       
+                            const myContractFunction = myContract.methods.storeDrugs(orderId, depotName, sellerName, depotAccount, sellerAccount).encodeABI();
                  
+							const tx={
+								chainId: 23112,
+								data: myContractFunction,
+								to: depotAccount,
+                                value:web3.utils.toWei('0.1','ether'),
+                                gas:600000*1.50
+							}
+
+							web3.eth.accounts.signTransaction(tx, "0x"+ accoutOrpaKey).then(signed =>{
+								web3.eth.sendSignedTransaction(signed.rawTransaction).on('receipt', async function(response){
+									console.log(response)
+								})
+								
+							})
+                        })  
+					})
                     })
-                }
+                
                
 
-               returnContents()
+            //    returnContents()
                
 
                 return res.redirect('/' + req.body.orderLID + '/location') 

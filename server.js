@@ -16,7 +16,6 @@ const Emitter = require('events')
 
 
 
-
 //------------DataBase Connection----------------
 const connectDB = require('./app/config/db')
 connectDB()
