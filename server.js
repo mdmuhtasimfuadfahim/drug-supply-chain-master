@@ -31,6 +31,7 @@ fetchData()
 // deployContract()
 
 
+
 // -------------- Session Store ----------
 let mongoStore = new MongoDbStore({
     mongoUrl: process.env.MONGO_CONNECTION_URL,
@@ -72,6 +73,7 @@ app.use(express.json())
 
 // --------------- Passport Config ---------
 const passportInit = require('./app/config/passport')
+const { response } = require('express')
 passportInit(passport)
 app.use(passport.initialize())
 app.use(passport.session()) 
