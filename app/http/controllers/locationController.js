@@ -248,6 +248,7 @@ function locationController(){
 									//console.log(response)
 
 									const transactionData = new transactionDb({
+										orderID: _orderId,
 				                     	blockHash: response.blockHash,
 				                     	blockNumber: response.blockNumber,
 				                     	contractAddress: response.contractAddress,
@@ -259,16 +260,17 @@ function locationController(){
 				                     	to: response.to,
 				                     	transactionHash: response.transactionHash,
 				                     	transactionIndex: response.transactionIndex,
-				                     	type: response.type
+				                     	type: response.type,
+										transaction: "successful"
 				                     })
 
 				                   const transactionSave = await transactionData.save();
 				                   console.log(transactionSave)	
 
 								   
-								   const getAllDatas = await myContract.methods.getStoreDrugs(_orderId).call().then(function(result){
-									console.log(result);
-								 })
+								//    const getAllDatas = await myContract.methods.getStoreDrugs(_orderId).call().then(function(result){
+								// 	console.log(result);
+								//  })
 								})
 									
 							})	

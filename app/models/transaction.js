@@ -3,6 +3,11 @@ const Schema = mongoose.Schema
 
 
 const transactionSchema = new Schema({
+    orderID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Order',
+        required: true
+    },
     blockHash: String,
     blockNumber: String,
     cumulativeGasUsed: String,
@@ -14,7 +19,8 @@ const transactionSchema = new Schema({
     to:String,
     transactionHash:String,
     transactionIndex:String,
-    type: String
+    type: String,
+    transaction: String
 },{timestamps: true})
 
 module.exports = mongoose.model('Transaction', transactionSchema)

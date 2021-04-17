@@ -214,26 +214,26 @@ function deployContract(){
 
 		web3.eth.accounts.signTransaction(tx, "0x"+ accountOrpaKey).then(signed =>{
 			web3.eth.sendSignedTransaction(signed.rawTransaction).on('receipt', async function(response){
-				console.log(response)
+				// console.log(response)
 
 				
-				// const newContract = new ContractGet({
-				// 	blockHash: response.blockHash,
-				// 	blockNumber: response.blockNumber,
-				// 	contractAddress: response.contractAddress,
-				// 	cumulativeGasUsed: response.cumulativeGasUsed,
-				// 	from: response.from,
-				// 	gasUsed: response.gasUsed,
-				// 	logsBloom: response.logsBloom,
-				// 	status: response.status,
-				// 	to: response.to,
-				// 	transactionHash: response.transactionHash,
-				// 	transactionIndex: response.transactionIndex,
-				// 	type: response.type
-				// })
+				const newContract = new ContractGet({
+					blockHash: response.blockHash,
+					blockNumber: response.blockNumber,
+					contractAddress: response.contractAddress,
+					cumulativeGasUsed: response.cumulativeGasUsed,
+					from: response.from,
+					gasUsed: response.gasUsed,
+					logsBloom: response.logsBloom,
+					status: response.status,
+					to: response.to,
+					transactionHash: response.transactionHash,
+					transactionIndex: response.transactionIndex,
+					type: response.type
+				})
 
-				// const conSave = await newContract.save();
-				// console.log(conSave)
+				const conSave = await newContract.save();
+				console.log(conSave)
 			 
 			})
 			
