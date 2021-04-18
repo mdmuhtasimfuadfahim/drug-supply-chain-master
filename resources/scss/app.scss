@@ -1329,7 +1329,7 @@ section.status{
   box-shadow: 0 0 1px 10px $secondary;
 }
 
-// ---------- Icons 
+//----------Icons 
 .status-box ul li span::before{
   
   font-family: "Line Awesome Free";
@@ -1412,7 +1412,7 @@ section.status{
 // }
 
 
-// -----------Location Change------------
+//-----------Location Change------------
 section.chains{
   background-color: $secondary;
   min-height: calc(100vh - 86px);
@@ -1446,7 +1446,7 @@ section.chains{
   }
 }
 
-// ---------- Dots
+//----------Dots
 .status-box-2 ul li span{
   position: relative;
   padding-left: 20px;
@@ -1526,7 +1526,7 @@ section.chains{
 }
 
 
-// ----------About Page
+//----------About Page
 section.about{
   background-color: $secondary;
   box-sizing: border-box;

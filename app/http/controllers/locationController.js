@@ -188,9 +188,7 @@ function locationController(){
         const orders = await order.find({_id: req.params.id}).populate('depotId', '-private_key').populate('sender', '-private_key');
          //console.log(orders)
 		 
-		 const orderId = "6075d77265ce53288036bd0e";
-		 const contractAddressGG = "0x5bdDdb6F14d5e0455d7511C73499383C583DfC2a";
-		 const myContract = new web3.eth.Contract(abi, contractAddressGG)
+		
 		
 
         return res.render('location', {orders: orders})
