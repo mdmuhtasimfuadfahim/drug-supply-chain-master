@@ -1,0 +1,70 @@
+<%- include('../_layouts/header3.ejs') %>
+<%- include('../toast.ejs') %>
+
+<section class="tutorials">
+<div class="containerHomeMan">
+<%- include('../_layouts/head.ejs') %>
+<div class="accountsCon">
+    
+    <div id="site-main">
+        <div class="ml-10 container4">
+            <!-- form handling -->
+                <table class="table mt-10">
+                    
+                    <thead>
+                        <tr>
+                            <th>Transaction Hash</th>
+                            <th> Block Number</th>
+                            <th> Gas Used</th>
+                            <th> From </th>
+                            <th> To</th>
+                            <th> Type</th>
+                            <th> Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(transactions.length) { %>
+                            <% transactions.forEach((transaction)=>{ %>
+                                <tr>
+                                    <td>
+                                      <%= transaction.transactionHash %>
+                                   </td>
+                                   <td>
+                                    <%= transaction.blockNumber %>
+                                   </td>
+                                    <td>
+                                        <%= transaction.gasUsed %>
+                                    </td>
+                                    <td>
+                                        <%= transaction.from %>
+                                    </td>
+                                    <td>
+                                        <%= transaction.to %>
+                                    </td>
+                                    <td>
+                                        <%= transaction.transaction %>
+                                    </td>
+                                    <td>
+                                        <%= moment(transaction.createdAt).format('MMMM Do YYYY') %>
+                                    </td>  
+                                </tr>
+                            <% }) %>
+                            
+                        <% } else { %>
+                            <tr>
+                                <td class="p-4">No transactions found</td>
+                            </tr>
+                        <% } %>
+                       
+                    </tbody>
+                </table>
+        
+        </div>
+    </div>
+</div>
+<%- include('../_layouts/sidebar.ejs') %>
+</div>
+</section>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/app.js" type="text/javascript" charset="utf-8"></script>

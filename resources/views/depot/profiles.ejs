@@ -1,0 +1,32 @@
+<%- include('../_layouts/header.ejs') %>
+<%- include('../toast.ejs') %>
+
+<section class="about">
+    <div class="cont">
+        <h1 class="headings">Meet The Team</h1>
+        <div class="card-wrapper">
+            <% users.forEach(function(users){ %>
+            <div class="cards">
+                <img src="/img/backgroundULAB.jpg" alt="card background" class="card-img">
+                <img src="/img/<%= users.image %>" alt="profile image" class="profile-img">
+                <h1><%= users.name %></h1>
+                <p class="jobTitle">Role: <%= users.role %></p>
+                <p class="jobTitle">Address: <%= users.address %></p>
+                <p class="jobTitle">Contact: <%= users.phone %></p>
+                <p class="jobTitle">Email: <%= users.email %></p>
+                <p class="jobTitle">Account: <%= users.accountAddress %></p>
+                
+                <ul class="social-media">
+                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter-square"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fab fa-google-plus-square"></i></a></li>
+                </ul>
+            </div>
+            <% })%>
+        </div>
+    </div>
+</section>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/app.js" type="text/javascript" charset="utf-8"></script>

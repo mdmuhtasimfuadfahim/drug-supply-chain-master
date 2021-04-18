@@ -1824,3 +1824,197 @@ section.chains {
   font-size: 14px;
   margin-top: 8px;
 }
+
+.transactionTable {
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+section.about {
+  background-color: #F8F8F8;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.headings {
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 5rem;
+  color: #000000;
+  position: relative;
+}
+
+.headings::after {
+  content: "";
+  width: 10rem;
+  height: 0.8rem;
+  background-color: #FE5F1E;
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0.5rem;
+}
+
+.card-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.cards {
+  width: 32rem;
+  background-color: #ebeef8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2rem 0;
+  box-shadow: 0.5rem 0.5rem 3rem rgba(0, 0, 0, 0.2);
+}
+
+.cards .card-img {
+  width: 100%;
+  height: 15rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-clip-path: polygon(0 0, 100%, 78%, 0%, 100%);
+  clip-path: polygon(0 1%, 100% 0, 100% 78%, 0% 100%);
+}
+
+.profile-img {
+  width: 15rem;
+  height: 15rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  margin-top: -10rem;
+  z-index: 999;
+  border: 1rem solid #ffffff;
+}
+
+.cards h1 {
+  font-size: 2rem;
+  color: #FE5F1E;
+  margin: 1rem 0;
+}
+
+.jobTitle {
+  color: #777;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.cards .btn {
+  padding: 1rem 2.5rem;
+  background-color: #FE5F1E;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 1.4rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.cards .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0.5rem 0.5rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.cards .btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.social-media {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2rem 0;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.social-media i {
+  font-size: 3rem;
+  transition: color 0.5s;
+}
+
+.fa-facebook-square {
+  color: #3b5999;
+}
+
+.fa-twitter-square {
+  color: #55acee;
+}
+
+.fa-instagram {
+  color: #e6683c;
+}
+
+.fa-google-plus-square {
+  color: #dd4b39;
+}
+
+.fa-facebook-square:hover, .fa-twitter-square:hover, .fa-instagram:hover, .fa-google-plus-square:hover {
+  color: #45e19f;
+}
+
+@media screen and (min-width: 700px) {
+  .card-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cards {
+    margin: 2rem;
+    transition: transform 0.3s;
+  }
+
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .cards:nth-child(1) {
+    -webkit-animation: fadeIn 0.5s 0.5s backwords;
+            animation: fadeIn 0.5s 0.5s backwords;
+  }
+
+  .cards:nth-child(2) {
+    -webkit-animation: fadeIn 0.5s 0.1s backwords;
+            animation: fadeIn 0.5s 0.1s backwords;
+  }
+
+  .cards:nth-child(3) {
+    -webkit-animation: fadeIn 0.5s 1.5s backwords;
+            animation: fadeIn 0.5s 1.5s backwords;
+  }
+
+  .cards:nth-child(4) {
+    -webkit-animation: fadeIn 0.5s 2s backwords;
+            animation: fadeIn 0.5s 2s backwords;
+  }
+
+  .cards:hover {
+    transform: scale(1.05);
+  }
+}

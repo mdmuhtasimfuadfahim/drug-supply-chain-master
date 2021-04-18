@@ -8,6 +8,7 @@ const orderController = require('../app/http/controllers/depot/orderController')
 const manufacturerOrderController = require('../app/http/controllers/manufacturer/manufacturerOrderController')
 const statusController = require('../app/http/controllers/manufacturer/statusController')
 const locationController = require('../app/http/controllers/locationController')
+const transactionController = require('../app/http/controllers/transactionController')
 
 //------------------Middlewares---------------
 const guest = require('../app/http/middlewares/guest')
@@ -30,6 +31,8 @@ function initRoutes(app){
 
     app.get('/cart', auth, cartController().cart)
     app.post('/update_cart', cartController().update)
+    app.get('/transaction',transactionController().depotTransaction)
+    app.get('/profiles', auth, homeController().getProfiles)
 
     //---------------Depot Order Control Routes---------
     app.post('/orders', auth, orderController().store)
@@ -44,6 +47,7 @@ function initRoutes(app){
     app.get('/manufacturer/requests',manufacturer, mHomeController().requests)
     app.get('/manufacturer/generatekey',manufacturer, keyController().key)
     app.get('/manufacturer/drop', manufacturer, homeController().dropManufacturer)
+    app.get('/manufacturer/transaction',transactionController().manufacturerTransaction)
     
     //-----------------Manufacturer Order Control Routes-------------
     app.get('/manufacturer/orders', manufacturer, manufacturerOrderController().index)

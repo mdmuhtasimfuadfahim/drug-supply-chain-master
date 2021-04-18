@@ -1,0 +1,59 @@
+
+
+<%- include('../_layouts/header.ejs') %>
+<%- include('../toast.ejs') %>
+
+<section class="transactionTable">
+    <table class="customerT mx-auto table-auto bg-white mt-10">
+        <thead>
+            <tr>
+                <th class="px-4 py-2 text-left">Transaction Hash</th>
+                <th class="px-4 py-2 text-left"> Block Number</th>
+                <th class="px-4 py-2 text-left"> Gas Used</th>
+                <th class="px-4 py-2 text-left"> From </th>
+                <th class="px-4 py-2 text-left"> To</th>
+                <th class="px-4 py-2 text-left"> Type</th>
+                <th class="px-4 py-2 text-left"> Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if(transactions.length) { %>
+                <% transactions.forEach((transaction)=>{ %>
+                    <tr>
+                        <td class="border px-4 py-2">
+                          <%= transaction.transactionHash %>
+                       </td>
+                       <td class="border px-4 py-2">
+                        <%= transaction.blockNumber %>
+                       </td>
+                        <td class="border px-4 py-2">
+                            <%= transaction.gasUsed %>
+                        </td>
+                        <td class="border px-4 py-2">
+                            <%= transaction.from %>
+                        </td>
+                        <td class="border px-4 py-2">
+                            <%= transaction.to %>
+                        </td>
+                        <td class="border px-4 py-2">
+                            <%= transaction.transaction %>
+                        </td>
+                        <td class="border px-4 py-2">
+                            <%= moment(transaction.createdAt).format('MMMM Do YYYY') %>
+                        </td>  
+                    </tr>
+                <% }) %>
+                
+            <% } else { %>
+                <tr>
+                    <td class="p-4">No transactions found</td>
+                </tr>
+            <% } %>
+           
+        </tbody>
+    </table>
+</section>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/app.js" type="text/javascript" charset="utf-8"></script>

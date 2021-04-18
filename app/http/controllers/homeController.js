@@ -78,6 +78,10 @@ function homeController(){
         },
         dropManufacturer(req, res){
             res.render('manufacturer/drop')
+        },
+        async getProfiles(req, res){
+            const users = await User.find()
+            res.render('depot/profiles', {users: users})
         }
     }
 }

@@ -36,11 +36,11 @@ function mHomeController(){
            })
         },
         async postAdduser (req, res){
-            const { name, image, email, phone, role, address, private_key, public_key } = req.body
+            const { name, image, email, phone, role, address, private_key, public_key, accountAddress } = req.body
         
                         
             //---------Validate Request-----------
-            if(!name || !image ||  !email || !phone || !address || !private_key || !public_key){
+            if(!name || !image ||  !email || !phone || !address || !private_key || !public_key || !accountAddress){
                 req.flash('error', 'All Fields are Required to Add User')
                 req.flash('name', name)
                 req.flash('image', image)
@@ -49,6 +49,7 @@ function mHomeController(){
                 req.flash('address', address)
                 req.flash('private_key', private_key)
                 req.flash('public_key', public_key)
+                req.flash('accountAddress', accountAddress)
                 return res.redirect('/manufacturer/add_user')
             }
         
@@ -63,6 +64,7 @@ function mHomeController(){
                     req.flash('address', address)
                     req.flash('private_key', private_key)
                     req.flash('public_key', public_key)
+                    req.flash('accountAddress', accountAddress)
                     return res.redirect('/manufacturer/add_user')
                 }
             })
@@ -79,6 +81,22 @@ function mHomeController(){
                 req.flash('address', address)
                 req.flash('private_key', private_key)
                 req.flash('public_key', public_key)
+                req.flash('accountAddress', accountAddress)
+                return res.redirect('/manufacturer/add_user')
+                }
+            })
+             //----------Check if Account Exists-----------
+             User.exists({accountAddress: accountAddress}, (err, result)=>{
+                if(result){
+                req.flash('error', 'This Contact is Already Exists')
+                req.flash('name', name)
+                req.flash('image', image)
+                req.flash('email', email)
+                req.flash('phone', phone)
+                req.flash('address', address)
+                req.flash('private_key', private_key)
+                req.flash('public_key', public_key)
+                req.flash('accountAddress', accountAddress)
                 return res.redirect('/manufacturer/add_user')
                 }
             })
@@ -93,7 +111,8 @@ function mHomeController(){
                 role: role,
                 address: address,
                 private_key: hashedPrivateKey,
-                public_key: public_key
+                public_key: public_key,
+                accountAddress: accountAddress
             })
         
             user.save().then((user)=>{
