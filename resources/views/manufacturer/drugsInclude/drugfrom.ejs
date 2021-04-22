@@ -1,0 +1,65 @@
+ <!-- form handling -->
+ <form action="/manufacturer/drugs/upload" id="add_user" class="py-4" method="POST" enctype="multipart/form-data>
+    <% if(messages.error){ %>
+    <span class="ml-10 text-red-500 text-sm"><%= messages.error %></span> 
+    <% } %>
+
+    <div class="new_user">
+        <div class="form-group">
+            <label for="drugName" class="text-light">Drug Name</label>
+            <input type="hidden" name="id" value="">
+            <input type="text" name="drugName" value="<%= messages.drugName %>" placeholder="Pramlintide">
+        </div>
+        <div class="form-group">
+            <label for="drugimage" class="text-light">Image</label>
+            <input type="file" name="image" value="" placeholder="Drug Image" id="drugimage">
+        </div>
+        <div class="form-group">
+            <label for="categoryName" class="text-light">Category Name</label>
+            <select name="categoryName">
+                <option value="daibetes">Diabetes</option>
+                <option value="cancer">Cancer</option>
+                <option value="heart">Heart</option>
+                <option value="insomnia">Insomnia</option>
+                <option value="stroke">Stroke</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="productionDate" class="text-light">Production Date</label>
+            <input type="text" name="productionDate" value="<%= messages.productionDate %>" placeholder="January 31, 2023">
+        </div>
+        <div class="form-group">
+            <label for="expirationDate" class="text-light">Expiration Date</label>
+            <input type="text" name="expirationDate" value="<%= messages.expirationDate %>" placeholder="January 31, 2023">
+        </div>
+        <div class="form-group">
+            <label for="comment" class="text-light">Comment</label>
+            <input type="text" name="comment" value="<%= messages.comment %>" placeholder="32">
+        </div>
+
+        <div class="form-group">
+            <label for="price" class="text-light">Price</label>
+            <input type="text" name="price" value="<%= messages.price %>" placeholder="144">
+        </div>
+
+        <div class="form-group">
+            <label for="genericName" class="text-light">Generic Name</label>
+            <input type="text" name="genericName" value="<%= messages.genericName %>" placeholder="pramlintide (PRAM lin tide">
+        </div>
+        <div class="form-group">
+            <label for="brandName" class="text-light">Brand Name</label>
+            <input type="text" name="brandName" value="<%= messages.brandName %>" placeholder="SymlinPen 120">
+        </div>
+        <div class="form-group">
+            <label for="description" class="text-light">Description</label>
+            <input type="text" name="description" value="<%= messages.description %>" placeholder="Octreotide is a man-made form of a hormone that occurs naturally ...">
+        </div>
+
+
+        <div class="form-group">
+            <button type="submit" class="btn update">Save</button>
+        </div>
+
+    </div>
+</form>
+

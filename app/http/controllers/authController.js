@@ -71,69 +71,8 @@ function authController () {
             res.render('auth/register')
         
            },
-        // postRegister(req, res){
-        //         // const image = req.file.path
-        //         const { image, name, email, phone, role, address } = req.body
-                
-        //         //---------Validate Request-----------
-        //         if(!name || !email || !phone || !address){
-        //             req.flash('error', 'All Fields are Required for Registration')
-        //            // req.flash('image', image)
-        //             req.flash('name', name)
-        //             req.flash('email', email)
-        //             req.flash('phone', phone)
-        //             req.flash('address', address)
-        //             return res.redirect('/register')
-        //         }
-        
-        //         //----------Check if Email Exists-----------
-        //         Request.exists({email: email}, (err, result)=>{
-        //             if(result){
-        //                 req.flash('error', 'This Email is Taken')
-        //                // req.flash('image', image)
-        //                 req.flash('name', name)
-        //                 req.flash('email', email)
-        //                 req.flash('phone', phone)
-        //                 req.flash('address', address)
-        //                 return res.redirect('/register')
-        //             }
-        //          })
-        
-        
-        //         //----------Check if Email Exists-----------
-        //         Request.exists({phone: phone}, (err, result)=>{
-        //             if(result){
-        //                 req.flash('error', 'This Contact is Already Exists')
-        //                // req.flash('image', image)
-        //                 req.flash('name', name)
-        //                 req.flash('email', email)
-        //                 req.flash('phone', phone)
-        //                 req.flash('address', address)
-        //                 return res.redirect('/register')
-        //             }
-        //         })
-        
-        //         //------------Create a Request--------
-        //         const request = new Request({
-        //             image: image,
-        //             name: name,
-        //             email: email,
-        //             phone: phone,
-        //             role: role,
-        //             address: address
-        //         })
-        
-        //      request.save().then((request)=>{
-        //             req.flash('success', 'Your Request is Taken')
-        //             return res.redirect('/register')
-        //         }).catch(err =>{
-        //             req.flash('error', 'Something is Going Wrong')
-        //             return res.redirect('/register')
-        //         })        
-           
-        // }
 
-    postRegister(req, res){
+        postRegister(req, res){
            upload(req, res, (err) =>{
             const { name, email, phone, role, address } = req.body
 

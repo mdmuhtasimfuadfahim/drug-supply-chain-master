@@ -9,6 +9,7 @@ const manufacturerOrderController = require('../app/http/controllers/manufacture
 const statusController = require('../app/http/controllers/manufacturer/statusController')
 const locationController = require('../app/http/controllers/locationController')
 const transactionController = require('../app/http/controllers/transactionController')
+const drugController = require('../app/http/controllers/manufacturer/drugController')
 
 //------------------Middlewares---------------
 const guest = require('../app/http/middlewares/guest')
@@ -48,6 +49,11 @@ function initRoutes(app){
     app.get('/manufacturer/generatekey',manufacturer, keyController().key)
     app.get('/manufacturer/drop', manufacturer, homeController().dropManufacturer)
     app.get('/manufacturer/transaction',transactionController().manufacturerTransaction)
+
+    //--------------Manufacturer Control Drugs-----------
+    app.get('/manufacturer/drugs',drugController().seeDrugs)
+    app.get('/manufacturer/drugs/upload',drugController().addDrugPage)
+    app.post('/manufacturer/drugs/upload',drugController().uploadDrugs)
     
     //-----------------Manufacturer Order Control Routes-------------
     app.get('/manufacturer/orders', manufacturer, manufacturerOrderController().index)

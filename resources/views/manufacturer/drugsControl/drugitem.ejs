@@ -1,0 +1,58 @@
+<%- include('../../_layouts/header3.ejs') %>
+<%- include('../../toast.ejs') %>
+
+<section class="tutorials">
+<div class="containerHomeMan">
+<%- include('../../_layouts/head.ejs') %>
+<div class="accountsCon">
+    <div id="header2">
+        <nav>
+            <div class="container3 text-3xl font-bold">
+                <div class="text-center">
+                    <a href="/manufacturer/drugs" class="nav-brand text-dark">See Drug List to Sell</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    <div id="site-main">
+        <div class="ml-10 container4">
+            <div class="box-nav d-flex justify-between">
+                <a href="/manufacturer/drugs/upload" class="border-shadow">
+                    <span class="text-gradient">Upload New Drug<i class="fas fa-user"></i></span>
+                </a>
+            </div>
+    
+            <!-- form handling -->
+            <form class="py-8" action="/admin/drugs" method="POST">
+                <table class="table addUser accounts">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Image</th>
+                            <th>Drug Name</th>
+                            <th>Category Name</th>
+                            <th>Production Date</th>
+                            <th>Expiration Date</th>
+                            <th>Price (Tk)</th>
+                            <th>Generic Name</th>
+                            <th>Brand Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                      <%- include('../drugsInclude/dbody.ejs') %>
+                        
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('../../_layouts/sidebar.ejs') %>
+</div>
+</section>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/app.js" type="text/javascript" charset="utf-8"></script>
