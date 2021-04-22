@@ -1206,11 +1206,13 @@ nav li a{
 }
 
 #update_user .form-group,
+#update_drugs .form-group,
 #add_user .form-group{
   margin: .4em 0;
 }
 
 #update_user .form-group input[type="text"],
+#update_drugs .form-group input[type="text"],
 #add_user .form-group input[type="text"]{
   width: 100%;
   padding: .6em 1em;
@@ -1267,6 +1269,7 @@ nav li a{
 }
 
 #update_user .form-group .btn,
+#update_drugs .form-group .btn,
 #add_user .form-group .btn{
   width: 100%;
   padding: .9em 1em;
@@ -1280,6 +1283,7 @@ nav li a{
 }
 
 #update_user .form-group .btn:hover,
+#update_drugs .form-group .btn:hover,
 #add_user .form-group .btn:hover{
   background-color: $dark;
   color: $border;

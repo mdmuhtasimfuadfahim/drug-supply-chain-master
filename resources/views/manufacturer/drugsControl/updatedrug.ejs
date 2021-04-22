@@ -1,0 +1,87 @@
+<%- include('../../_layouts/header3.ejs') %>
+<%- include('../../toast.ejs') %>
+
+<section class="tutorials">
+<div class="containerHomeMan">
+<%- include('../../_layouts/head.ejs') %>
+<div class="accountsCon">
+    <div id="header2">
+        <nav>
+            <div class="container3 text-3xl font-bold">
+                <div class="text-center">
+                    <a href="/manufacturer/drugs" class="nav-brand text-dark">See Drug List to Sell</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    <div id="site-main">
+        <div class="ml-10 container4">
+            <div class="box-nav d-flex justify-between">
+                <div class="filter">
+                    <a href="/manufacturer/drugs" class="border-shadow">
+                        <i class="fas fa-angle-double-left"></i> <span class="text-gradient">All Drugs</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="form-title text-center">
+                <h2 class="text-2xl font-bold text-dark">Update Drug Info</h2>
+                <span class="text-light">Use the below form to upate a drug info</span>
+            </div>
+             <!-- form handling -->
+             
+             <form id="update_drugs" class="py-8" method="POST">
+                    <div class="new_drug">
+                        <div class="form-group">
+                            <label for="drugName" class="text-light">Drug Name</label>
+                            <input type="hidden" name="id" value="<%= drugs._id %>">
+                            <input type="text" name="drugName" value="<%= drugs.drugName %>">
+                        </div>
+                        <div class="form-group">
+                            <label for="productionDate" class="text-light">Production Date</label>
+                            <input type="text" name="productionDate" value="<%= drugs.productionDate %>" placeholder="January 31, 2023">
+                        </div>
+                        <div class="form-group">
+                            <label for="expirationDate" class="text-light">Expiration Date</label>
+                            <input type="text" name="expirationDate" value="<%= drugs.expirationDate %>" placeholder="January 31, 2023">
+                        </div>
+                        <div class="form-group">
+                            <label for="comment" class="text-light">Comment</label>
+                            <input type="text" name="comment" value="<%= drugs.comment %>" placeholder="10000">
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="price" class="text-light">Price</label>
+                            <input type="text" name="price" value="<%= drugs.price %>" placeholder="144">
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="genericName" class="text-light">Generic Name</label>
+                            <input type="text" name="genericName" value="<%= drugs.genericName %>" placeholder="pramlintide (PRAM lin tide">
+                        </div>
+                        <div class="form-group">
+                            <label for="brandName" class="text-light">Brand Name</label>
+                            <input type="text" name="brandName" value="<%= drugs.brandName %>" placeholder="SymlinPen 120">
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="text-light">Description</label>
+                            <input type="text" name="description" value="<%= drugs.description %>" placeholder="Octreotide is a man-made form of a hormone that occurs naturally ...">
+                        </div>
+
+                     <div class="form-group">
+                         <button type="submit" class="btn update">Save</button>
+                     </div>
+
+                 </div>
+             </form>
+        </div>
+    </div>
+</div>
+<%- include('../../_layouts/sidebar.ejs') %>
+</div>
+</section>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="/js/app.js" type="text/javascript" charset="utf-8"></script>

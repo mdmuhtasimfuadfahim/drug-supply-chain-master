@@ -32,7 +32,7 @@ function initRoutes(app){
 
     app.get('/cart', auth, cartController().cart)
     app.post('/update_cart', cartController().update)
-    app.get('/transaction',transactionController().depotTransaction)
+    app.get('/transaction',auth, transactionController().depotTransaction)
     app.get('/profiles', auth, homeController().getProfiles)
 
     //---------------Depot Order Control Routes---------
@@ -51,9 +51,13 @@ function initRoutes(app){
     app.get('/manufacturer/transaction',transactionController().manufacturerTransaction)
 
     //--------------Manufacturer Control Drugs-----------
-    app.get('/manufacturer/drugs',drugController().seeDrugs)
-    app.get('/manufacturer/drugs/upload',drugController().addDrugPage)
+    app.get('/manufacturer/drugs',manufacturer,drugController().seeDrugs)
+    app.get('/manufacturer/drugs/upload',manufacturer,drugController().addDrugPage)
     app.post('/manufacturer/drugs/upload',drugController().uploadDrugs)
+    app.get('/manufacturer/drugs/find', drugController().drugFind)
+    app.get('/manufacturer/update_drugs',manufacturer, drugController().updateDrug)
+    app.put('/manufacturer/drugs/:id',drugController().drugUpdate)
+    app.delete('/manufacturer/drugs/:id',drugController().drugDelete)
     
     //-----------------Manufacturer Order Control Routes-------------
     app.get('/manufacturer/orders', manufacturer, manufacturerOrderController().index)

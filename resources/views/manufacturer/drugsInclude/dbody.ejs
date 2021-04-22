@@ -5,6 +5,7 @@
         
         <td><%= i + 1  %></td>
         <td><img class="rounded-full" src="<%= drugs[i].image %>" height="40px" width="40px" alt=""></td>
+        <td><%= drugs[i]._id %></td>
         <td><%= drugs[i].drugName %></td>
         <td><%= drugs[i].categoryName %></td>
         <td><%= drugs[i].productionDate %></td>
@@ -15,7 +16,7 @@
         <td><a href="/manufacturer/update_drugs?id=<%= drugs[i]._id %>" class="btn border-shadow update">
          <span class="text-gradient"><i class="fas fa-user-edit"></i></span>
          </a>
-         <a class="btn border-shadow delete" data-id=<%= drugs[i]._id %> >
+         <a class="btn border-shadow delete" data-id2=<%= drugs[i]._id %> >
              <span class="text-gradient"><i class="fas fa-times"></i></span>
          </a></td>
     </tr>

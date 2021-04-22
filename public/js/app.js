@@ -1917,10 +1917,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sunSwitecher__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./sunSwitecher */ "./resources/js/sunSwitecher.js");
 /* harmony import */ var _new__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./new */ "./resources/js/new.js");
 /* harmony import */ var _admin__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./admin */ "./resources/js/admin.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _userCon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./userCon */ "./resources/js/userCon.js");
+/* harmony import */ var _drugCon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./drugCon */ "./resources/js/drugCon.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_11__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -1937,7 +1939,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-window.$ = window.jQuery = (jquery__WEBPACK_IMPORTED_MODULE_8___default()); // export for others scripts to use
+
+
+window.$ = window.jQuery = (jquery__WEBPACK_IMPORTED_MODULE_10___default()); // export for others scripts to use
 
 var categoryTitle = document.querySelectorAll('.category-title');
 var allCategoryPosts = document.querySelectorAll('.all');
@@ -2009,46 +2013,10 @@ addToCart.forEach(function (btn) {
 (0,_sunSwitecher__WEBPACK_IMPORTED_MODULE_5__.initSun)(); //--------------SideBar Manufacturer Panel---------
 
 (0,_new__WEBPACK_IMPORTED_MODULE_6__.initNew)(); //--------------Update User--------------
-// const updateUser = document.querySelector('#update_user')
 
-$("#update_user").submit(function (event) {
-  event.preventDefault();
-  var unindexed_array = $(this).serializeArray(); //console.log(unindexed_array)
+(0,_userCon__WEBPACK_IMPORTED_MODULE_8__.userControl)(); //--------------Drug Controller JS----------
 
-  var data = {};
-  $.map(unindexed_array, function (n, i) {
-    data[n['name']] = n['value'];
-  }); // console.log(data)
-  // const base = 'http://localhost:3040',
-
-  var request = {
-    "url": "http://localhost:3040/api/drug/manufacturer/users/".concat(data.id),
-    "method": "PUT",
-    "data": data
-  };
-  $.ajax(request).done(function (response) {
-    alert("Data Updated Successfully!");
-  });
-});
-
-if (window.location.pathname == "/manufacturer/accounts") {
-  window.$ondelete = $(".table tbody td a.delete");
-  $ondelete.click(function () {
-    var id = $(this).attr("data-id");
-    var request = {
-      "url": "http://localhost:3040/api/drug/manufacturer/users/".concat(id),
-      "method": "DELETE"
-    };
-
-    if (confirm("Do You Want to Revocate this Member?")) {
-      $.ajax(request).done(function (response) {
-        alert("Member Informations Deleted Successfully!");
-        location.reload();
-      });
-    }
-  });
-} //--------- Remove Alert---------
-
+(0,_drugCon__WEBPACK_IMPORTED_MODULE_9__.drugControl)(); //--------- Remove Alert---------
 
 var alertMsg = document.querySelector('#success-alert');
 
@@ -2082,7 +2050,7 @@ function updateStatus(order) {
 
     if (dataPro === order.status) {
       stepCompleted = false;
-      time.innerText = moment__WEBPACK_IMPORTED_MODULE_9___default()(order.updatedAt).format('hh:mm A');
+      time.innerText = moment__WEBPACK_IMPORTED_MODULE_11___default()(order.updatedAt).format('hh:mm A');
       status.appendChild(time);
 
       if (status.nextElementSibling) {
@@ -2111,7 +2079,7 @@ if (manufacturerAreaPath.includes('manufacturer')) {
 socket.on('orderUpdated', function (data) {
   var updatedOrder = _objectSpread({}, order);
 
-  updatedOrder.updatedAt = moment__WEBPACK_IMPORTED_MODULE_9___default()().format();
+  updatedOrder.updatedAt = moment__WEBPACK_IMPORTED_MODULE_11___default()().format();
   updatedOrder.status = data.status;
   updateStatus(updatedOrder);
   new (noty__WEBPACK_IMPORTED_MODULE_1___default())({
@@ -2143,7 +2111,7 @@ function updateRole(order2) {
 
     if (dataPro2 === order2.role) {
       stepCompleted2 = false;
-      time.innerText = moment__WEBPACK_IMPORTED_MODULE_9___default()(order2.updatedAt).format('hh:mm A');
+      time.innerText = moment__WEBPACK_IMPORTED_MODULE_11___default()(order2.updatedAt).format('hh:mm A');
       role.appendChild(time);
 
       if (role.nextElementSibling) {
@@ -2157,7 +2125,7 @@ updateRole(order2);
 socket.on('locationUpdate', function (data) {
   var locationUpdated = _objectSpread({}, order);
 
-  locationUpdated.updatedAt = moment__WEBPACK_IMPORTED_MODULE_9___default()().format();
+  locationUpdated.updatedAt = moment__WEBPACK_IMPORTED_MODULE_11___default()().format();
   locationUpdated.role = data.role;
   updateRole(locationUpdated); // new Noty({
   //     type: 'success',
@@ -2167,6 +2135,61 @@ socket.on('locationUpdate', function (data) {
   // }).show();
   // console.log(data)
 });
+
+/***/ }),
+
+/***/ "./resources/js/drugCon.js":
+/*!*********************************!*\
+  !*** ./resources/js/drugCon.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "drugControl": () => (/* binding */ drugControl)
+/* harmony export */ });
+function drugControl() {
+  //----------------Update Drug Information--------------
+  $("#update_drugs").submit(function (event) {
+    event.preventDefault();
+    var unindexed_array = $(this).serializeArray(); //console.log(unindexed_array)
+
+    var data = {};
+    $.map(unindexed_array, function (n, i) {
+      data[n['name']] = n['value'];
+    }); // console.log(data)
+    // const base = 'http://localhost:3040',
+
+    var request = {
+      "url": "http://localhost:3040/manufacturer/drugs/".concat(data.id),
+      "method": "PUT",
+      "data": data
+    };
+    $.ajax(request).done(function (response) {
+      alert("Drug Information Updated Successfully!");
+      location.reload();
+    });
+  });
+
+  if (window.location.pathname == "/manufacturer/drugs") {
+    window.$ondelete = $(".table tbody td a.delete");
+    $ondelete.click(function () {
+      var id = $(this).attr("data-id2");
+      var request2 = {
+        "url": "http://localhost:3040/manufacturer/drugs/".concat(id),
+        "method": "DELETE"
+      };
+
+      if (confirm("Do You Want to Delete this Drug Information?")) {
+        $.ajax(request2).done(function (response) {
+          alert("Drug Informations Deleted Successfully!");
+          location.reload();
+        });
+      }
+    });
+  }
+}
 
 /***/ }),
 
@@ -2706,6 +2729,60 @@ function initToast() {
       ajax();
     }, 100);
   };
+}
+
+/***/ }),
+
+/***/ "./resources/js/userCon.js":
+/*!*********************************!*\
+  !*** ./resources/js/userCon.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "userControl": () => (/* binding */ userControl)
+/* harmony export */ });
+function userControl() {
+  $("#update_user").submit(function (event) {
+    event.preventDefault();
+    var unindexed_array = $(this).serializeArray(); //console.log(unindexed_array)
+
+    var data = {};
+    $.map(unindexed_array, function (n, i) {
+      data[n['name']] = n['value'];
+    }); // console.log(data)
+    // const base = 'http://localhost:3040',
+
+    var request = {
+      "url": "http://localhost:3040/api/drug/manufacturer/users/".concat(data.id),
+      "method": "PUT",
+      "data": data
+    };
+    $.ajax(request).done(function (response) {
+      alert("Data Updated Successfully!");
+      location.reload();
+    });
+  });
+
+  if (window.location.pathname == "/manufacturer/accounts") {
+    window.$ondelete = $(".table tbody td a.delete");
+    $ondelete.click(function () {
+      var id = $(this).attr("data-id");
+      var request = {
+        "url": "http://localhost:3040/api/drug/manufacturer/users/".concat(id),
+        "method": "DELETE"
+      };
+
+      if (confirm("Do You Want to Revocate this Member?")) {
+        $.ajax(request).done(function (response) {
+          alert("Member Informations Deleted Successfully!");
+          location.reload();
+        });
+      }
+    });
+  }
 }
 
 /***/ }),

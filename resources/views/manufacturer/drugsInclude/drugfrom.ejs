@@ -1,5 +1,5 @@
  <!-- form handling -->
- <form action="/manufacturer/drugs/upload" id="add_user" class="py-4" method="POST" enctype="multipart/form-data>
+ <form action="/manufacturer/drugs/upload" method="POST" id="add_user" class="py-4"  enctype="multipart/form-data>
     <% if(messages.error){ %>
     <span class="ml-10 text-red-500 text-sm"><%= messages.error %></span> 
     <% } %>
@@ -11,8 +11,8 @@
             <input type="text" name="drugName" value="<%= messages.drugName %>" placeholder="Pramlintide">
         </div>
         <div class="form-group">
-            <label for="drugimage" class="text-light">Image</label>
-            <input type="file" name="image" value="" placeholder="Drug Image" id="drugimage">
+            <label for="drugimage">Image</label>
+            <input name="image" type="file" value="" id="drugimage" placeholder="">
         </div>
         <div class="form-group">
             <label for="categoryName" class="text-light">Category Name</label>
