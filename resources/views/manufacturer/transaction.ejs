@@ -13,14 +13,16 @@
                     
                     <thead>
                         <tr>
-                            <th>Transaction Hash</th>
+                            <th>Block Hash</th>
                             <th>Order ID</th>
                             <th> Block Number</th>
                             <th> Gas Used</th>
-                            <th> From </th>
                             <th> To</th>
+                            <th>Depot In-Charge ID</th>
+                            <th>Transaction Hash</th>
                             <th> Type</th>
                             <th> Time</th>
+                            <th> Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -28,7 +30,7 @@
                             <% transactions.forEach((transaction)=>{ %>
                                 <tr>
                                     <td>
-                                      <%= transaction.transactionHash %>
+                                      <%= transaction.blockHash %>
                                    </td>
                                    <td >
                                     <%= transaction.orderID._id %>
@@ -40,14 +42,20 @@
                                         <%= transaction.gasUsed %>
                                     </td>
                                     <td>
-                                        <%= transaction.from %>
+                                        <%= transaction.to %>
                                     </td>
                                     <td>
-                                        <%= transaction.to %>
+                                        <%= transaction.orderID.depotId %>
+                                    </td>
+                                    <td>
+                                        <%= transaction.transactionHash %>
                                     </td>
                                     <td>
                                         <%= transaction.transaction %>
                                     </td>
+                                    <td>
+                                        <%= moment(transaction.createdAt).format('hh:mm A') %>
+                                    </td> 
                                     <td>
                                         <%= moment(transaction.createdAt).format('MMMM Do YYYY') %>
                                     </td>  

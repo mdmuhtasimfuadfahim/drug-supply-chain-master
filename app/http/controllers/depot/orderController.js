@@ -1,6 +1,5 @@
 const passport = require('passport')
 const Order = require('../../../models/order')
-const Location = require('../../../models/location')
 const moment = require('moment')
 const bcrypt = require('bcrypt')
 function orderController(){

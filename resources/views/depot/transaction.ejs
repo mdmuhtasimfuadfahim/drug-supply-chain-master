@@ -8,13 +8,14 @@
         <thead>
             <tr>
                 <th class="px-4 py-2 text-left">Transaction Hash</th>
+                <th class="px-4 py-2 text-left">Block Hash</th>
                 <th class="px-4 py-2 text-left">Order ID</th>
                 <th class="px-4 py-2 text-left"> Block Number</th>
                 <th class="px-4 py-2 text-left"> Gas Used</th>
-                <th class="px-4 py-2 text-left"> From </th>
-                <th class="px-4 py-2 text-left"> To</th>
+                <th class="px-4 py-2 text-left"> From</th>
                 <th class="px-4 py-2 text-left"> Type</th>
                 <th class="px-4 py-2 text-left"> Time</th>
+                <th class="px-4 py-2 text-left"> Date</th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +25,9 @@
                         <td class="border px-4 py-2">
                           <%= transaction.transactionHash %>
                        </td>
+                       <td class="border px-4 py-2">
+                        <%= transaction.blockHash %>
+                     </td>
                        <td class="border px-4 py-2">
                         <%= transaction.orderID._id %>
                      </td>
@@ -37,11 +41,11 @@
                             <%= transaction.from %>
                         </td>
                         <td class="border px-4 py-2">
-                            <%= transaction.to %>
-                        </td>
-                        <td class="border px-4 py-2">
                             <%= transaction.transaction %>
                         </td>
+                        <td class="border px-4 py-2">
+                            <%= moment(transaction.createdAt).format('hh:mm A') %>
+                        </td>  
                         <td class="border px-4 py-2">
                             <%= moment(transaction.createdAt).format('MMMM Do YYYY') %>
                         </td>  
