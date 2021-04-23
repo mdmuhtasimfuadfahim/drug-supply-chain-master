@@ -1,5 +1,4 @@
-import axios from 'axios'
-import Noty from 'noty'
+
 var wrapperToast = document.querySelector(".wrapperToast")
 var toastT = document.querySelector(".toastT")
 var title = document.querySelector(".span")
