@@ -1,0 +1,42 @@
+<%- include('../../_layouts/header3.ejs') %>
+<%- include('../../toast.ejs') %>
+
+<section class="tutorials">
+<div class="containerHomeMan">
+<%- include('../../_layouts/head.ejs') %>
+<%- include('../../_layouts/sidebar.ejs') %>
+   <div class="accountsCon">
+    <div id="header2">
+        <nav>
+            <div class="container3 text-3xl font-bold">
+                <div class="text-center">
+                    <a href="/manufacturer/drugstorage/upload" class="nav-brand text-dark">Add New Drugs in Storage</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    <div id="site-main">
+        <div class="ml-10 container4">
+            <div class="box-nav d-flex justify-between">
+                <div class="filter">
+                    <a href="/manufacturer/drugstorage" class="border-shadow">
+                        <i class="fas fa-angle-double-left"></i><span class="text-gradient">All Drugs of Storage</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="form-title text-center">
+                <h2  class="text-2xl font-bold text-dark">New Production</h2>
+                <span class="text-light">Use the below form to add a new drug production</span>
+            </div>
+    
+            <%- include('../drugStoreInclude/drugStorefrom.ejs') %>
+        </div>
+    </div>
+   </div>
+
+</div>
+</section>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/app.js" type="text/javascript" charset="utf-8"></script>

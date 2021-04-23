@@ -1,0 +1,43 @@
+ <!-- form handling -->
+ <form action="/manufacturer/drugstorage/upload" method="POST" id="add_user" class="py-4"  enctype="multipart/form-data">
+    
+    <span class="ml-10 text-red-500 text-sm">Error Message</span> 
+    
+
+    <div class="new_user">
+        <div class="form-group">
+            <label for="drugId" class="text-light">Drug ID</label>
+            <input type="hidden" name="id" value="">
+            <input type="text" name="drugId" value="<%= messages.drugId %>" placeholder="28328883477402304883">
+        </div>
+        <div class="form-group">
+            <label for="categoryName" class="text-light">Category Name</label>
+            <select name="categoryName">
+                <option value="daibetes">Diabetes</option>
+                <option value="cancer">Cancer</option>
+                <option value="heart">Heart</option>
+                <option value="insomnia">Insomnia</option>
+                <option value="stroke">Stroke</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="productionID" class="text-light">Production ID</label>
+            <input type="text" name="productionID" value="<%= messages.productionID %>" placeholder="2">
+        </div>
+        <div class="form-group">
+            <label for="batchNum" class="text-light">Batch Number</label>
+            <input type="text" name="batchNum" value="<%= messages.batchNum %>" placeholder="123-981-910">
+        </div>
+        <div class="form-group">
+            <label for="darNum" class="text-light">DAR Number</label>
+            <input type="text" name="darNum" value="<%= messages.darNum %>" placeholder="32099-1092-92883">
+        </div>
+
+
+        <div class="form-group">
+            <button type="submit" class="btn update">Save</button>
+        </div>
+
+    </div>
+</form>
+

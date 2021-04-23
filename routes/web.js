@@ -10,6 +10,7 @@ const statusController = require('../app/http/controllers/manufacturer/statusCon
 const locationController = require('../app/http/controllers/locationController')
 const transactionController = require('../app/http/controllers/transactionController')
 const drugController = require('../app/http/controllers/manufacturer/drugController')
+const drugStorageController = require('../app/http/controllers/manufacturer/drugStorageController')
 
 //------------------Middlewares---------------
 const guest = require('../app/http/middlewares/guest')
@@ -58,7 +59,17 @@ function initRoutes(app){
     app.get('/manufacturer/update_drugs',manufacturer, drugController().updateDrug)
     app.put('/manufacturer/drugs/:id',drugController().drugUpdate)
     app.delete('/manufacturer/drugs/:id',drugController().drugDelete)
-    
+
+
+    //-------------Manufacturer Personal Drug Control-----------
+    app.get('/manufacturer/drugstorage',manufacturer,drugStorageController().drugStorage)
+    app.get('/manufacturer/drugstorage/upload',manufacturer, drugStorageController().drugAddStorage)
+    app.post('/manufacturer/drugstorage/upload',manufacturer, drugStorageController().drugAddNewStorage)
+    app.get('/manufacturer/drugstorage/find', drugStorageController().drugStorageFind)
+    app.get('/manufacturer/update_drugstorage', drugStorageController().updateDrugStorage)
+    app.put('/manufacturer/drugstorage/:id',drugStorageController().drugStorageUpdate)
+    app.delete('/manufacturer/drugstorage/:id',drugStorageController().drugStorageDelete)
+
     //-----------------Manufacturer Order Control Routes-------------
     app.get('/manufacturer/orders', manufacturer, manufacturerOrderController().index)
     app.post('/manufacturer/order/status', manufacturer, statusController().statusControl)

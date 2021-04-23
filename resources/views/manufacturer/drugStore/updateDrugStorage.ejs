@@ -1,0 +1,70 @@
+<%- include('../../_layouts/header3.ejs') %>
+<%- include('../../toast.ejs') %>
+
+<section class="tutorials">
+<div class="containerHomeMan">
+<%- include('../../_layouts/head.ejs') %>
+<div class="accountsCon">
+    <div id="header2">
+        <nav>
+            <div class="container3 text-3xl font-bold">
+                <div class="text-center">
+                    <a href="/manufacturer/update_drugstorage" class="nav-brand text-dark">Update a Drug Storage</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    <div id="site-main">
+        <div class="ml-10 container4">
+            <div class="box-nav d-flex justify-between">
+                <div class="filter">
+                    <a href="/manufacturer/drugstorage" class="border-shadow">
+                        <i class="fas fa-angle-double-left"></i> <span class="text-gradient">All Drugs</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="form-title text-center">
+                <h2 class="text-2xl font-bold text-dark">Update Drug Storage Info</h2>
+                <span class="text-light">Use the below form to upate a drug storage info</span>
+            </div>
+             <!-- form handling -->
+             
+             <form id="update_drugs" class="py-8" method="POST">
+                    <div class="new_drug">
+                        <div class="form-group">
+                            <label for="drugId" class="text-light">Drug ID</label>
+                            <input type="hidden" name="id" value="<%= drugstorage._id %>">
+                            <input type="text" name="drugId" value="<%= drugstorage.drugId %>">
+                        </div>
+                        <div class="form-group">
+                            <label for="productionID" class="text-light">Production ID</label>
+                            <input type="text" name="productionID" value="<%= drugstorage.productionID %>" placeholder="3">
+                        </div>
+                        <div class="form-group">
+                            <label for="batchNum" class="text-light">Batch Number</label>
+                            <input type="text" name="batchNum" value="<%= drugstorage.batchNum %>" placeholder="123-981-910">
+                        </div>
+                        <div class="form-group">
+                            <label for="darNum" class="text-light">DAR Numebr</label>
+                            <input type="text" name="darNum" value="<%= drugstorage.darNum %>" placeholder="32099-1092-92883">
+                        </div>
+                
+
+                     <div class="form-group">
+                         <button type="submit" class="btn update">Save</button>
+                     </div>
+
+                 </div>
+             </form>
+        </div>
+    </div>
+</div>
+<%- include('../../_layouts/sidebar.ejs') %>
+</div>
+</section>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="/js/app.js" type="text/javascript" charset="utf-8"></script>
