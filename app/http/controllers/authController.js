@@ -47,7 +47,7 @@ function authController () {
                 req.flash('error', 'All Fields are Required for Login')
                 return res.redirect('/login')
             }
-            else{
+            else {
                 passport.authenticate('local', (err, user, info)=>{
                     if(err){
                         req.flash('error', info.message)
@@ -62,10 +62,17 @@ function authController () {
                             req.flash('error', info.message)
                             return next(err)
                         }
-                        return res.redirect(_getRedirectUrl(req))
+                        if(req.user.role === 'Manufacturer' || req.user.role === 'Depot In-charge'){
+                            return res.redirect(_getRedirectUrl(req))
+                        }
+                        else{
+                            res.status(200).send(JSON.stringify(user))
+                        }
+                       
                     })
                  })(req, res, next)
             }
+        
         },
         register(req, res){
             res.render('auth/register')
@@ -144,6 +151,29 @@ function authController () {
             })                   
         })
        },
+    //    postAppLogin(req, res){
+    //     const query = {
+    //         email: req.body.email, 
+    //         private_key: req.body.private_key
+    //     }
+
+    //     User.findOne(query, (err, result) => {
+
+    //         if (result != null) {
+
+    //             const objToSend = {
+    //                 email: result.email,
+    //                 private_key: result.private_key
+    //             }
+
+    //             res.status(200).send(JSON.stringify(objToSend))
+
+    //         } else {
+    //             res.status(404).send()
+    //         }
+
+    //     })
+    //    },
        logout(req, res){
            req.logout()
            return res.redirect('/login')

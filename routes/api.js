@@ -11,7 +11,8 @@ const { truncate } = require('fs');
 const { Result } = require('postcss');
 const mHomeController = require('../app/http/controllers/manufacturer/mHomeController')
 const fileController = require('../app/http/controllers/manufacturer/fileController')
-const homeController = require('../app/http/controllers/homeController')
+const homeController = require('../app/http/controllers/homeController');
+const authController = require('../app/http/controllers/authController');
 // const { restart } = require('nodemon');
 // const { parse } = require('dotenv/types');
 // const { response } = require('express');
@@ -22,6 +23,9 @@ const homeController = require('../app/http/controllers/homeController')
 //-----------------JSON Post and Get Route-------------
 router.post('/', homeController().passDrug)
 router.get('/', homeController().passgetDrug)
+
+
+// router.post('/login', authController().postAppLogin)
 
 
 //-----------------File Upload Router-------------

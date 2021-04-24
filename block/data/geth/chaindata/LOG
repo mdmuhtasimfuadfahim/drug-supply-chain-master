@@ -837,3 +837,15 @@
 00:22:03.610379 db@open done T·20.4898ms
 00:22:28.764591 db@close closing
 00:22:28.764591 db@close done T·0s
+=============== Apr 24, 2021 (+06) ===============
+23:30:08.368605 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:30:08.389228 version@stat F·[1 1] S·1MiB[18KiB 1MiB] Sc·[0.25 0.01]
+23:30:08.389228 db@open opening
+23:30:08.389228 journal@recovery F·1
+23:30:08.392688 journal@recovery recovering @189
+23:30:08.402883 memdb@flush created L0@191 N·4 S·7KiB "Sna..tor,v30576":"unc..own,v30575"
+23:30:08.406150 version@stat F·[2 1] S·1MiB[25KiB 1MiB] Sc·[0.50 0.01]
+23:30:08.415155 db@janitor F·5 G·0
+23:30:08.415155 db@open done T·25.9276ms
+23:30:19.717652 db@close closing
+23:30:19.718204 db@close done T·552.5µs
