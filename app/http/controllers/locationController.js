@@ -9,6 +9,25 @@ const order = require('../../models/order')
 const contract = require('../../models/contract')
 
 const transactionDb = require('../../models/transaction')
+var crypto = require('crypto'),
+    algorithm = 'aes-256-ctr',
+    password = 'd6F3fequee92hd';
+
+
+function encrypt(text){
+    var cipher = crypto.createCipher(algorithm, password)
+    var crypted = cipher.update(text, 'utf8', 'hex')
+    crypted += cipher.final('hex');
+    return crypted;
+}
+
+
+function decrypt(text){
+    var decipher = crypto.createDecipher(algorithm, password)
+    var dec = decipher.update(text, 'hex', 'utf8')
+    dec += decipher.final('utf8');
+    return dec;
+}
 
 
 var abi = [
@@ -247,18 +266,19 @@ function locationController(){
 
 									const transactionData = new transactionDb({
 										orderID: _orderId,
-				                     	blockHash: response.blockHash,
-				                     	blockNumber: response.blockNumber,
+										depotId: populateOrder.depotId,
+				                     	blockHash: encrypt(response.blockHash),
+				                     	blockNumber: encrypt(response.blockNumber.toString()),
 				                     	contractAddress: response.contractAddress,
-				                     	cumulativeGasUsed: response.cumulativeGasUsed,
-				                     	from: response.from,
-				                     	gasUsed: response.gasUsed,
-				                     	logsBloom: response.logsBloom,
-				                     	status: response.status,
-				                     	to: response.to,
-				                     	transactionHash: response.transactionHash,
-				                     	transactionIndex: response.transactionIndex,
-				                     	type: response.type,
+				                     	cumulativeGasUsed: encrypt(response.cumulativeGasUsed.toString()),
+				                     	from: encrypt(response.from.toString()),
+				                     	gasUsed: encrypt(response.gasUsed.toString()),
+				                     	logsBloom: encrypt(response.logsBloom),
+				                     	status: encrypt(response.status.toString()),
+				                     	to:encrypt(response.to.toString()),
+				                     	transactionHash: encrypt(response.transactionHash),
+				                     	transactionIndex: encrypt(response.transactionIndex.toString()),
+				                     	type: encrypt(response.type.toString()),
 										transaction: "successful"
 				                     })
 

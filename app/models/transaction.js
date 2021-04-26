@@ -8,6 +8,11 @@ const transactionSchema = new Schema({
         ref: 'Order',
         required: true
     },
+    depotId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
     blockHash: String,
     blockNumber: String,
     cumulativeGasUsed: String,

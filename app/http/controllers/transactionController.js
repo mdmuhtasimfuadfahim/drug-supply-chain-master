@@ -6,6 +6,25 @@ var keyth = require('keythereum')
 const Tx = require('ethereumjs-tx').Transaction
 const Transaction = require('../../models/transaction')
 const moment = require('moment')
+var crypto = require('crypto'),
+    algorithm = 'aes-256-ctr',
+    password = 'd6F3fequee92hd';
+
+
+function encrypt(text){
+    var cipher = crypto.createCipher(algorithm, password)
+    var crypted = cipher.update(text, 'utf8', 'hex')
+    crypted += cipher.final('hex');
+    return crypted;
+}
+
+
+function decrypt(text){
+    var decipher = crypto.createDecipher(algorithm, password)
+    var dec = decipher.update(text, 'hex', 'utf8')
+    dec += decipher.final('utf8');
+    return dec;
+}
 var abi = [
 	{
 		"constant": true,
@@ -179,8 +198,38 @@ const contractAddress = "0x275e7bD64bc3835F476f2a0448CB9aE8E99005AF";
 function transactionController(){
     return{
         async depotTransaction(req, res){
-           const transactions = await Transaction.find().populate('orderID', '-private_key')
-           console.log(transactions)
+           const transaction = await Transaction.find({depotId: req.user._id}).populate('orderID', '-private_key')
+		   const showTransaction = {transaction: transaction};
+		   const transactions = []
+		   transaction.forEach(function(transaction){
+			transactions.push({
+			   _id: transaction._id,
+			   orderID: transaction.orderID,
+			   depotId: transaction.depotId,
+			   blockHash: decrypt(transaction.blockHash),
+			   blockNumber: decrypt(transaction.blockNumber),
+			   contractAddress: transaction.contractAddress,
+			   cumulativeGasUsed: decrypt(transaction.cumulativeGasUsed.toString()),
+			   from: decrypt(transaction.from.toString()),
+			   gasUsed: decrypt(transaction.gasUsed.toString()),
+			   logsBloom: decrypt(transaction.logsBloom.toString()),
+			   status:decrypt(transaction.status.toString()),
+			   to:decrypt(transaction.to.toString()),
+			   transactionHash:decrypt(transaction.transactionHash),
+			   transactionIndex:decrypt(transaction.transactionIndex.toString()),
+			   type:decrypt(transaction.type.toString()),
+			   transaction: transaction.transaction,
+			   createdAt: transaction.createdAt,
+			   updatedAt: transaction.updatedAt,
+			   __v: transaction.__v
+		   })
+
+		   console.log(transactions)  
+	   })
+          // console.log(transactions)
+		//    const myContract = new web3.eth.Contract(abi, contractAddress)
+		//    const getAllDatas = await myContract.methods.getStoreDrugs("6082e0d913143b04bc137480").call({from: "0x372570fbdc1ea9c9d1c4513677218dc53b6acb19"});
+		//    console.log(getAllDatas)
         //   web3.eth.getAccounts().then(async function(accounts){
         //     const myContract = new web3.eth.Contract(abi, contractAddress)
         //     const _orderId = '607a927c34f0d51bf89cff77';
@@ -216,8 +265,35 @@ function transactionController(){
         },
 
 		async manufacturerTransaction(req, res){
-		   const transactions = await Transaction.find().populate('orderID', '-private_key')
-           console.log(transactions)
+		   const transaction = await Transaction.find().populate('orderID', '-private_key')
+		   const showTransaction = {transaction: transaction};
+		   const transactions = []
+		   transaction.forEach(function(transaction){
+			   console.log(transaction)
+			transactions.push({
+			   _id: transaction._id,
+			   orderID: transaction.orderID,
+			   blockHash: decrypt(transaction.blockHash),
+			   blockNumber: decrypt(transaction.blockNumber),
+			   contractAddress: transaction.contractAddress,
+			   cumulativeGasUsed: decrypt(transaction.cumulativeGasUsed),
+			   from: decrypt(transaction.from),
+			   gasUsed: decrypt(transaction.gasUsed),
+			   logsBloom: decrypt(transaction.logsBloom),
+			   status:decrypt(transaction.status),
+			   to:decrypt(transaction.to),
+			   transactionHash:decrypt(transaction.transactionHash),
+			   transactionIndex:decrypt(transaction.transactionIndex),
+			   type:decrypt(transaction.type),
+			   transaction: transaction.transaction,
+			   createdAt: transaction.createdAt,
+			   updatedAt: transaction.updatedAt,
+			   __v: transaction.__v
+		   })
+
+		  
+	   })
+	   console.log(transactions)  
 
 		   return res.render('manufacturer/transaction', {transactions: transactions, moment: moment })
 
