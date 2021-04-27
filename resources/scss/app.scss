@@ -1504,6 +1504,7 @@ section.chains{
 }
 
 
+
 // text gray
 .status-box-2 ul li.step-completed2 span{
   color: $green-one;
@@ -1517,11 +1518,10 @@ section.chains{
   background: $primary;
 }
 
-.status-box-2 ul li small2{
-  margin-left: 100px;
+.status-box-2 ul li small{
   float: right;
   font-size: 14px;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .transactionTable{

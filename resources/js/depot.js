@@ -2,53 +2,50 @@ import axios from 'axios'
 import moment from 'moment'
 import Noty from 'noty'
 
+export function initDepot(socket){
+    const myOrderTableBody = document.querySelector('#myOrderTableBody')
+    let ordersPharmacist = []
+    let markupPharma 
 
-
-export function initAdmin(socket){
-    const orderTableBody = document.querySelector('#orderTableBody')
-    let orders = []
-
-    let markup
-
-
-    axios.get('/manufacturer/orders',{
+    axios.get('/api/drug/depot/orders',{
         headers: {
             "X-Requested-With": "XMLHttpRequest"
         }
     }).then(res => {
-        orders = res.data
-        markup = generateMarkup(orders)
-        orderTableBody.innerHTML = markup
+        ordersPharmacist = res.data
+        markupPharma = generateMarkupPharma(ordersPharmacist)
+        myOrderTableBody.innerHTML = markupPharma
     }).catch(err =>{
         //req.flash('error', 'Something Went Wrong')
-        //console.log(err)
+        console.log(err)
     })
 
-    function renderItems(drugs) {
+    function renderItemsPharma(drugs) {
         let parsedItems = Object.values(drugs)
         return parsedItems.map((menuItem) => {
             return `
-                <p>${ menuItem.drug.drugName } - ${ menuItem.qty } boxes </p>
+            <p>${ menuItem.drugName } - ${ menuItem.productQuantity } boxes </p>
             `
         }).join('')
       }
+     
 
 
-    function generateMarkup(orders){
-        return orders.map(order => {
+    function generateMarkupPharma(ordersPharmacist){
+        return ordersPharmacist.map(order => {
             return `
                 <tr>
                 <td class="border px-4 py-2 text-green-900">
                     <p>${ order._id }</p>
-                    <div>${ renderItems(order.drugs) }</div>
+                    <div>${ renderItemsPharma(order.drugs) }</div>
                 </td>
-                <td class="border px-4 py-2">${ order.depotId.name }</td>
-                <td class="border px-4 py-2">${ order.depotId.phone }</td>
-                <td class="border px-4 py-2">${ order.email }</td>               
+                <td class="border px-4 py-2">${ order.pharmacistId.name }</td>
+                <td class="border px-4 py-2">${ order.pharmacistId.phone }</td>
+                <td class="border px-4 py-2">${ order.pharmacistId.email }</td>               
                 <td class="border px-4 py-2">${ order.address }</td>
                 <td class="border px-4 py-2">
                     <div class="inline-block relative w-64">
-                        <form action="/manufacturer/order/status" method="POST">
+                        <form action="/api/drug/depot/orders/status" method="POST">
                             <input type="hidden" name="orderId" value="${ order._id }">
                             <select name="status" onchange="this.form.submit()"
                                 class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
@@ -92,17 +89,15 @@ export function initAdmin(socket){
     }
 
     // Socket
-    socket.on('orderPlaced', (order) => {
+    socket.on('newOrderPlaced', (order) => {
         new Noty({
             type: 'success',
             timeout: 1000,
             text: 'New Order... Hurray!',
             progressBar: false,
         }).show();
-        orders.unshift(order)
-        orderTableBody.innerHTML = ''
-        orderTableBody.innerHTML = generateMarkup(orders)
+        ordersPharmacist.unshift(order)
+        myOrderTableBody.innerHTML = ''
+        myOrderTableBody.innerHTML = generateMarkupPharma(ordersPharmacist)
     })
-
 }
-

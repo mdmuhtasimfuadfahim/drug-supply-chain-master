@@ -134,3 +134,7 @@ eventEmitter.on('locationUpdate', (data)=>{
 eventEmitter.on('orderPlaced', (data)=>{
     io.to('manufacturerRoom').emit('orderPlaced', data)
 })
+
+eventEmitter.on('newOrderPlaced', (data)=>{
+    io.to('DepotInRoom').emit('newOrderPlaced', data)
+})

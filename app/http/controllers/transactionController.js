@@ -198,7 +198,7 @@ const contractAddress = "0x275e7bD64bc3835F476f2a0448CB9aE8E99005AF";
 function transactionController(){
     return{
         async depotTransaction(req, res){
-           const transaction = await Transaction.find({depotId: req.user._id}).populate('orderID', '-private_key')
+           const transaction = await Transaction.find({depotId: req.user._id}, null, { sort: { 'createdAt': -1 } }).populate('orderID', '-private_key')
 		   const showTransaction = {transaction: transaction};
 		   const transactions = []
 		   transaction.forEach(function(transaction){

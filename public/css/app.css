@@ -1822,11 +1822,10 @@ section.chains {
   background: #FE5F1E;
 }
 
-.status-box-2 ul li small2 {
-  margin-left: 100px;
+.status-box-2 ul li small {
   float: right;
   font-size: 14px;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .transactionTable {

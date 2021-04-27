@@ -1,14 +1,11 @@
-<%- include('../_layouts/header3.ejs') %>
+<%- include('../_layouts/header.ejs') %>
 <%- include('../toast.ejs') %>
 
-<section class="tutorials">
-  <div class="containerHomeMan">
-   <%- include('../_layouts/head.ejs') %>
-  
-    <div class="ml-10 accountsCon mt-10">
-        <h1 class="font-bold md:text-xl mb-4">All Orders</h1>
-        <table class="adminT table">
-            <thead class="thead-dark">
+<section class="orders light-section">
+    <div class="container mx-auto pt-12">
+        <h1 class="font-bold text-lg mb-4">All Orders</h1>
+        <table class="customerT mx-auto table-auto bg-white">
+            <thead>
                 <tr>
                     <th class="px-4 py-2 text-left">Orders</th>
                     <th class="px-4 py-2 text-left">Name</th>
@@ -21,20 +18,11 @@
                     <th class="px-4 py-2 text-left">Payment Status</th>
                 </tr>
             </thead>
-            <tbody id="orderTableBody"></tbody>
+            <tbody id="myOrderTableBody"></tbody>
         </table>
     </div>
 
- 
-
-  <%- include('../_layouts/sidebar.ejs') %>
-</div>
 </section>
 
 <script src="/socket.io/socket.io.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-  <script src="/js/app.js" type="text/javascript" charset="utf-8"></script>
-
-
-
- 
+<script src="/js/app.js" type="text/javascript" charset="utf-8"></script>

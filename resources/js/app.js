@@ -8,6 +8,7 @@ import { initNew } from './new'
 import { initAdmin } from './admin'
 import { userControl } from './userCon'
 import { drugControl } from './drugCon'
+import { initDepot } from './depot'
 import jQuery from 'jquery'
 import moment from 'moment'
 window.$ = window.jQuery = jQuery
@@ -160,7 +161,10 @@ if(order){
 }
 
 let manufacturerAreaPath = window.location.pathname
+
 //console.log(manufacturerArea)
+
+
 
 if(manufacturerAreaPath.includes('manufacturer')){
     //----------Admin JS File----------------
@@ -193,6 +197,7 @@ order2 = JSON.parse(order2)
 //console.log(order2)
 
 
+
 function updateRole(order2){
     roles.forEach((role)=>{
         role.classList.remove('step-completed2')
@@ -218,6 +223,19 @@ function updateRole(order2){
  }
 
 updateRole(order2);
+
+//------------Depot Order Control----------
+let depotInAreaPath = window.location.pathname
+//console.log(depotInAreaPath)
+initDepot(socket)
+if(depotInAreaPath.includes('depotin-charge')){
+    //----------Depot JS File----------------
+  
+    socket.emit('join', 'DepotInRoom')
+}
+
+
+
 
 socket.on('locationUpdate', (data)=>{
     const locationUpdated = { ...order }
