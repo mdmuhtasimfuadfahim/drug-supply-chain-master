@@ -3,7 +3,7 @@
 
 <section class="orders light-section">
     <div class="container mx-auto pt-12">
-         <h1 class="font-bold text-lg mb-4"> All Orders</h1>
+         <h1 class="font-bold text-lg mb-4"> My Orders</h1>
         <% if(messages.success) { %>
          <div id="success-alert" class="flex items-center bg-green-500 
          text-white text-sm font-bold px-4 py-3" role="alert">
@@ -18,27 +18,42 @@
         <table class="customerT w-full table-auto bg-white">
             <thead>
                 <tr>
-                    <th class="px-4 py-2 text-left">Email</th>
-                    <th class="px-4 py-2 text-left"> Orders</th>
-                    <th class="px-4 py-2 text-left"> Address</th>
+                    <th class="px-4 py-2 text-left">Manufacturer Email</th>
+                    <th class="px-4 py-2 text-left"> Your Orders</th>
+                    <th class="px-4 py-2 text-left"> Manufacturer Address</th>
                     <th class="px-4 py-2 text-left"> Time</th>
+                    <th class="px-4 py-2 text-left"> Date</th>
                 </tr>
             </thead>
+            <%
+            function renderOrderItems(drugs) {
+               let parsedItems = Object.values(drugs)
+                return parsedItems.map((menuItem) => {
+                return `
+                     ${ menuItem.drug.drugName } - ${ menuItem.qty } boxes
+                `
+             }).join('')
+             }
+             %>
             <tbody>
                 <% if(orders.length) { %>
                     <% orders.forEach((order)=>{ %>
                         <tr>
                             <td class="border px-4 py-2">
-                                <%= order.email %>
+                                <%= order.sender.email %>
                            </td>
-                            <td class="border px-4 py-2">
+                            <td class="items-center mx-auto border px-4 py-2">
                                 <a  class="linkOrder" href="/depot/orders/<%= order._id %>"><%= order._id %></a>
+                                <p><%= renderOrderItems(order.drugs) %></p>
                             </td>
                             <td class="border px-4 py-2">
-                                <%= order.address %>
+                                <%= order.sender.address %>
                             </td>
                             <td class="border px-4 py-2">
                                 <%= moment(order.createdAt).format('hh:mm A') %>
+                            </td>
+                            <td class="border px-4 py-2">
+                                <%= moment(order.createdAt).format('MMMM Do YYYY') %>
                             </td>
                         </tr>
                     <% }) %>

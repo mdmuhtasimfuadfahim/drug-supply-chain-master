@@ -1,5 +1,6 @@
 const order = require('../../../models/order')
-const Order = require('../../../models/order')
+const moment = require('moment')
+
 
 function manufacturerOrderController(){
     return{
@@ -13,10 +14,18 @@ function manufacturerOrderController(){
                     return  res.render('manufacturer/orders')
                 }
                
+            })  
+        },
+        async showCompleted(req, res){
+            const ordersCompleted = await order.find({status: 'completed'}).populate('depotId', '-private_key').exec((err, orders)=>{
+                if(req.xhr){
+                    res.json(orders)
+                }
+                else{
+                    return  res.render('manufacturer/completed')
+                }
+         //   res.render('manufacturer/completed', {ordersCompleted: ordersCompleted, moment: moment})
             })
-
-
-            
         }
     }
 }

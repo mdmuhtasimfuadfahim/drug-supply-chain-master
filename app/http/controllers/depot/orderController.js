@@ -60,7 +60,7 @@ function orderController(){
         async orderControl(req, res){
             const orders = await Order.find({depotId: req.user._id},
                  null,
-                { sort: { 'createdAt': -1 } } )
+                { sort: { 'createdAt': -1 } } ).populate('sender', '-private_key')
                 res.header('Cache-Control', 'no-store')
             res.render('depot/orders', {orders: orders, moment: moment })
             // console.log(orders)

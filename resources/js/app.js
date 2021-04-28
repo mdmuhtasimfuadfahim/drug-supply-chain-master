@@ -9,6 +9,7 @@ import { initAdmin } from './admin'
 import { userControl } from './userCon'
 import { drugControl } from './drugCon'
 import { initDepot } from './depot'
+import { initAdminShow } from './adminShow'
 import jQuery from 'jquery'
 import moment from 'moment'
 window.$ = window.jQuery = jQuery
@@ -234,6 +235,8 @@ if(depotInAreaPath.includes('depotin-charge')){
     socket.emit('join', 'DepotInRoom')
 }
 
+
+initAdminShow()
 
 
 

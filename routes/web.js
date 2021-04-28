@@ -73,6 +73,7 @@ function initRoutes(app){
     //-----------------Manufacturer Order Control Routes-------------
     app.get('/manufacturer/orders', manufacturer, manufacturerOrderController().index)
     app.post('/manufacturer/order/status', manufacturer, statusController().statusControl)
+    app.get('/manufacturer/orders/completed', manufacturer, manufacturerOrderController().showCompleted)
    
     app.get('/files/:uuid', fileController().file)
     app.get('/files/download/:uuid', fileController().fileControl)

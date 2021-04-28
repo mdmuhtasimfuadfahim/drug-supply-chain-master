@@ -1899,6 +1899,55 @@ function initAdmin(socket) {
 
 /***/ }),
 
+/***/ "./resources/js/adminShow.js":
+/*!***********************************!*\
+  !*** ./resources/js/adminShow.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "initAdminShow": () => (/* binding */ initAdminShow)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function initAdminShow() {
+  var orderTableBody = document.querySelector('#orderTOShowCompleted');
+  var orders = [];
+  var markup;
+  axios__WEBPACK_IMPORTED_MODULE_0___default().get('/manufacturer/orders/completed', {
+    headers: {
+      "X-Requested-With": "XMLHttpRequest"
+    }
+  }).then(function (res) {
+    orders = res.data;
+    markup = generateMarkup(orders);
+    orderTableBody.innerHTML = markup;
+  })["catch"](function (err) {//req.flash('error', 'Something Went Wrong')
+    //console.log(err)
+  });
+
+  function renderItems(drugs) {
+    var parsedItems = Object.values(drugs);
+    return parsedItems.map(function (menuItem) {
+      return "\n                <p>".concat(menuItem.drug.drugName, " - ").concat(menuItem.qty, " boxes </p>\n            ");
+    }).join('');
+  }
+
+  function generateMarkup(orders) {
+    return orders.map(function (order) {
+      return "\n                <tr>\n                <td class=\"border px-4 py-2 text-green-900\">\n                    <p>".concat(order._id, "</p>\n                    <div>").concat(renderItems(order.drugs), "</div>\n                </td>\n                <td class=\"border px-4 py-2\">").concat(order.depotId.name, "</td>\n                <td class=\"border px-4 py-2\">").concat(order.depotId.phone, "</td>\n                <td class=\"border px-4 py-2\">").concat(order.email, "</td>               \n                <td class=\"border px-4 py-2\">").concat(order.address, "</td>\n                <td class=\"border px-4 py-2\">\n                   ").concat(order.status, "\n                </td>\n                <td class=\"border px-4 py-2\">\n                    ").concat(moment__WEBPACK_IMPORTED_MODULE_1___default()(order.createdAt).format('MMMM Do YYYY'), "\n                </td>\n                <td class=\"border px-4 py-2\">\n                    ").concat(moment__WEBPACK_IMPORTED_MODULE_1___default()(order.createdAt).format('hh:mm A'), "\n                </td>\n                <td class=\"border px-4 py-2\">\n                    ").concat(order.paymentStatus ? 'Paid' : 'Not paid', "\n                </td>\n            </tr>\n        ");
+    }).join('');
+  }
+}
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -1920,10 +1969,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _userCon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./userCon */ "./resources/js/userCon.js");
 /* harmony import */ var _drugCon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./drugCon */ "./resources/js/drugCon.js");
 /* harmony import */ var _depot__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./depot */ "./resources/js/depot.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _adminShow__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./adminShow */ "./resources/js/adminShow.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_13__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -1943,7 +1993,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-window.$ = window.jQuery = (jquery__WEBPACK_IMPORTED_MODULE_11___default()); // export for others scripts to use
+
+window.$ = window.jQuery = (jquery__WEBPACK_IMPORTED_MODULE_12___default()); // export for others scripts to use
 
 var categoryTitle = document.querySelectorAll('.category-title');
 var allCategoryPosts = document.querySelectorAll('.all');
@@ -2052,7 +2103,7 @@ function updateStatus(order) {
 
     if (dataPro === order.status) {
       stepCompleted = false;
-      time.innerText = moment__WEBPACK_IMPORTED_MODULE_12___default()(order.updatedAt).format('hh:mm A');
+      time.innerText = moment__WEBPACK_IMPORTED_MODULE_13___default()(order.updatedAt).format('hh:mm A');
       status.appendChild(time);
 
       if (status.nextElementSibling) {
@@ -2081,7 +2132,7 @@ if (manufacturerAreaPath.includes('manufacturer')) {
 socket.on('orderUpdated', function (data) {
   var updatedOrder = _objectSpread({}, order);
 
-  updatedOrder.updatedAt = moment__WEBPACK_IMPORTED_MODULE_12___default()().format();
+  updatedOrder.updatedAt = moment__WEBPACK_IMPORTED_MODULE_13___default()().format();
   updatedOrder.status = data.status;
   updateStatus(updatedOrder);
   new (noty__WEBPACK_IMPORTED_MODULE_1___default())({
@@ -2113,7 +2164,7 @@ function updateRole(order2) {
 
     if (dataPro2 === order2.role) {
       stepCompleted2 = false;
-      time.innerText = moment__WEBPACK_IMPORTED_MODULE_12___default()(order2.updatedAt).format('hh:mm A');
+      time.innerText = moment__WEBPACK_IMPORTED_MODULE_13___default()(order2.updatedAt).format('hh:mm A');
       role.appendChild(time);
 
       if (role.nextElementSibling) {
@@ -2134,10 +2185,11 @@ if (depotInAreaPath.includes('depotin-charge')) {
   socket.emit('join', 'DepotInRoom');
 }
 
+(0,_adminShow__WEBPACK_IMPORTED_MODULE_11__.initAdminShow)();
 socket.on('locationUpdate', function (data) {
   var locationUpdated = _objectSpread({}, order);
 
-  locationUpdated.updatedAt = moment__WEBPACK_IMPORTED_MODULE_12___default()().format();
+  locationUpdated.updatedAt = moment__WEBPACK_IMPORTED_MODULE_13___default()().format();
   locationUpdated.role = data.role;
   updateRole(locationUpdated); // new Noty({
   //     type: 'success',
