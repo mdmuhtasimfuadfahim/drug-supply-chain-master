@@ -21,6 +21,7 @@
                     <th class="px-4 py-2 text-left">Manufacturer Email</th>
                     <th class="px-4 py-2 text-left"> Your Orders</th>
                     <th class="px-4 py-2 text-left"> Manufacturer Address</th>
+                    <th class="px-4 py-2 text-left"> DAR</th>
                     <th class="px-4 py-2 text-left"> Time</th>
                     <th class="px-4 py-2 text-left"> Date</th>
                 </tr>
@@ -48,6 +49,9 @@
                             </td>
                             <td class="border px-4 py-2">
                                 <%= order.sender.address %>
+                            </td>
+                            <td class="border px-4 py-2">
+                                <%= order.dar %>
                             </td>
                             <td class="border px-4 py-2">
                                 <%= moment(order.createdAt).format('hh:mm A') %>

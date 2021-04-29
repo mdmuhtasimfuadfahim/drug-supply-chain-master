@@ -1879,7 +1879,7 @@ function initAdmin(socket) {
 
   function generateMarkup(orders) {
     return orders.map(function (order) {
-      return "\n                <tr>\n                <td class=\"border px-4 py-2 text-green-900\">\n                    <p>".concat(order._id, "</p>\n                    <div>").concat(renderItems(order.drugs), "</div>\n                </td>\n                <td class=\"border px-4 py-2\">").concat(order.depotId.name, "</td>\n                <td class=\"border px-4 py-2\">").concat(order.depotId.phone, "</td>\n                <td class=\"border px-4 py-2\">").concat(order.email, "</td>               \n                <td class=\"border px-4 py-2\">").concat(order.address, "</td>\n                <td class=\"border px-4 py-2\">\n                    <div class=\"inline-block relative w-64\">\n                        <form action=\"/manufacturer/order/status\" method=\"POST\">\n                            <input type=\"hidden\" name=\"orderId\" value=\"").concat(order._id, "\">\n                            <select name=\"status\" onchange=\"this.form.submit()\"\n                                class=\"block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline\">\n                                <option value=\"order_placed\"\n                                    ").concat(order.status === 'order_placed' ? 'selected' : '', ">\n                                    Placed</option>\n                                <option value=\"confirmed\" ").concat(order.status === 'confirmed' ? 'selected' : '', ">\n                                    Confirmed</option>\n                                <option value=\"prepared\" ").concat(order.status === 'prepared' ? 'selected' : '', ">\n                                    Prepared</option>\n                                <option value=\"delivered\" ").concat(order.status === 'delivered' ? 'selected' : '', ">\n                                    Delivered\n                                </option>\n                                <option value=\"completed\" ").concat(order.status === 'completed' ? 'selected' : '', ">\n                                    Completed\n                                </option>\n                            </select>\n                        </form>\n                        <div\n                            class=\"pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700\">\n                            <svg class=\"fill-current h-4 w-4\" xmlns=\"http://www.w3.org/2000/svg\"\n                                viewBox=\"0 0 20 20\">\n                                <path\n                                    d=\"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z\" />\n                            </svg>\n                        </div>\n                    </div>\n                </td>\n                <td class=\"border px-4 py-2\">\n                    ").concat(moment__WEBPACK_IMPORTED_MODULE_1___default()(order.createdAt).format('MMMM Do YYYY'), "\n                </td>\n                <td class=\"border px-4 py-2\">\n                    ").concat(moment__WEBPACK_IMPORTED_MODULE_1___default()(order.createdAt).format('hh:mm A'), "\n                </td>\n                <td class=\"border px-4 py-2\">\n                    ").concat(order.paymentStatus ? 'Paid' : 'Not paid', "\n                </td>\n            </tr>\n        ");
+      return "\n                <tr>\n                <td class=\"border px-4 py-2 text-green-900\">\n                    <p>".concat(order._id, "</p>\n                    <div>").concat(renderItems(order.drugs), "</div>\n                </td>\n                <td class=\"border px-4 py-2\">").concat(order.depotId.name, "</td>\n                <td class=\"border px-4 py-2\">").concat(order.depotId.phone, "</td>\n                <td class=\"border px-4 py-2\">").concat(order.email, "</td>               \n                <td class=\"border px-4 py-2\">").concat(order.address, "</td>\n                <td class=\"border px-4 py-2\">\n                    <div class=\"inline-block relative w-64\">\n                        <form action=\"/manufacturer/order/status\" method=\"POST\">\n                            <input type=\"hidden\" name=\"orderId\" value=\"").concat(order._id, "\">\n                            <select name=\"status\" onchange=\"this.form.submit()\"\n                                class=\"block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline\">\n                                <option value=\"order_placed\"\n                                    ").concat(order.status === 'order_placed' ? 'selected' : '', ">\n                                    Placed</option>\n                                <option value=\"confirmed\" ").concat(order.status === 'confirmed' ? 'selected' : '', ">\n                                    Confirmed</option>\n                                <option value=\"prepared\" ").concat(order.status === 'prepared' ? 'selected' : '', ">\n                                    Prepared</option>\n                                <option value=\"delivered\" ").concat(order.status === 'delivered' ? 'selected' : '', ">\n                                    Delivered\n                                </option>\n                                <option value=\"completed\" ").concat(order.status === 'completed' ? 'selected' : '', ">\n                                    Completed\n                                </option>\n                            </select>\n                        </form>\n                        <div\n                            class=\"pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700\">\n                            <svg class=\"fill-current h-4 w-4\" xmlns=\"http://www.w3.org/2000/svg\"\n                                viewBox=\"0 0 20 20\">\n                                <path\n                                    d=\"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z\" />\n                            </svg>\n                        </div>\n                    </div>\n                </td>\n                <td class=\"border px-4 py-2\">\n                    <div class=\"inline-block relative w-64\">\n                        <form action=\"/manufacturer/order/dar\" method=\"POST\">\n                            <input type=\"hidden\" name=\"darNum\" value=\"").concat(order._id, "\">\n                            <select name=\"dar\" onchange=\"this.form.submit()\"\n                                class=\"block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline\">\n                                <option value=\"Not Selected\"\n                                    ").concat(order.dar === 'Not Selected' ? 'selected' : '', ">\n                                    Not Selected</option>\n                                <option value=\"Single DAR\" ").concat(order.dar === 'Single DAR' ? 'selected' : '', ">\n                                    Single DAR</option>\n                                <option value=\"Multiple DAR\" ").concat(order.dar === 'Multiple DAR' ? 'selected' : '', ">\n                                Multiple DAR</option>\n                            </select>\n                        </form>\n                        <div\n                            class=\"pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700\">\n                            <svg class=\"fill-current h-4 w-4\" xmlns=\"http://www.w3.org/2000/svg\"\n                                viewBox=\"0 0 20 20\">\n                                <path\n                                    d=\"M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z\" />\n                            </svg>\n                        </div>\n                    </div>\n                </td>\n                <td class=\"border px-4 py-2\">\n                    ").concat(moment__WEBPACK_IMPORTED_MODULE_1___default()(order.createdAt).format('MMMM Do YYYY'), "\n                </td>\n                <td class=\"border px-4 py-2\">\n                    ").concat(moment__WEBPACK_IMPORTED_MODULE_1___default()(order.createdAt).format('hh:mm A'), "\n                </td>\n                <td class=\"border px-4 py-2\">\n                    ").concat(order.paymentStatus ? 'Paid' : 'Not paid', "\n                </td>\n            </tr>\n        ");
     }).join('');
   } // Socket
 
@@ -1970,10 +1970,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _drugCon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./drugCon */ "./resources/js/drugCon.js");
 /* harmony import */ var _depot__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./depot */ "./resources/js/depot.js");
 /* harmony import */ var _adminShow__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./adminShow */ "./resources/js/adminShow.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _durgStoreCon__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./durgStoreCon */ "./resources/js/durgStoreCon.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_14__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -1994,7 +1995,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-window.$ = window.jQuery = (jquery__WEBPACK_IMPORTED_MODULE_12___default()); // export for others scripts to use
+
+window.$ = window.jQuery = (jquery__WEBPACK_IMPORTED_MODULE_13___default()); // export for others scripts to use
 
 var categoryTitle = document.querySelectorAll('.category-title');
 var allCategoryPosts = document.querySelectorAll('.all');
@@ -2069,7 +2071,9 @@ addToCart.forEach(function (btn) {
 
 (0,_userCon__WEBPACK_IMPORTED_MODULE_8__.userControl)(); //--------------Drug Controller JS----------
 
-(0,_drugCon__WEBPACK_IMPORTED_MODULE_9__.drugControl)(); //--------- Remove Alert---------
+(0,_drugCon__WEBPACK_IMPORTED_MODULE_9__.drugControl)(); //-------------Drug Storage Controller JS-------
+
+(0,_durgStoreCon__WEBPACK_IMPORTED_MODULE_12__.durgStorageControl)(); //--------- Remove Alert---------
 
 var alertMsg = document.querySelector('#success-alert');
 
@@ -2103,7 +2107,7 @@ function updateStatus(order) {
 
     if (dataPro === order.status) {
       stepCompleted = false;
-      time.innerText = moment__WEBPACK_IMPORTED_MODULE_13___default()(order.updatedAt).format('hh:mm A');
+      time.innerText = moment__WEBPACK_IMPORTED_MODULE_14___default()(order.updatedAt).format('hh:mm A');
       status.appendChild(time);
 
       if (status.nextElementSibling) {
@@ -2132,7 +2136,7 @@ if (manufacturerAreaPath.includes('manufacturer')) {
 socket.on('orderUpdated', function (data) {
   var updatedOrder = _objectSpread({}, order);
 
-  updatedOrder.updatedAt = moment__WEBPACK_IMPORTED_MODULE_13___default()().format();
+  updatedOrder.updatedAt = moment__WEBPACK_IMPORTED_MODULE_14___default()().format();
   updatedOrder.status = data.status;
   updateStatus(updatedOrder);
   new (noty__WEBPACK_IMPORTED_MODULE_1___default())({
@@ -2164,7 +2168,7 @@ function updateRole(order2) {
 
     if (dataPro2 === order2.role) {
       stepCompleted2 = false;
-      time.innerText = moment__WEBPACK_IMPORTED_MODULE_13___default()(order2.updatedAt).format('hh:mm A');
+      time.innerText = moment__WEBPACK_IMPORTED_MODULE_14___default()(order2.updatedAt).format('hh:mm A');
       role.appendChild(time);
 
       if (role.nextElementSibling) {
@@ -2178,10 +2182,9 @@ updateRole(order2); //------------Depot Order Control----------
 
 var depotInAreaPath = window.location.pathname; //console.log(depotInAreaPath)
 
-(0,_depot__WEBPACK_IMPORTED_MODULE_10__.initDepot)(socket);
-
-if (depotInAreaPath.includes('depotin-charge')) {
+if (depotInAreaPath.includes('depot')) {
   //----------Depot JS File----------------
+  (0,_depot__WEBPACK_IMPORTED_MODULE_10__.initDepot)(socket);
   socket.emit('join', 'DepotInRoom');
 }
 
@@ -2189,7 +2192,7 @@ if (depotInAreaPath.includes('depotin-charge')) {
 socket.on('locationUpdate', function (data) {
   var locationUpdated = _objectSpread({}, order);
 
-  locationUpdated.updatedAt = moment__WEBPACK_IMPORTED_MODULE_13___default()().format();
+  locationUpdated.updatedAt = moment__WEBPACK_IMPORTED_MODULE_14___default()().format();
   locationUpdated.role = data.role;
   updateRole(locationUpdated); // new Noty({
   //     type: 'success',
@@ -2308,6 +2311,61 @@ function drugControl() {
       var id = $(this).attr("data-id2");
       var request2 = {
         "url": "http://localhost:3040/manufacturer/drugs/".concat(id),
+        "method": "DELETE"
+      };
+
+      if (confirm("Do You Want to Delete this Drug Information?")) {
+        $.ajax(request2).done(function (response) {
+          alert("Drug Informations Deleted Successfully!");
+          location.reload();
+        });
+      }
+    });
+  }
+}
+
+/***/ }),
+
+/***/ "./resources/js/durgStoreCon.js":
+/*!**************************************!*\
+  !*** ./resources/js/durgStoreCon.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "durgStorageControl": () => (/* binding */ durgStorageControl)
+/* harmony export */ });
+function durgStorageControl() {
+  //----------------Update Drug Information--------------
+  $("#update_drugstorage").submit(function (event) {
+    event.preventDefault();
+    var unindexed_array = $(this).serializeArray(); //console.log(unindexed_array)
+
+    var data = {};
+    $.map(unindexed_array, function (n, i) {
+      data[n['name']] = n['value'];
+    }); // console.log(data)
+    // const base = 'http://localhost:3040',
+
+    var request = {
+      "url": "http://localhost:3040/manufacturer/drugstorage/".concat(data.id),
+      "method": "PUT",
+      "data": data
+    };
+    $.ajax(request).done(function (response) {
+      alert("Drug Storage Information Updated Successfully!");
+      location.reload();
+    });
+  });
+
+  if (window.location.pathname == "/manufacturer/drugstorage") {
+    window.$ondelete = $(".table tbody td a.delete");
+    $ondelete.click(function () {
+      var id = $(this).attr("data-id3");
+      var request2 = {
+        "url": "http://localhost:3040/manufacturer/drugstorage/".concat(id),
         "method": "DELETE"
       };
 

@@ -66,13 +66,14 @@ function initRoutes(app){
     app.get('/manufacturer/drugstorage/upload',manufacturer, drugStorageController().drugAddStorage)
     app.post('/manufacturer/drugstorage/upload',manufacturer, drugStorageController().drugAddNewStorage)
     app.get('/manufacturer/drugstorage/find', drugStorageController().drugStorageFind)
-    app.get('/manufacturer/update_drugstorage', drugStorageController().updateDrugStorage)
+    app.get('/manufacturer/update_drugstorage',manufacturer, drugStorageController().updateDrugStorage)
     app.put('/manufacturer/drugstorage/:id',drugStorageController().drugStorageUpdate)
     app.delete('/manufacturer/drugstorage/:id',drugStorageController().drugStorageDelete)
 
     //-----------------Manufacturer Order Control Routes-------------
     app.get('/manufacturer/orders', manufacturer, manufacturerOrderController().index)
     app.post('/manufacturer/order/status', manufacturer, statusController().statusControl)
+    app.post('/manufacturer/order/dar', manufacturer, statusController().darControl)
     app.get('/manufacturer/orders/completed', manufacturer, manufacturerOrderController().showCompleted)
    
     app.get('/files/:uuid', fileController().file)

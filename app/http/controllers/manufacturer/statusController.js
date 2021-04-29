@@ -12,6 +12,15 @@ function statusController(){
                 eventEmitter.emit('orderUpdated', {id: req.body.orderId, status: req.body.status})
                 return res.redirect('/manufacturer/orders')
             })
+        },
+        darControl(req, res){
+            Order.updateOne({_id: req.body.darNum}, {dar: req.body.dar}, (err, data)=>{
+                if(err){
+                    //console.log(err)
+                    return res.redirect('/manufacturer/orders')
+                }
+                return res.redirect('/manufacturer/orders')
+            })
         }
     }
 }

@@ -14,14 +14,12 @@ function porderController(){
             })
             console.log(pharmacistOrder)
 
-            pharmacistOrder.save().then((pharmacistOrder)=>{
+            pharmacistOrder.save().then(pharmacistOrder=>{
                 PharmacistOrders.populate(pharmacistOrder, {path: 'pharmacistId'}, (err, placedOrder)=>{
                     const eventEmitter = req.app.get('eventEmitter')
                     eventEmitter.emit('newOrderPlaced', placedOrder)
                     res.status(200).send(JSON.stringify(placedOrder))
-                
-                })
-                
+                })  
             }).catch(err =>{
                 console.log(err)
             })

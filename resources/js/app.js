@@ -10,6 +10,7 @@ import { userControl } from './userCon'
 import { drugControl } from './drugCon'
 import { initDepot } from './depot'
 import { initAdminShow } from './adminShow'
+import { durgStorageControl } from './durgStoreCon'
 import jQuery from 'jquery'
 import moment from 'moment'
 window.$ = window.jQuery = jQuery
@@ -99,6 +100,9 @@ userControl()
 
 //--------------Drug Controller JS----------
 drugControl()
+
+//-------------Drug Storage Controller JS-------
+durgStorageControl()
 
 
 //--------- Remove Alert---------
@@ -228,10 +232,10 @@ updateRole(order2);
 //------------Depot Order Control----------
 let depotInAreaPath = window.location.pathname
 //console.log(depotInAreaPath)
-initDepot(socket)
-if(depotInAreaPath.includes('depotin-charge')){
+
+if(depotInAreaPath.includes('depot')){
     //----------Depot JS File----------------
-  
+    initDepot(socket)
     socket.emit('join', 'DepotInRoom')
 }
 
