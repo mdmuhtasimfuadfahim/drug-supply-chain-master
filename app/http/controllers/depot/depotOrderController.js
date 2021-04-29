@@ -25,6 +25,26 @@ function depotOrderController(){
                 // eventEmitter.emit('orderUpdated', {id: req.body.orderId, status: req.body.status})
                 return res.redirect('/api/drug/depot/orders')
             })
+        },
+        darControl(req, res){
+            PharmacistOrders.updateOne({_id: req.body.darNum}, {dar: req.body.dar}, (err, data)=>{
+                if(err){
+                    //console.log(err)
+                    return res.redirect('/api/drug/depot/orders')
+                }
+                return res.redirect('/api/drug/depot/orders')
+            })
+        },
+        async completedOrder(req, res){
+            const ordersCompleted = await PharmacistOrders.find({status: 'completed'}).populate('pharmacistId', '-private_key').exec((err, orders)=>{
+                if(req.xhr){
+                    res.json(orders)
+                }
+                else{
+                    return  res.render('depot/completed')
+                }
+         //   res.render('manufacturer/completed', {ordersCompleted: ordersCompleted, moment: moment})
+            })
         }
     }
 }

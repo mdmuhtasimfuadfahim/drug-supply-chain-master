@@ -12,6 +12,7 @@ const transactionController = require('../app/http/controllers/transactionContro
 const drugController = require('../app/http/controllers/manufacturer/drugController')
 const drugStorageController = require('../app/http/controllers/manufacturer/drugStorageController')
 
+
 //------------------Middlewares---------------
 const guest = require('../app/http/middlewares/guest')
 const auth = require('../app/http/middlewares/auth')
@@ -34,6 +35,7 @@ function initRoutes(app){
     app.get('/cart', auth, cartController().cart)
     app.post('/update_cart', cartController().update)
     app.get('/transaction',auth, transactionController().depotTransaction)
+    app.get('/transaction/pharmacist',auth, transactionController().pharmacistTransaction)
     app.get('/profiles', auth, homeController().getProfiles)
 
     //---------------Depot Order Control Routes---------
@@ -79,9 +81,11 @@ function initRoutes(app){
     app.get('/files/:uuid', fileController().file)
     app.get('/files/download/:uuid', fileController().fileControl)
     
-    
+    //----------------Depot In-charge Location Control Routes----------------
     app.get('/:id/location', auth, locationController().location)
     app.post('/locationId/location/role', auth, locationController().locationControl)
+
+
 }
 
 

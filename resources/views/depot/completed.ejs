@@ -1,14 +1,15 @@
-<%- include('../_layouts/header3.ejs') %>
+<%- include('../_layouts/header.ejs') %>
 <%- include('../toast.ejs') %>
 
-<section class="tutorials">
-  <div class="containerHomeMan">
-   <%- include('../_layouts/head.ejs') %>
-  
-    <div class="ml-10 accountsCon mt-10">
-        <h1 class="font-bold md:text-xl mb-4">Completed Order History</h1>
-        <table class="adminT table">
-            <thead class="thead-dark">
+<section >
+    <div class="container mx-auto pt-12">
+        <div class="flex items-center justify-between mb-10">
+            <h1 class="font-bold text-lg">Completed Orders of Pharmacist</h1>
+            <a href="/api/drug/depot/orders"><h6 class="bg-white py-1 rounded-full px-4 text-green-700 text-l">Back to Order Page</h6></a>
+        </div>
+     <section class="transactionTable">
+        <table class="customerT mx-auto table-auto bg-white">
+            <thead>
                 <tr>
                     <th class="px-4 py-2 text-left">Orders</th>
                     <th class="px-4 py-2 text-left">Name</th>
@@ -21,24 +22,14 @@
                     <th class="px-4 py-2 text-left">Placed Time</th>
                     <th class="px-4 py-2 text-left">Payment Status</th>
                 </tr>
-            </thead>            
-            <tbody id="orderTOShowCompleted">
-                
-            </tbody>
-           
+            </thead>
+            <tbody id="myCompletedOrderTable"></tbody>
         </table>
+     </section>
+        
     </div>
 
- 
-
-  <%- include('../_layouts/sidebar.ejs') %>
-</div>
 </section>
 
 <script src="/socket.io/socket.io.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script src="/js/app.js" type="text/javascript" charset="utf-8"></script>
-
-
-
- 

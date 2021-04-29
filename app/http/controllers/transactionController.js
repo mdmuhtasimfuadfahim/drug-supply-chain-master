@@ -297,6 +297,40 @@ function transactionController(){
 
 		   return res.render('manufacturer/transaction', {transactions: transactions, moment: moment })
 
+		},
+	    async pharmacistTransaction(req, res){
+		   const transaction = await Transaction.find().populate('orderID', '-private_key')
+		   const showTransaction = {transaction: transaction};
+		   const transactions = []
+		   transaction.forEach(function(transaction){
+			   console.log(transaction)
+			transactions.push({
+			   _id: transaction._id,
+			   orderID: transaction.orderID,
+			   blockHash: decrypt(transaction.blockHash),
+			   blockNumber: decrypt(transaction.blockNumber),
+			   contractAddress: transaction.contractAddress,
+			   cumulativeGasUsed: decrypt(transaction.cumulativeGasUsed),
+			   from: decrypt(transaction.from),
+			   gasUsed: decrypt(transaction.gasUsed),
+			   logsBloom: decrypt(transaction.logsBloom),
+			   status:decrypt(transaction.status),
+			   to:decrypt(transaction.to),
+			   transactionHash:decrypt(transaction.transactionHash),
+			   transactionIndex:decrypt(transaction.transactionIndex),
+			   type:decrypt(transaction.type),
+			   transaction: transaction.transaction,
+			   createdAt: transaction.createdAt,
+			   updatedAt: transaction.updatedAt,
+			   __v: transaction.__v
+		   })
+
+		  
+	   })
+	   console.log(transactions)  
+
+		   return res.render('depot/pharma/transaction', {transactions: transactions, moment: moment })
+
 		}
 
     }

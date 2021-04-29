@@ -1077,3 +1077,35 @@
 08:14:53.981605 db@open done T·33.1501ms
 08:15:05.025185 db@close closing
 08:15:05.025704 db@close done T·518.9µs
+=============== Apr 30, 2021 (+06) ===============
+00:31:48.419420 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+00:31:48.448866 version@stat F·[2 1] S·1MiB[19KiB 1MiB] Sc·[0.50 0.02]
+00:31:48.448866 db@open opening
+00:31:48.448866 journal@recovery F·1
+00:31:48.452118 journal@recovery recovering @244
+00:31:48.467403 memdb@flush created L0@246 N·4 S·7KiB "Sna..tor,v37459":"unc..own,v37458"
+00:31:48.471443 version@stat F·[3 1] S·1MiB[26KiB 1MiB] Sc·[0.75 0.02]
+00:31:48.480927 db@janitor F·6 G·0
+00:31:48.480927 db@open done T·32.0603ms
+00:36:31.841156 db@close closing
+00:36:31.843160 db@close done T·2.0043ms
+=============== Apr 30, 2021 (+06) ===============
+00:36:41.386476 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+00:36:41.386990 version@stat F·[3 1] S·1MiB[26KiB 1MiB] Sc·[0.75 0.02]
+00:36:41.387504 db@open opening
+00:36:41.387504 journal@recovery F·1
+00:36:41.451581 journal@recovery recovering @247
+00:36:41.455537 memdb@flush created L0@249 N·95 S·13KiB "\x18z\xbf..\xfd\xc5\xdf,v37549":"\xf8\xc6\xf4..\xbah\xbf,v37554"
+00:36:41.460524 version@stat F·[4 1] S·1MiB[40KiB 1MiB] Sc·[1.00 0.02]
+00:36:41.469500 db@janitor F·7 G·0
+00:36:41.469500 db@open done T·81.9958ms
+00:36:41.491987 table@compaction L0·4 -> L1·1 S·1MiB Q·37558
+00:36:41.601645 table@build created L1@252 N·25275 S·1MiB "\x00\x1eN..\x8dX\xd2,v26339":"\xff\x01;..As\xf7,v12942"
+00:36:41.601645 version@stat F·[0 1] S·1MiB[0B 1MiB] Sc·[0.00 0.02]
+00:36:41.603377 table@compaction committed F-4 S-33KiB Ke·0 D·61 T·111.3891ms
+00:36:41.603593 table@remove removed @246
+00:36:41.604098 table@remove removed @243
+00:36:41.604098 table@remove removed @240
+00:36:41.605326 table@remove removed @239
+00:37:44.343341 db@close closing
+00:37:44.345738 db@close done T·2.3962ms

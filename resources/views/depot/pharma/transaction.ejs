@@ -1,12 +1,10 @@
-
-
-<%- include('../_layouts/header.ejs') %>
-<%- include('../toast.ejs') %>
+<%- include('../../_layouts/header.ejs') %>
+<%- include('../../toast.ejs') %>
 <section>
     <div class="container mx-auto pt-12">
         <div class="flex items-center justify-between mb-10">
-            <h1 class="font-bold text-lg">Your Transactions</h1>
-            <a href="/transaction/pharmacist"><h6 class="bg-white py-1 rounded-full px-4 text-green-700 text-l">Show Pharmacist Transactions</h6></a>
+            <h1 class="font-bold text-lg">Pharmacist Transactions</h1>
+            <a href="/transaction"><h6 class="bg-white py-1 rounded-full px-4 text-green-700 text-l">Show My Transactions</h6></a>
         </div>
         <section class="transactionTable">
             <table class="customerT mx-auto table-auto bg-white">
@@ -17,7 +15,8 @@
                         <th class="px-4 py-2 text-left">Order ID</th>
                         <th class="px-4 py-2 text-left"> Block Number</th>
                         <th class="px-4 py-2 text-left"> Gas Used</th>
-                        <th class="px-4 py-2 text-left"> From</th>
+                        <th class="px-4 py-2 text-left"> To</th>
+                        <th class="px-4 py-2 text-left"> Pharmacist ID</th>
                         <th class="px-4 py-2 text-left"> Type</th>
                         <th class="px-4 py-2 text-left"> Time</th>
                         <th class="px-4 py-2 text-left"> Date</th>
@@ -43,7 +42,10 @@
                                     <%= transaction.gasUsed %>
                                 </td>
                                 <td class="border px-4 py-2">
-                                    <%= transaction.from %>
+                                    <%= transaction.to %>
+                                </td>
+                                <td>
+                                    <%= transaction.orderID.depotId %>
                                 </td>
                                 <td class="border px-4 py-2">
                                     <%= transaction.transaction %>
@@ -73,4 +75,4 @@
 
 
 <script src="/socket.io/socket.io.js"></script>
-<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/app.js" type="text/javascript" charset="utf-8"></script>

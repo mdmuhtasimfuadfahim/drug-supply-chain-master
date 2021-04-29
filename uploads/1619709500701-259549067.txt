@@ -1,0 +1,36 @@
+VxZ9FtV9pqn0d0Qj - Mongo DB Pass
+
+ornab@ramf.a11
+
+
+0fVDpyMdZxErbT5H
+
+https://drive.google.com/drive/u/0/folders/1BqkWZss2765eGc2OHo7x7Xette5uEh2H?fbclid=IwAR3B5PrM2ef71_zH_KiWUnx5pI1xMEUuqHtgvirOZZl1pTPDKN14AAr1DDI 
+
+
+https://stackoverflow.com/questions/66675565/web-app-and-android-studio-app-using-same-server-localthost-using-local-mongod
+
+
+
+ornab@ramf.a12
+
+https://cloud.mongodb.com/v2/6052ffa8c140ec2a0928ba90#metrics/replicaSet/605300aefdf2d8202fa30119/explorer/SupplyDrugs
+
+https://ethereum.stackexchange.com/questions/91192/getting-data-from-events
+
+
+C:\Users\User\Downloads\Compressed\ngrok-stable-windows-amd64
+
+ngrok authtoken 1pwPCQZakkVGUDtbXqiFm4b7QMf_4iTFT7aP1ba3Xy1EN2iKL
+
+ngrok http [port] -host-header="localhost:[port]"
+
+
+
+
+mongodb+srv://MuhtasimFaudFahim:ornab@ramf.a12@cluster0.xphwb.mongodb.net/SupplyDrugs?retryWrites=true&w=majority
+
+
+https://fontawesome.com/icons?d=gallery&p=2 - Icons
+
+

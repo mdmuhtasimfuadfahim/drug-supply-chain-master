@@ -11,6 +11,7 @@ import { drugControl } from './drugCon'
 import { initDepot } from './depot'
 import { initAdminShow } from './adminShow'
 import { durgStorageControl } from './durgStoreCon'
+import { initDepotShow } from './depotShow'
 import jQuery from 'jquery'
 import moment from 'moment'
 window.$ = window.jQuery = jQuery
@@ -239,9 +240,9 @@ if(depotInAreaPath.includes('depot')){
     socket.emit('join', 'DepotInRoom')
 }
 
-
+//--------------Completed Order Pages of Manufacturer and Depot In-charge
 initAdminShow()
-
+initDepotShow()
 
 
 socket.on('locationUpdate', (data)=>{
