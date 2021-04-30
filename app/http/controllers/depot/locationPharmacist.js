@@ -204,7 +204,7 @@ function locationPharmacist(){
         locationControlPharma(req, res){
             const updatedOrder = order.updateOne({_id: req.body.orderLID}, {role: req.body.role}, async (err, data)=>{
 				             
-                const populateOrder = await updatedOrder.find({_id: req.body.orderLID}).populate('depotId', '-private-key').populate('sender', '-private_key');
+                const populateOrder = await updatedOrder.find({_id: req.body.orderLID}).populate('pharmacistId', '-private-key').populate('senderId', '-private_key');
                 const retunPopulateOrder = {populateOrder : populateOrder}
                 populateOrder.forEach(async function (populateOrder){
                     const Contract = await contract.find();
@@ -220,9 +220,9 @@ function locationPharmacist(){
                             var _orderId = populateOrder._id.toString();
 							// console.log(orderGetId) 
 							var _pharmacistId = populateOrder.pharmacistId.name;
-							var _seller = populateOrder.sender.name;
+							var _seller = populateOrder.senderId.name;
                             var _toAdd = populateOrder.pharmacistId.accountAddress;    
-                            var _fromAdd = populateOrder.sender.accountAddress;
+                            var _fromAdd = populateOrder.senderId.accountAddress;
 
                             const myContract =new web3.eth.Contract(abi,contractGetAddressHere);
 
@@ -270,9 +270,9 @@ function locationPharmacist(){
 					})
                 })
                 //-------Emit Event--------
-                const eventEmitter = req.app.get('eventEmitter')
-                eventEmitter.emit('locationUpdate', {id: req.body.orderLID, role: req.body.role})   
-                return res.redirect('/' + req.body.orderLID + '/location') 
+                // const eventEmitter = req.app.get('eventEmitter')
+                // eventEmitter.emit('locationUpdate', {id: req.body.orderLID, role: req.body.role})   
+                return res.send(updatedOrder) 
                
             })
         }
