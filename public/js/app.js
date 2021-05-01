@@ -2127,7 +2127,7 @@ if (order) {
   socket.emit('join', "order_".concat(order._id));
 }
 
-var manufacturerAreaPath = window.location.pathname; //console.log(manufacturerArea)
+var manufacturerAreaPath = window.location.pathname; //console.log(manufacturerAreaPath)
 
 if (manufacturerAreaPath.includes('manufacturer')) {
   //----------Admin JS File----------------

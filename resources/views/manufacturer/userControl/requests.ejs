@@ -34,9 +34,11 @@
                             <th>Contact</th>
                             <th>Role</th>
                             <th>Address</th>
+                            <th>Time</th>
+                            <th>Date</th>
                         </tr>
                     </thead>
-                    
+                   
                    
                     <tbody>  
                         <% requests.forEach(function(requests){ %>  
@@ -47,6 +49,8 @@
                             <td><%= requests.phone %></td>
                             <td><%= requests.role %></td>
                             <td><%= requests.address %></td>  
+                            <td><%= moment(requests.createdAt).format('hh:mm A') %></td>  
+                            <td><%= moment(requests.createdAt).format('MMMM Do YYYY') %></td>  
                         </tr> 
                         <% }) %>   
                     </tbody>

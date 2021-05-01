@@ -168,9 +168,7 @@ if(order){
 
 let manufacturerAreaPath = window.location.pathname
 
-//console.log(manufacturerArea)
-
-
+//console.log(manufacturerAreaPath)
 
 if(manufacturerAreaPath.includes('manufacturer')){
     //----------Admin JS File----------------
@@ -240,9 +238,13 @@ if(depotInAreaPath.includes('depot')){
     socket.emit('join', 'DepotInRoom')
 }
 
+
+
 //--------------Completed Order Pages of Manufacturer and Depot In-charge
 initAdminShow()
 initDepotShow()
+
+
 
 
 socket.on('locationUpdate', (data)=>{

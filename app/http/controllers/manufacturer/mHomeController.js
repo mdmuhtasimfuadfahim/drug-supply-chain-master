@@ -2,6 +2,7 @@ const Request = require('../../../models/request')
 const User = require('../../../models/user')
 const bcrypt = require('bcrypt')
 const axios = require('axios')
+const moment = require('moment')
 const { response } = require('express')
 
 function mHomeController(){
@@ -18,7 +19,8 @@ function mHomeController(){
         },
         async requests (req, res){
             const requests = await Request.find()
-            res.render('manufacturer/userControl/requests', {requests: requests})
+            
+            res.render('manufacturer/userControl/requests', {requests: requests, moment: moment})
            // console.log(requests)
         },
         adduser (req, res){

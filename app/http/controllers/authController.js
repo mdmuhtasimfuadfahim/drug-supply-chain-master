@@ -142,7 +142,7 @@ function authController () {
 
             console.log(request)
     
-            request.save().then((request)=>{
+            request.save().then(request=>{
                 req.flash('success', 'Your Request is Taken')
                 return res.redirect('/register')
             }).catch(err =>{
