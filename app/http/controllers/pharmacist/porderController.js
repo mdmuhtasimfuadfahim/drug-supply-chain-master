@@ -18,6 +18,7 @@ function porderController(){
                 PharmacistOrders.populate(pharmacistOrder, {path: 'pharmacistId'}, (err, placedOrder)=>{
                     const eventEmitter = req.app.get('eventEmitter')
                     eventEmitter.emit('newOrderPlaced', placedOrder)
+                    console.log(placedOrder._id + '\n' +placedOrder.email)
                     res.status(200).send(JSON.stringify(placedOrder))
                 })  
             }).catch(err =>{

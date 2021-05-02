@@ -1,0 +1,98 @@
+<%- include('../../_layouts/header3.ejs') %>
+<%- include('../../toast.ejs') %>
+
+<section class="tutorials">
+  <div class="containerHomeMan">
+   <%- include('../../_layouts/head.ejs') %>
+  
+    <div class="ml-10 accountsCon mt-10">
+        <div class="flex items-center justify-between">
+            <h1 class="font-bold md:text-xl mb-4">All Orders (from Blockchain DB)</h1>
+            <a href="/manufacturer/orders"><h6 class="bg-white py-1 rounded-full px-4 text-green-700 text-l mb-4">All Orders (from DB)</h6></a>
+        </div>
+        <div class="transactionTable">
+            <table class="adminT table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Block Hash</th>
+                        <th>Order ID</th>
+                        <th>Order Status</th>
+                        <th>Order Role</th>
+                        <th>Block Number</th>
+                        <th>Gas Used</th>
+                        <th>To</th>
+                        <th>Depot In-Charge ID</th>
+                        <th>Depot In-Charge Email</th>
+                        <th>Transaction Hash</th>
+                        <th>Transaction Status</th>
+                        <th>Time</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(orders.length) { %>
+                        <% orders.forEach((order)=>{ %>
+                            <tr>
+                                <td>
+                                  <%= order.blockHash %>
+                               </td>
+                               <td >
+                                <%= order.orderID._id %>
+                             </td>
+                             
+                             <td >
+                                <%= order.orderst %>
+                             </td>
+                             <td >
+                                <%= order.orderID.role %>
+                             </td>
+                               <td>
+                                <%= order.blockNumber %>
+                               </td>
+                                <td>
+                                    <%= order.gasUsed %>
+                                </td>
+                                <td>
+                                    <%= order.to %>
+                                </td>
+                                <td>
+                                    <%= order.orderID.depotId %>
+                                </td>
+                                <td>
+                                    <%= order.email %>
+                                </td>
+                                <td>
+                                    <%= order.transactionHash %>
+                                </td>
+                                <td>
+                                    <%= order.status %>
+                                </td>
+                                <td>
+                                    <%= moment(order.createdAt).format('hh:mm A') %>
+                                </td> 
+                                <td>
+                                    <%= moment(order.createdAt).format('MMMM Do YYYY') %>
+                                </td>  
+                            </tr>
+                        <% }) %>
+                        
+                    <% } else { %>
+                        <tr>
+                            <td class="p-4">No orders found</td>
+                        </tr>
+                    <% } %>
+                   
+                </tbody>
+            </table>
+        </div>   
+    </div>
+
+ 
+
+  <%- include('../../_layouts/sidebar.ejs') %>
+</div>
+</section>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="/js/app.js" type="text/javascript" charset="utf-8"></script>

@@ -6,7 +6,11 @@
    <%- include('../_layouts/head.ejs') %>
   
     <div class="ml-10 accountsCon mt-10">
-        <h1 class="font-bold md:text-xl mb-4">Completed Order History</h1>
+        <div class="flex items-center justify-between">
+            <h1 class="font-bold md:text-xl mb-4">Completed Orders (from DB)</h1>
+            <a href="/manufacturer/orders/completed/blockchain"><h6 class="bg-white py-1 rounded-full px-4 text-green-700 text-l mb-4">Completed Orders (from Blockchain DB)</h6></a>
+        </div>
+        <div class="transactionTable">
         <table class="adminT table">
             <thead class="thead-dark">
                 <tr>
@@ -27,6 +31,7 @@
             </tbody>
            
         </table>
+        </div>
     </div>
 
  

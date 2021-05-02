@@ -20,6 +20,9 @@ function depotOrderController(){
                 if(err){
                     return res.redirect('/api/drug/depot/orders')
                 }
+                if(req.body.status === 'completed'){
+                    console.log(req.body.orderId + '\n' + req.body.status)
+                }
                 //-------Emit Event--------
                 // const eventEmitter = req.app.get('eventEmitter')
                 // eventEmitter.emit('orderUpdated', {id: req.body.orderId, status: req.body.status})

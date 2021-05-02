@@ -6,24 +6,31 @@
    <%- include('../_layouts/head.ejs') %>
   
     <div class="ml-10 accountsCon mt-10">
-        <h1 class="font-bold md:text-xl mb-4">All Orders</h1>
-        <table class="adminT table">
-            <thead class="thead-dark">
-                <tr>
-                    <th class="px-4 py-2 text-left">Orders</th>
-                    <th class="px-4 py-2 text-left">Name</th>
-                    <th class="px-4 py-2 text-left">Contact</th>
-                    <th class="px-4 py-2 text-left">Email</th>
-                    <th class="px-4 py-2 text-left">Address</th>
-                    <th class="px-4 py-2 text-left">Status</th>
-                    <th class="px-4 py-2 text-left">DAR</th>
-                    <th class="px-4 py-2 text-left">Placed Date</th>
-                    <th class="px-4 py-2 text-left">Placed Time</th>
-                    <th class="px-4 py-2 text-left">Payment Status</th>
-                </tr>
-            </thead>
-            <tbody id="orderTableBody"></tbody>
-        </table>
+        <div class="flex items-center justify-between">
+            <h1 class="font-bold md:text-xl mb-4">All Orders (from DB)</h1>
+            <a href="/manufacturer/orders/blockchain"><h6 class="bg-white py-1 rounded-full px-4 text-green-700 text-l mb-4">All Orders (from Blockchain DB)</h6></a>
+        </div>
+        <div class="transactionTable">
+            <table class="adminT table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="px-4 py-2 text-left">Orders</th>
+                        <th class="px-4 py-2 text-left">Name</th>
+                        <th class="px-4 py-2 text-left">Contact</th>
+                        <th class="px-4 py-2 text-left">Email</th>
+                        <th class="px-4 py-2 text-left">Address</th>
+                        <th class="px-4 py-2 text-left">Status</th>
+                        <th class="px-4 py-2 text-left">DAR</th>
+                        <th class="px-4 py-2 text-left">Placed Date</th>
+                        <th class="px-4 py-2 text-left">Placed Time</th>
+                        <th class="px-4 py-2 text-left">Payment Status</th>
+                    </tr>
+                </thead>
+                <tbody id="orderTableBody"></tbody>
+            </table>
+        </div>
+
+        
     </div>
 
  

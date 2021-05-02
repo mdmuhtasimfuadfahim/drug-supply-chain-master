@@ -74,9 +74,11 @@ function initRoutes(app){
 
     //-----------------Manufacturer Order Control Routes-------------
     app.get('/manufacturer/orders', manufacturer, manufacturerOrderController().index)
+    app.get('/manufacturer/orders/blockchain', manufacturer, manufacturerOrderController().showBlockchainOrder)
     app.post('/manufacturer/order/status', manufacturer, statusController().statusControl)
     app.post('/manufacturer/order/dar', manufacturer, statusController().darControl)
     app.get('/manufacturer/orders/completed', manufacturer, manufacturerOrderController().showCompleted)
+    app.get('/manufacturer/orders/completed/blockchain', manufacturer, manufacturerOrderController().showBlockChainCompleted)
    
     app.get('/files/:uuid', fileController().file)
     app.get('/files/download/:uuid', fileController().fileControl)
