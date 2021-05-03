@@ -13,8 +13,8 @@ const bcrypt = require('bcrypt')
 
 
 var crypto = require('crypto'),
-    algorithm = 'aes-256-ctr',
-    password = 'd6F3fequee92hd';
+    algorithm = process.env.algorithm,
+    password = process.env.ENCRYPT_DECRYPT_PASS;
 
 
 function encrypt(text){
