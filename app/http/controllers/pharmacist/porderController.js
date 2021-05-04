@@ -449,7 +449,7 @@ function porderController(){
                     const eventEmitter = req.app.get('eventEmitter')
                     eventEmitter.emit('newOrderPlaced', placedOrder)
                     // console.log(placedOrder._id + '\n' +placedOrder.depotId.email)
-                    const _toAdd = placedOrder.depotId.accountAddress;
+                    const _toAdd = placedOrder.pharmacistId.accountAddress;
                     //-----------BlockChain Transaction----------
                     const Contract = await contract.find();
                     web3.eth.getAccounts().then(async function(accounts){
@@ -457,7 +457,7 @@ function porderController(){
                             const contractGetAddressHere = contractAdd.contractAddress;
                             const _orderId = placedOrder._id.toString();
                             const _status = placedOrder.status.toString();
-                            const _email = placedOrder.depotId.email.toString();
+                            const _email = placedOrder.pharmacistId.email.toString();
 
                          const myContract =new web3.eth.Contract(abi,contractGetAddressHere);
 
@@ -479,7 +479,7 @@ function porderController(){
                              // })
                                  const PhrorderTrd = new Phrordertrd({
                                       orderID: placedOrder._id,
-                                      depotId: placedOrder.depotId,
+                                      pharmacistId: placedOrder.pharmacistId,
                                       blockHash: encrypt(response.blockHash),
                                       blockNumber: encrypt(response.blockNumber.toString()),
                                       contractAddress: response.contractAddress,

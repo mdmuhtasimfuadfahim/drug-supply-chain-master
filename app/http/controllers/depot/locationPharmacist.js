@@ -4,7 +4,6 @@ const web3 = new Web3(rpcUrl)
 var Accounts = require('web3-eth-accounts')
 var keyth = require('keythereum')
 const Tx = require('ethereumjs-tx').Transaction
-const abiDecoder = require('abi-decoder')
 const order = require('../../../models/phrorder')
 const contract = require('../../../models/contract')
 
@@ -435,6 +434,10 @@ var myAccountKey = process.env.privateKeyOf2;
 
 function locationPharmacist(){
     return{
+		async location(req, res){
+			const orders = await order.find({_id: req.params.id}).populate('pharmacistId', '-private_key').populate('senderId', '-private_key');
+		   res.send(orders)
+		},
         async locationControlPharma(req, res){
             const updatedOrder = order.updateOne({_id: req.body.orderLID}, {role: req.body.role}, async (err, data)=>{
 				             

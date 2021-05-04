@@ -4,7 +4,6 @@ const web3 = new Web3(rpcUrl)
 var Accounts = require('web3-eth-accounts')
 var keyth = require('keythereum')
 const Tx = require('ethereumjs-tx').Transaction
-const abiDecoder = require('abi-decoder')
 const order = require('../../models/order')
 const contract = require('../../models/contract')
 

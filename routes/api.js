@@ -38,7 +38,9 @@ router.get('/pharmacist/orders/:id', porderController().showTracking)
 
 //---------------Depot Order Controller-------------
 router.get('/depot/orders', auth, depotOrderController().showOrder)
+router.get('/depot/orders/blockchain', auth, depotOrderController().showBlockchainOrder)
 router.get('/depot/orders/completed', auth, depotOrderController().completedOrder)
+router.get('/depot/orders/completed/blockchain', auth, depotOrderController().completedOrderBlockchain)
 router.post('/depot/orders/status', auth, depotOrderController().showStatus)
 router.post('/depot/orders/dar', auth, depotOrderController().darControl)
 
@@ -54,6 +56,7 @@ router.put('/manufacturer/users/:id', mHomeController().postUpdateuser)
 router.delete('/manufacturer/users/:id', mHomeController().deleteUser)
 
 //----------------Pharmacist Location Control Routes----------------
+router.get('/:id/location', pharmaLocationController().location)
 router.post('/location/role', pharmaLocationController().locationControlPharma)
 
 module.exports = router

@@ -4,9 +4,12 @@ const web3 = new Web3(rpcUrl)
 var Accounts = require('web3-eth-accounts')
 var keyth = require('keythereum')
 const Tx = require('ethereumjs-tx').Transaction
+const moment = require('moment')
 const contract = require('../../../models/contract')
 const PharmacistOrders = require('../../../models/phrorder')
+const PharmacistOrdersTrd = require('../../../models/phrordertrd')
 const Phrcomplete = require('../../../models/Phrcomplete')
+const CompletedOrders = require('../../../models/Phrcomplete')
 
 var crypto = require('crypto'),
     algorithm = process.env.algorithm,
@@ -18,6 +21,13 @@ function encrypt(text){
     var crypted = cipher.update(text, 'utf8', 'hex')
     crypted += cipher.final('hex');
     return crypted;
+}
+
+function decrypt(text){
+    var decipher = crypto.createDecipher(algorithm, password)
+    var dec = decipher.update(text, 'hex', 'utf8')
+    dec += decipher.final('utf8');
+    return dec;
 }
 
 var abi = [
@@ -525,7 +535,73 @@ function depotOrderController(){
                 }
          //   res.render('manufacturer/completed', {ordersCompleted: ordersCompleted, moment: moment})
             })
-        }
+        },
+		async showBlockchainOrder(req, res){
+			const order =  await PharmacistOrdersTrd.find().populate('orderID', '-private_key').populate('pharmacistId', '-private_key')
+			// console.log(blockOrder)
+			const showorder = {order: order};
+			const orders = []
+			order.forEach(function(order){
+			 orders.push({
+				_id: order._id,
+				orderID: order.orderID,
+				pharmacistId: order.pharmacistId,
+				blockHash: decrypt(order.blockHash),
+				blockNumber: decrypt(order.blockNumber),
+				contractAddress: order.contractAddress,
+				cumulativeGasUsed: decrypt(order.cumulativeGasUsed),
+				from: decrypt(order.from),
+				gasUsed: decrypt(order.gasUsed),
+				logsBloom: decrypt(order.logsBloom),
+				status:decrypt(order.status),
+				to:decrypt(order.to),
+				transactionHash:decrypt(order.transactionHash),
+				transactionIndex:decrypt(order.transactionIndex),
+				type:decrypt(order.type),
+				email: decrypt(order.email),
+				orderstatus: decrypt(order.orderstatus),
+				createdAt: order.createdAt,
+				updatedAt: order.updatedAt,
+				__v: order.__v
+			})
+ 
+		   
+		})
+		console.log(orders)  
+		  res.render('depot/block/order', {orders: orders, moment: moment})
+		},
+		async completedOrderBlockchain(req, res){
+			const order =  await CompletedOrders.find().populate('orderID', '-private_key')
+			// console.log(blockOrder)
+			const showorder = {order: order};
+			const orders = []
+			order.forEach(function(order){
+			 orders.push({
+				_id: order._id,
+				orderID: order.orderID,
+				blockHash: decrypt(order.blockHash),
+				blockNumber: decrypt(order.blockNumber),
+				contractAddress: order.contractAddress,
+				cumulativeGasUsed: decrypt(order.cumulativeGasUsed),
+				from: decrypt(order.from),
+				gasUsed: decrypt(order.gasUsed),
+				logsBloom: decrypt(order.logsBloom),
+				status:decrypt(order.status),
+				to:decrypt(order.to),
+				transactionHash:decrypt(order.transactionHash),
+				transactionIndex:decrypt(order.transactionIndex),
+				type:decrypt(order.type),
+				orderstatus: decrypt(order.orderstatus),
+				createdAt: order.createdAt,
+				updatedAt: order.updatedAt,
+				__v: order.__v
+			})
+ 
+		   
+		})
+		console.log(orders)  
+		  res.render('depot/block/complete', {orders: orders, moment: moment})
+		}
     }
 }
 

@@ -17,12 +17,11 @@
                         <th>Block Hash</th>
                         <th>Order ID</th>
                         <th>Order Status</th>
-                        <th>Order Role</th>
                         <th>Block Number</th>
                         <th>Gas Used</th>
                         <th>To</th>
-                        <th>Depot In-Charge ID</th>
-                        <th>Depot In-Charge Email</th>
+                        <th>Depot In-charge ID</th>
+                        <th>Depot In-charge Email</th>
                         <th>Transaction Hash</th>
                         <th>Transaction Status</th>
                         <th>Time</th>
@@ -43,9 +42,6 @@
                              <td >
                                 <%= order.orderst %>
                              </td>
-                             <td >
-                                <%= order.orderID.role %>
-                             </td>
                                <td>
                                 <%= order.blockNumber %>
                                </td>
@@ -56,7 +52,7 @@
                                     <%= order.to %>
                                 </td>
                                 <td>
-                                    <%= order.orderID.depotId %>
+                                    <%= order.depotId._id %>
                                 </td>
                                 <td>
                                     <%= order.email %>

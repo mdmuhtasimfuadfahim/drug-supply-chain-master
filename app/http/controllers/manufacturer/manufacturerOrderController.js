@@ -38,6 +38,7 @@ function manufacturerOrderController(){
 			orders.push({
 			   _id: order._id,
 			   orderID: order.orderID,
+			   depotId: order.depotId,
 			   blockHash: decrypt(order.blockHash),
 			   blockNumber: decrypt(order.blockNumber),
 			   contractAddress: order.contractAddress,

@@ -8,7 +8,7 @@ const phrordertrdSchema = new Schema({
         ref: 'Phrorder',
         required: true
     },
-    depotId: {
+    pharmacistId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true

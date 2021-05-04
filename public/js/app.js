@@ -2935,9 +2935,9 @@ function initToast() {
           };
 
           setTimeout(function () {
-            //hide the toast notification automatically after 5 seconds
+            //hide the toast notification automatically after 2 seconds
             wrapperToast.classList.add("hide");
-          }, 5000);
+          }, 2000);
         } else {
           offline(); //calling offline function if ajax status is not equal to 200 or not less that 300
         }
