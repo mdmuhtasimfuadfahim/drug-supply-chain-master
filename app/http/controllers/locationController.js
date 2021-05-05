@@ -527,9 +527,9 @@ function locationController(){
 				                   console.log(transactionSave)	
 
 								   
-								   const getAllDatas = await myContract.methods.getStoreDrugs(_orderId).call().then(function(result){
-									console.log(result);
-								 })
+								//    const getAllDatas = await myContract.methods.getStoreDrugs(_orderId).call().then(function(result){
+								// 	console.log(result);
+								//  })
 								})
 									
 							})	

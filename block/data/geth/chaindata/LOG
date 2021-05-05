@@ -1546,3 +1546,37 @@
 00:30:36.168075 db@open done T·56.2744ms
 00:30:56.340383 db@close closing
 00:30:56.340912 db@close done T·529.5µs
+=============== May 5, 2021 (+06) ===============
+22:51:31.120162 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+22:51:31.121204 version@stat F·[3 1] S·2MiB[150KiB 2MiB] Sc·[0.75 0.02]
+22:51:31.121204 db@open opening
+22:51:31.121726 journal@recovery F·1
+22:51:31.181466 journal@recovery recovering @351
+22:51:31.185455 memdb@flush created L0@353 N·4 S·7KiB "Sna..tor,v52572":"unc..own,v52571"
+22:51:31.188449 version@stat F·[4 1] S·2MiB[158KiB 2MiB] Sc·[1.00 0.02]
+22:51:31.197425 db@janitor F·7 G·0
+22:51:31.197425 db@open done T·76.2207ms
+22:51:31.198423 table@compaction L0·4 -> L1·1 S·2MiB Q·52575
+22:51:31.307193 table@build created L1@356 N·35755 S·2MiB "\x00\x1eN..\x8dX\xd2,v26339":"ЃB..\xbbSX,v13264"
+22:51:31.311183 table@build created L1@357 N·188 S·34KiB "\xd0\xc2\xe6..\xb1\x93\xae,v468":"\xff\x01;..As\xf7,v12942"
+22:51:31.311183 version@stat F·[0 2] S·2MiB[0B 2MiB] Sc·[0.00 0.02]
+22:51:31.313249 table@compaction committed F-3 S-61KiB Ke·0 D·802 T·114.7546ms
+22:51:31.313249 table@remove removed @350
+22:51:31.313773 table@remove removed @347
+22:51:31.313773 table@remove removed @344
+22:51:31.318255 table@remove removed @343
+22:51:40.853119 db@close closing
+22:51:40.853119 db@close done T·0s
+=============== May 6, 2021 (+06) ===============
+00:43:29.600074 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+00:43:29.639847 version@stat F·[0 2] S·2MiB[0B 2MiB] Sc·[0.00 0.02]
+00:43:29.639847 db@open opening
+00:43:29.640391 journal@recovery F·1
+00:43:29.756652 journal@recovery recovering @354
+00:43:29.803701 memdb@flush created L0@358 N·4 S·7KiB "Sna..tor,v52577":"unc..own,v52576"
+00:43:29.815184 version@stat F·[1 2] S·2MiB[7KiB 2MiB] Sc·[0.25 0.02]
+00:43:29.832652 db@janitor F·6 G·1
+00:43:29.832652 db@janitor removing table-353
+00:43:29.834647 db@open done T·194.8ms
+00:48:24.495409 db@close closing
+00:48:24.547569 db@close done T·75.8878ms
