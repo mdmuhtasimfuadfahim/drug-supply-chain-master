@@ -129,6 +129,9 @@ eventEmitter.on('locationUpdate', (data)=>{
     io.to(`order_${data.id}`).emit('locationUpdate', data)
 })
 
+// eventEmitter.on('orderUpdatedPharmacist', (data)=>{
+//     io.to(`order_${data.id}`).emit('orderUpdatedPharmacist', data)
+// })
 
 
 eventEmitter.on('orderPlaced', (data)=>{

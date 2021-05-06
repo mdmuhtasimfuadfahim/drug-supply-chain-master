@@ -461,6 +461,10 @@ function depotOrderController(){
                 if(err){
                     return res.redirect('/api/drug/depot/orders')
                 }
+				// //-------Emit Event--------
+                // const eventEmitter = req.app.get('eventEmitter')
+                // eventEmitter.emit('orderUpdatedPharmacist', {id: req.body.orderId, status: req.body.status})
+
                 if(req.body.status === 'completed'){
                    //-----------BlockChain Transaction----------
                 const _toAdd = "0xd0120064047564b484a0c1d558dbf4b6385e714f";
