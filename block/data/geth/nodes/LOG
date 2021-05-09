@@ -1717,3 +1717,40 @@
 12:49:21.627588 table@remove removed @378
 12:52:09.299768 db@close closing
 12:52:09.300765 db@close done T·997.5µs
+=============== May 9, 2021 (+06) ===============
+21:04:04.857472 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+21:04:04.859043 version@stat F·[0 1] S·176B[0B 176B] Sc·[0.00 0.00]
+21:04:04.859043 db@open opening
+21:04:04.859563 journal@recovery F·1
+21:04:04.862068 journal@recovery recovering @389
+21:04:04.868488 memdb@flush created L0@392 N·1 S·159B "loc..seq,v242":"loc..seq,v242"
+21:04:04.873259 version@stat F·[1 1] S·335B[159B 176B] Sc·[0.25 0.00]
+21:04:04.892091 db@janitor F·5 G·1
+21:04:04.892091 db@janitor removing table-388
+21:04:04.893803 db@open done T·34.7592ms
+21:04:20.287195 db@close closing
+21:04:20.296151 db@close done T·8.9558ms
+=============== May 9, 2021 (+06) ===============
+21:11:03.203092 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+21:11:03.203902 version@stat F·[1 1] S·335B[159B 176B] Sc·[0.25 0.00]
+21:11:03.203902 db@open opening
+21:11:03.204090 journal@recovery F·1
+21:11:03.206228 journal@recovery recovering @393
+21:11:03.210136 memdb@flush created L0@395 N·1 S·159B "loc..seq,v244":"loc..seq,v244"
+21:11:03.215123 version@stat F·[2 1] S·494B[318B 176B] Sc·[0.50 0.00]
+21:11:03.225969 db@janitor F·5 G·0
+21:11:03.225969 db@open done T·22.0671ms
+21:11:19.972448 db@close closing
+21:11:19.973450 db@close done T·1.002ms
+=============== May 9, 2021 (+06) ===============
+21:16:55.922058 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+21:16:55.922579 version@stat F·[2 1] S·494B[318B 176B] Sc·[0.50 0.00]
+21:16:55.922579 db@open opening
+21:16:55.922579 journal@recovery F·1
+21:16:55.925259 journal@recovery recovering @396
+21:16:55.928514 memdb@flush created L0@398 N·1 S·159B "loc..seq,v246":"loc..seq,v246"
+21:16:55.932583 version@stat F·[3 1] S·653B[477B 176B] Sc·[0.75 0.00]
+21:16:55.944941 db@janitor F·6 G·0
+21:16:55.944941 db@open done T·22.3624ms
+21:17:06.940494 db@close closing
+21:17:06.946732 db@close done T·6.2381ms

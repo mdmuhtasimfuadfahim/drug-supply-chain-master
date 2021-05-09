@@ -1744,3 +1744,40 @@
 12:49:21.033578 table@remove removed @385
 12:52:09.237508 db@close closing
 12:52:09.264863 db@close done T·49.588ms
+=============== May 9, 2021 (+06) ===============
+21:04:04.667413 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+21:04:04.668768 version@stat F·[0 2] S·2MiB[0B 2MiB] Sc·[0.00 0.02]
+21:04:04.668768 db@open opening
+21:04:04.669299 journal@recovery F·1
+21:04:04.673605 journal@recovery recovering @396
+21:04:04.679223 memdb@flush created L0@400 N·158 S·16KiB "\x1a\x01\x16..\t\x17T,v55898":"\xe0Pn..\x18\xb3i,v55893"
+21:04:04.686242 version@stat F·[1 2] S·2MiB[16KiB 2MiB] Sc·[0.25 0.02]
+21:04:04.707061 db@janitor F·6 G·1
+21:04:04.708086 db@janitor removing table-395
+21:04:04.710157 db@open done T·41.389ms
+21:04:20.277985 db@close closing
+21:04:20.278431 db@close done T·445.8µs
+=============== May 9, 2021 (+06) ===============
+21:11:02.965918 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+21:11:02.968273 version@stat F·[1 2] S·2MiB[16KiB 2MiB] Sc·[0.25 0.02]
+21:11:02.968273 db@open opening
+21:11:02.968904 journal@recovery F·1
+21:11:02.977546 journal@recovery recovering @401
+21:11:02.985249 memdb@flush created L0@403 N·4 S·7KiB "Sna..tor,v55903":"unc..own,v55902"
+21:11:02.997979 version@stat F·[2 2] S·2MiB[23KiB 2MiB] Sc·[0.50 0.02]
+21:11:03.041920 db@janitor F·6 G·0
+21:11:03.041920 db@open done T·73.6464ms
+21:11:19.971282 db@close closing
+21:11:19.971944 db@close done T·662.2µs
+=============== May 9, 2021 (+06) ===============
+21:16:55.762389 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+21:16:55.763509 version@stat F·[2 2] S·2MiB[23KiB 2MiB] Sc·[0.50 0.02]
+21:16:55.763509 db@open opening
+21:16:55.764031 journal@recovery F·1
+21:16:55.766711 journal@recovery recovering @404
+21:16:55.770489 memdb@flush created L0@406 N·4 S·7KiB "Sna..tor,v55908":"unc..own,v55907"
+21:16:55.776081 version@stat F·[3 2] S·2MiB[31KiB 2MiB] Sc·[0.75 0.02]
+21:16:55.786698 db@janitor F·7 G·0
+21:16:55.787202 db@open done T·23.1891ms
+21:17:06.939393 db@close closing
+21:17:06.939989 db@close done T·595.7µs

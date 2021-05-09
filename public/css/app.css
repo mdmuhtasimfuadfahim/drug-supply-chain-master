@@ -1318,7 +1318,6 @@ nav li a:hover {
 }
 
 .sidebar__img {
-  display: flex;
   align-items: center;
 }
 
