@@ -443,14 +443,17 @@ var myAccountKey = process.env.privateKeyOf2;
 
 function depotOrderController(){
     return{
-        showOrder(req, res){
+        async showOrder(req, res){
+			// const PharmaOrders = await PharmacistOrders.find().populate('senderId', '-private_key')
+			// console.log(PharmaOrders)
             PharmacistOrders.find({status: { $ne: 'completed'}}, null, { sort: { 'createdAt': -1 } }).
-            populate('pharmacistId', '-private_key').exec((err, PharmacistOrders)=>{
+            populate('pharmacistId', '-private_key').populate('senderId', '-private_key').exec((err, PharmacistOrders)=>{
                 if(req.xhr){
                     res.json(PharmacistOrders)
                 }
+
                 else{
-                    console.log(PharmacistOrders)
+                   // console.log(PharmacistOrders)
                     return  res.render('depot/pharmacistOrders')
                 }
                
