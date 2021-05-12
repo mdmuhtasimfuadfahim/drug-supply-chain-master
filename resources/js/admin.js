@@ -33,6 +33,7 @@ export function initAdmin(socket){
         }).join('')
       }
 
+     
 
     function generateMarkup(orders){
         return orders.map(order => {
@@ -102,6 +103,11 @@ export function initAdmin(socket){
                         </div>
                     </div>
                 </td>
+        
+                <td class="border px-4 py-2">
+                    ${ order.proId }
+                </td>
+               
                 <td class="border px-4 py-2">
                     ${ moment(order.createdAt).format('MMMM Do YYYY') }
                 </td>
@@ -110,6 +116,9 @@ export function initAdmin(socket){
                 </td>
                 <td class="border px-4 py-2">
                     ${ order.paymentStatus ? 'Paid' : 'Not paid' }
+                </td>
+                <td><a href="/manufacturer/update_orders?id=${ order._id }" class="btn border-shadow update">
+                    <span class="text-gradient"><i class="fas fa-user-edit"></i></span></a>
                 </td>
             </tr>
         `

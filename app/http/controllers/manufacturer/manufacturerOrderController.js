@@ -1,5 +1,6 @@
 const order = require('../../../models/order')
 const moment = require('moment')
+const axios = require('axios')
 const Ordertrd = require('../../../models/ordertrd')
 const CompletedOrders = require('../../../models/complete')
 
@@ -100,13 +101,57 @@ function manufacturerOrderController(){
 			   createdAt: order.createdAt,
 			   updatedAt: order.updatedAt,
 			   __v: order.__v
-		   })
+		   }) 
+	      })
+	      console.log(orders)  
+          res.render('manufacturer/block/complete', {orders: orders, moment: moment})
+        },
+		orderDrugFind(req, res){
+			if(req.query.id){
+                const id = req.query.id
+                order.findById(id).then(order =>{
+                    if(!order){
+                        res.status(404).send({ message: `Not Found Any Drugs with this ${id}`})
+                    }else{
+                        res.send(order)
+                    }
+                }).catch(err =>{
+                    res.status(500).send({ message: `Error While Retriving Drugs with this ${id}`})
+                })
+            }
+            else{
+                order.find().then(order =>{
+                    res.send(order)
+                    console.log(order)
+                }).catch(err =>{
+                    res.status(500).send({ message: err.message || 'Error Occurred While Retriving Information from DurgStorage' })
+                })
+            }
+	    },
+		updateOrderProduction(req, res){
+			axios.get(`${process.env.APP_BASE_URL}/manufacturer/orders/find`, { params : { id : req.query.id }}).then(function(orderDrugData){
+                //console.log(drugStoreData.data)
+                res.render('manufacturer/upateOrder', { order : orderDrugData.data})
+               }).catch(err =>{
+                   res.send(err)
+               })
+		},
+		orderDrugUpdate(req, res){
+			if(!req.body){
+                return res.status(400).send({ message: 'Data to Update can not be Empty'})
+            }
 
-		  
-	   })
-	   console.log(orders)  
-         res.render('manufacturer/block/complete', {orders: orders, moment: moment})
-        }
+            const id = req.params.id
+            order.findByIdAndUpdate(id, req.body, {useFindAndModify: false}).then(order =>{
+                if(!order){
+                    res.status(404).send({ message: `Cannot Update Order with ${id}. Maybe Order Info not Found`})
+                }else{
+                    res.send(order)
+                }
+            }).catch(err =>{
+                res.status(500).send({ message: 'Error in Updating Order Info'})
+            })
+		}
     }
 }
 

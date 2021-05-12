@@ -1,4 +1,0 @@
-https://www.npmjs.com/package/mongodb-client-encryption -- Encryption (mongoDB)
-https://developer.mongodb.com/how-to/client-side-field-level-encryption-csfle-mongodb-node/ 
-https://docs.mongodb.com/drivers/security/client-side-field-level-encryption-guide/
-https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-mongodb-on-ubuntu-16-04#part-two-securing-mongodb

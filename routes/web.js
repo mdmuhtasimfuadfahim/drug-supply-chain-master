@@ -26,8 +26,6 @@ function initRoutes(app){
     app.get('/register', guest, authController().register)
     app.get('/drop', auth, homeController().dropFile)
 
-   
-
     app.post('/login', authController().postLogin)
     app.post('/register', authController().postRegister)
     app.post('/logout', authController().logout)
@@ -74,6 +72,9 @@ function initRoutes(app){
 
     //-----------------Manufacturer Order Control Routes-------------
     app.get('/manufacturer/orders', manufacturer, manufacturerOrderController().index)
+    app.get('/manufacturer/orders/find', manufacturerOrderController().orderDrugFind)
+    app.get('/manufacturer/update_orders', manufacturer, manufacturerOrderController().updateOrderProduction)
+    app.put('/manufacturer/orders/:id', manufacturer, manufacturerOrderController().orderDrugUpdate)
     app.get('/manufacturer/orders/blockchain', manufacturer, manufacturerOrderController().showBlockchainOrder)
     app.post('/manufacturer/order/status', manufacturer, statusController().statusControl)
     app.post('/manufacturer/order/dar', manufacturer, statusController().darControl)

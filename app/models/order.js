@@ -20,6 +20,7 @@ const orderSchema = new Schema({
     paymentType: {type: String, default: 'COD'},
     status:{type:String, default:'order_placed'},
     dar:{type: String, default: 'Not Selected'},
+    proId:{type: String, default: 'None'},
     role:{type:String, default:'Manufacturer'}
 },{timestamps: true})
 

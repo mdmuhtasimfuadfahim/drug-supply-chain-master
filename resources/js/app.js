@@ -12,6 +12,7 @@ import { initDepot } from './depot'
 import { initAdminShow } from './adminShow'
 import { durgStorageControl } from './durgStoreCon'
 import { initDepotShow } from './depotShow'
+import { orderDrugUpdate } from './orderUpdate'
 import jQuery from 'jquery'
 import moment from 'moment'
 window.$ = window.jQuery = jQuery
@@ -97,6 +98,9 @@ initNew()
 
 //--------------Update User--------------
 userControl()
+
+//-------------Update Order Production ID-----------
+orderDrugUpdate()
 
 
 //--------------Drug Controller JS----------

@@ -16,6 +16,8 @@
                         <tr>
                             <th>Block Hash</th>
                             <th>Order ID</th>
+                            <th>Order Status</th>
+                            <th>Order Role</th>
                             <th> Block Number</th>
                             <th> Gas Used</th>
                             <th> To</th>
@@ -35,6 +37,12 @@
                                    </td>
                                    <td >
                                     <%= transaction.orderID._id %>
+                                 </td>
+                                 <td >
+                                    <%= transaction.orderID.status %>
+                                 </td>
+                                 <td >
+                                    <%= transaction.orderID.role %>
                                  </td>
                                    <td>
                                     <%= transaction.blockNumber %>
