@@ -145,12 +145,21 @@ function manufacturerOrderController(){
             order.findByIdAndUpdate(id, req.body, {useFindAndModify: false}).then(order =>{
                 if(!order){
                     res.status(404).send({ message: `Cannot Update Order with ${id}. Maybe Order Info not Found`})
-                }else{
-                    res.send(order)
+                }else{ 
+                   res.send(order)    
+                   
                 }
+
+                // order.findById(id).then(order =>{
+                //     console.log(id + '\n' + order.proId)
+                // })   
+               
             }).catch(err =>{
                 res.status(500).send({ message: 'Error in Updating Order Info'})
             })
+
+           
+           
 		}
     }
 }
