@@ -1921,3 +1921,41 @@
 19:38:33.683242 table@remove removed @427
 19:39:05.469253 db@close closing
 19:39:05.469253 db@close done T·0s
+=============== May 16, 2021 (+06) ===============
+23:40:46.422307 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:40:46.451609 version@stat F·[0 2] S·2MiB[0B 2MiB] Sc·[0.00 0.02]
+23:40:46.451609 db@open opening
+23:40:46.452156 journal@recovery F·1
+23:40:46.459390 journal@recovery recovering @438
+23:40:46.471484 memdb@flush created L0@442 N·4 S·7KiB "Sna..tor,v56744":"unc..own,v56743"
+23:40:46.483399 version@stat F·[1 2] S·2MiB[7KiB 2MiB] Sc·[0.25 0.02]
+23:40:46.506931 db@janitor F·6 G·1
+23:40:46.506931 db@janitor removing table-437
+23:40:46.510395 db@open done T·58.7852ms
+23:44:01.597046 db@close closing
+23:44:01.619984 db@close done T·67.0711ms
+=============== May 16, 2021 (+06) ===============
+23:55:04.599723 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:55:04.602717 version@stat F·[1 2] S·2MiB[7KiB 2MiB] Sc·[0.25 0.02]
+23:55:04.602717 db@open opening
+23:55:04.603717 journal@recovery F·1
+23:55:04.671475 journal@recovery recovering @443
+23:55:04.724928 memdb@flush created L0@445 N·595 S·40KiB "\r\v\xb2..R\xfd\xc3,v57335":"\xed\x13\xe9..\x88\xe3\t,v57334"
+23:55:04.730912 version@stat F·[2 2] S·2MiB[48KiB 2MiB] Sc·[0.50 0.02]
+23:55:04.755789 db@janitor F·6 G·0
+23:55:04.761384 db@open done T·158.6669ms
+=============== May 17, 2021 (+06) ===============
+00:00:11.358182 db@close closing
+00:00:11.378646 db@close done T·21.0232ms
+=============== May 17, 2021 (+06) ===============
+00:01:53.108113 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+00:01:53.109113 version@stat F·[2 2] S·2MiB[48KiB 2MiB] Sc·[0.50 0.02]
+00:01:53.109113 db@open opening
+00:01:53.110110 journal@recovery F·1
+00:01:53.113157 journal@recovery recovering @446
+00:01:53.122076 memdb@flush created L0@448 N·847 S·53KiB "\x10mt..;\x94\xf1,v58189":"\xf9\xd2K..\xa9\u007f\xa3,v58181"
+00:01:53.134044 version@stat F·[3 2] S·2MiB[101KiB 2MiB] Sc·[0.75 0.02]
+00:01:53.156329 db@janitor F·7 G·0
+00:01:53.156329 db@open done T·47.216ms
+00:07:37.453667 db@close closing
+00:07:37.504203 db@close done T·55.9955ms

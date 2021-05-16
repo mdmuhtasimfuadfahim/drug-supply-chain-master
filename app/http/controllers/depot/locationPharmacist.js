@@ -509,9 +509,10 @@ function locationPharmacist(){
                 //-------Emit Event--------
                 // const eventEmitter = req.app.get('eventEmitter')
                 // eventEmitter.emit('locationUpdate', {id: req.body._id, role: req.body.role})   
-                return res.redirect('/api/drug/depot/orders') 
+                
                
             })
+			return res.redirect('/api/drug/' + req.body._id + 'location') 
         }
 
     }

@@ -13,6 +13,9 @@
                         <th class="px-4 py-2 text-left">Transaction Hash</th>
                         <th class="px-4 py-2 text-left">Block Hash</th>
                         <th class="px-4 py-2 text-left">Order ID</th>
+                        <th class="px-4 py-2 text-left">Order Status</th>
+                        <th class="px-4 py-2 text-left">DAR</th>
+                        <th class="px-4 py-2 text-left">Order Role</th>
                         <th class="px-4 py-2 text-left"> Block Number</th>
                         <th class="px-4 py-2 text-left"> Gas Used</th>
                         <th class="px-4 py-2 text-left"> To</th>
@@ -35,6 +38,16 @@
                                <td class="border px-4 py-2">
                                 <%= transaction.orderID._id %>
                              </td>
+                             <td class="border px-4 py-2">
+                                <%= transaction.orderID.status %>
+                             </td>
+                             <td class="border px-4 py-2">
+                                <%= transaction.orderID.dar %>
+                             </td>
+                             <td class="border px-4 py-2">
+                                <%= transaction.orderID.role %>
+                             </td>
+
                                <td class="border px-4 py-2">
                                 <%= transaction.blockNumber %>
                                </td>
@@ -45,7 +58,7 @@
                                     <%= transaction.to %>
                                 </td>
                                 <td>
-                                    <%= transaction.orderID.depotId %>
+                                    <%= transaction.orderID.pharmacistId %>
                                 </td>
                                 <td class="border px-4 py-2">
                                     <%= transaction.transaction %>

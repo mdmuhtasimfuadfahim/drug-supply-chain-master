@@ -5,6 +5,7 @@ var Accounts = require('web3-eth-accounts')
 var keyth = require('keythereum')
 const Tx = require('ethereumjs-tx').Transaction
 const Transaction = require('../../models/transaction')
+const PhrTransaction = require('../../models/phrtransaction')
 const moment = require('moment')
 var crypto = require('crypto'),
     algorithm = process.env.algorithm,
@@ -533,7 +534,7 @@ function transactionController(){
 
 		},
 	    async pharmacistTransaction(req, res){
-		   const transaction = await Transaction.find().populate('orderID', '-private_key')
+		   const transaction = await PhrTransaction.find().populate('orderID', '-private_key')
 		   const showTransaction = {transaction: transaction};
 		   const transactions = []
 		   transaction.forEach(function(transaction){

@@ -1888,3 +1888,41 @@
 19:38:33.829269 table@remove removed @417
 19:39:05.469820 db@close closing
 19:39:05.470324 db@close done T·504.3µs
+=============== May 16, 2021 (+06) ===============
+23:40:46.930875 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:40:46.950267 version@stat F·[0 1] S·179B[0B 179B] Sc·[0.00 0.00]
+23:40:46.950267 db@open opening
+23:40:46.950804 journal@recovery F·1
+23:40:46.958619 journal@recovery recovering @428
+23:40:46.974977 memdb@flush created L0@431 N·1 S·160B "loc..seq,v266":"loc..seq,v266"
+23:40:46.981353 version@stat F·[1 1] S·339B[160B 179B] Sc·[0.25 0.00]
+23:40:47.006467 db@janitor F·5 G·1
+23:40:47.006467 db@janitor removing table-427
+23:40:47.008806 db@open done T·58.5385ms
+23:44:01.655861 db@close closing
+23:44:01.671817 db@close done T·15.9562ms
+=============== May 16, 2021 (+06) ===============
+23:55:05.180466 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:55:05.186443 version@stat F·[1 1] S·339B[160B 179B] Sc·[0.25 0.00]
+23:55:05.187444 db@open opening
+23:55:05.199736 journal@recovery F·1
+23:55:05.205718 journal@recovery recovering @432
+23:55:05.210618 memdb@flush created L0@434 N·1 S·160B "loc..seq,v268":"loc..seq,v268"
+23:55:05.220076 version@stat F·[2 1] S·499B[320B 179B] Sc·[0.50 0.00]
+23:55:05.240664 db@janitor F·5 G·0
+23:55:05.240664 db@open done T·53.2198ms
+=============== May 17, 2021 (+06) ===============
+00:00:11.465862 db@close closing
+00:00:11.537935 db@close done T·72.0726ms
+=============== May 17, 2021 (+06) ===============
+00:01:53.397688 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+00:01:53.398686 version@stat F·[2 1] S·499B[320B 179B] Sc·[0.50 0.00]
+00:01:53.399683 db@open opening
+00:01:53.399683 journal@recovery F·1
+00:01:53.404669 journal@recovery recovering @435
+00:01:53.408660 memdb@flush created L0@437 N·1 S·160B "loc..seq,v270":"loc..seq,v270"
+00:01:53.416636 version@stat F·[3 1] S·659B[480B 179B] Sc·[0.75 0.00]
+00:01:53.443054 db@janitor F·6 G·0
+00:01:53.443054 db@open done T·43.3716ms
+00:07:37.592409 db@close closing
+00:07:37.600416 db@close done T·8.0067ms
