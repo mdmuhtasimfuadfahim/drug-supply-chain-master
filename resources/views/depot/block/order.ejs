@@ -29,6 +29,7 @@
                 <tbody>
                     <% if(orders.length) { %>
                         <% orders.forEach((order)=>{ %>
+                            <% if(user._id.equals(order.orderID.senderId)) { %>
                             <tr>
                                 <td class="border px-4 py-2">
                                     <%= order.blockHash %>
@@ -68,13 +69,15 @@
                                     <%= moment(order.createdAt).format('MMMM Do YYYY') %>
                                 </td>  
                             </tr>
+                           <% } %> 
                         <% }) %>
                         
                     <% } else { %>
                         <tr>
-                            <td class="p-4">No orders found</td>
+                            <td class="p-4">No blockchain transaction found</td>
                         </tr>
                     <% } %>
+                   
                    
                 </tbody>
             </table>

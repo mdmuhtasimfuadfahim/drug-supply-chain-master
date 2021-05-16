@@ -16,6 +16,7 @@
                         <th class="px-4 py-2 text-left">Block Hash</th>
                         <th class="px-4 py-2 text-left">Order ID</th>
                         <th class="px-4 py-2 text-left">Order Status</th>
+                        <th class="px-4 py-2 text-left">DAR</th>
                         <th class="px-4 py-2 text-left">Order Role</th>
                         <th class="px-4 py-2 text-left"> Block Number</th>
                         <th class="px-4 py-2 text-left"> Gas Used</th>
@@ -28,6 +29,7 @@
                 <tbody>
                     <% if(transactions.length) { %>
                         <% transactions.forEach((transaction)=>{ %>
+                            <% if(user._id.equals(transaction.depotId)) { %>
                             <tr>
                                 <td class="border px-4 py-2">
                                   <%= transaction.transactionHash %>
@@ -40,6 +42,9 @@
                              </td>
                              <td class="border px-4 py-2">
                                 <%= transaction.orderID.status %>
+                             </td>
+                             <td class="border px-4 py-2">
+                                <%= transaction.orderID.dar %>
                              </td>
                              <td class="border px-4 py-2">
                                 <%= transaction.orderID.role %>
@@ -63,6 +68,8 @@
                                     <%= moment(transaction.createdAt).format('MMMM Do YYYY') %>
                                 </td>  
                             </tr>
+                        <%}  %>
+                           
                         <% }) %>
                         
                     <% } else { %>

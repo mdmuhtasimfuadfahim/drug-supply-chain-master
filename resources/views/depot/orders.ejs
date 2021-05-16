@@ -22,6 +22,7 @@
                     <th class="px-4 py-2 text-center"> Your Orders</th>
                     <th class="px-4 py-2 text-center"> Manufacturer Address</th>
                     <th class="px-4 py-2 text-center"> DAR</th>
+                    <th class="px-4 py-2 text-center"> Production ID</th>
                     <th class="px-4 py-2 text-center"> Time</th>
                     <th class="px-4 py-2 text-center"> Date</th>
                 </tr>
@@ -40,23 +41,26 @@
                 <% if(orders.length) { %>
                     <% orders.forEach((order)=>{ %>
                         <tr>
-                            <td class="border px-4 py-2">
+                            <td class="border px-4 py-2 text-center">
                                 <%= order.sender.email %>
                            </td>
-                            <td class="items-center mx-auto border px-4 py-2">
+                            <td class="mx-auto border px-4 py-2 text-center">
                                 <a  class="linkOrder" href="/depot/orders/<%= order._id %>"><%= order._id %></a>
                                 <p><%= renderOrderItems(order.drugs) %></p>
                             </td>
-                            <td class="border px-4 py-2">
+                            <td class="border px-4 py-2 text-center">
                                 <%= order.sender.address %>
                             </td>
-                            <td class="border px-4 py-2">
+                            <td class="border px-4 py-2 text-center">
                                 <%= order.dar %>
                             </td>
-                            <td class="border px-4 py-2">
+                            <td class="border px-4 py-2 text-center">
+                                <%= order.proId %>
+                            </td>
+                            <td class="border px-4 py-2 text-center">
                                 <%= moment(order.createdAt).format('hh:mm A') %>
                             </td>
-                            <td class="border px-4 py-2">
+                            <td class="border px-4 py-2 text-center">
                                 <%= moment(order.createdAt).format('MMMM Do YYYY') %>
                             </td>
                         </tr>

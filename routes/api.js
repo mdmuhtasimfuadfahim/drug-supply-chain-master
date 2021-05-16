@@ -56,7 +56,7 @@ router.put('/manufacturer/users/:id', mHomeController().postUpdateuser)
 router.delete('/manufacturer/users/:id', mHomeController().deleteUser)
 
 //----------------Pharmacist Location Control Routes----------------
-router.get('/:id/location', pharmaLocationController().location)
-router.post('/location/role', pharmaLocationController().locationControlPharma)
+router.get('/:id/location', pharmaLocationController().location) // /api/drug/:id/location
+router.post('/location/role', pharmaLocationController().locationControlPharma) // /api/drug/location/role
 
 module.exports = router

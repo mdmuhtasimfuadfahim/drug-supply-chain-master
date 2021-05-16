@@ -2151,7 +2151,12 @@ socket.on('orderUpdated', function (data) {
     text: 'Updated Order',
     progressBar: false
   }).show(); // console.log(data)
-}); //-----------------Change Lcoation----------
+}); // socket.on('orderUpdatedPharmacist', (data)=>{
+//     const updateOrderPharmacist = {...order}
+//     updateOrderPharmacist.updatedAt = moment().format()
+//     updateOrderPharmacist.status = data.status
+// })
+//-----------------Change Lcoation----------
 
 var hiddenInput2 = document.querySelector('#hiddenInput2');
 var roles = document.querySelectorAll('.status-line-2'); //console.log(roles)

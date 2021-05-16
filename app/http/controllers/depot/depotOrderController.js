@@ -449,12 +449,13 @@ function depotOrderController(){
             PharmacistOrders.find({status: { $ne: 'completed'}}, null, { sort: { 'createdAt': -1 } }).
             populate('pharmacistId', '-private_key').populate('senderId', '-private_key').exec((err, PharmacistOrders)=>{
                 if(req.xhr){
+					
                     res.json(PharmacistOrders)
                 }
 
                 else{
-                   // console.log(PharmacistOrders)
-                    return  res.render('depot/pharmacistOrders')
+                   console.log(PharmacistOrders)
+                    return  res.render('depot/pharmacistOrders', {orders: PharmacistOrders})
                 }
                
             })
@@ -464,9 +465,6 @@ function depotOrderController(){
                 if(err){
                     return res.redirect('/api/drug/depot/orders')
                 }
-				// //-------Emit Event--------
-                // const eventEmitter = req.app.get('eventEmitter')
-                // eventEmitter.emit('orderUpdatedPharmacist', {id: req.body.orderId, status: req.body.status})
 
                 if(req.body.status === 'completed'){
                    //-----------BlockChain Transaction----------
@@ -518,8 +516,8 @@ function depotOrderController(){
                })
                 }
                 //-------Emit Event--------
-                // const eventEmitter = req.app.get('eventEmitter')
-                // eventEmitter.emit('orderUpdated', {id: req.body.orderId, status: req.body.status})
+                const eventEmitter = req.app.get('eventEmitter')
+                eventEmitter.emit('orderUpdated', {id: req.body.orderId, status: req.body.status})
                 return res.redirect('/api/drug/depot/orders')
             })
         },
@@ -535,12 +533,14 @@ function depotOrderController(){
         async completedOrder(req, res){
             const ordersCompleted = await PharmacistOrders.find({status: 'completed'}).populate('pharmacistId', '-private_key').exec((err, orders)=>{
                 if(req.xhr){
+					
                     res.json(orders)
+
                 }
                 else{
-                    return  res.render('depot/completed')
+                    return  res.render('depot/completed', {orders: orders})
                 }
-         //   res.render('manufacturer/completed', {ordersCompleted: ordersCompleted, moment: moment})
+         
             })
         },
 		async showBlockchainOrder(req, res){

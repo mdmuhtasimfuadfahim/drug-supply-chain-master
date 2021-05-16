@@ -439,9 +439,9 @@ function locationPharmacist(){
 		   res.send(orders)
 		},
         async locationControlPharma(req, res){
-            const updatedOrder = order.updateOne({_id: req.body.orderLID}, {role: req.body.role}, async (err, data)=>{
+            const updatedOrder = order.updateOne({_id: req.body._id}, {role: req.body.role}, async (err, data)=>{
 				             
-                const populateOrder = await updatedOrder.find({_id: req.body.orderLID}).populate('pharmacistId', '-private-key').populate('senderId', '-private_key');
+                const populateOrder = await updatedOrder.find({_id: req.body._id}).populate('pharmacistId', '-private-key').populate('senderId', '-private_key');
                 const retunPopulateOrder = {populateOrder : populateOrder}
                 populateOrder.forEach(async function (populateOrder){
                     const Contract = await contract.find();
@@ -508,8 +508,8 @@ function locationPharmacist(){
                 })
                 //-------Emit Event--------
                 // const eventEmitter = req.app.get('eventEmitter')
-                // eventEmitter.emit('locationUpdate', {id: req.body.orderLID, role: req.body.role})   
-                return res.send(updatedOrder) 
+                // eventEmitter.emit('locationUpdate', {id: req.body._id, role: req.body.role})   
+                return res.redirect('/api/drug/depot/orders') 
                
             })
         }

@@ -32,6 +32,7 @@ export function initDepot(socket){
 
 
     function generateMarkupPharma(ordersPharmacist){
+    
         return ordersPharmacist.map(order => {
             return `
                 <tr>

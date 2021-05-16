@@ -22,8 +22,20 @@
                     <th class="px-4 py-2 text-left">Placed Time</th>
                     <th class="px-4 py-2 text-left">Payment Status</th>
                 </tr>
+               
             </thead>
-            <tbody id="myOrderTableBody"></tbody>
+            <% if(orders.length) { %>
+              <% orders.forEach((order)=> {%>
+                <% if(user._id.equals(order.senderId._id)) { %>
+                    <tbody id="myOrderTableBody"></tbody>
+                <% } %>
+              <% }) %>
+            <% } else { %>
+                <tr>
+                    <td>No orders for you.. Sorry !</td>
+                </tr>
+            <% } %>
+            
         </table>
      </section>
         

@@ -194,6 +194,12 @@ socket.on('orderUpdated', (data)=>{
     // console.log(data)
 })
 
+// socket.on('orderUpdatedPharmacist', (data)=>{
+//     const updateOrderPharmacist = {...order}
+//     updateOrderPharmacist.updatedAt = moment().format()
+//     updateOrderPharmacist.status = data.status
+// })
+
 //-----------------Change Lcoation----------
 const hiddenInput2 = document.querySelector('#hiddenInput2')
 let roles = document.querySelectorAll('.status-line-2')

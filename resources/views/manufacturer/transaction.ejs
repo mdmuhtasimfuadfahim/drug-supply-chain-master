@@ -17,6 +17,8 @@
                             <th>Block Hash</th>
                             <th>Order ID</th>
                             <th>Order Status</th>
+                            <th>DAR</th>
+                            <th>Production ID</th>
                             <th>Order Role</th>
                             <th> Block Number</th>
                             <th> Gas Used</th>
@@ -40,6 +42,12 @@
                                  </td>
                                  <td >
                                     <%= transaction.orderID.status %>
+                                 </td>
+                                 <td >
+                                    <%= transaction.orderID.dar %>
+                                 </td>
+                                 <td >
+                                    <%= transaction.orderID.proId %>
                                  </td>
                                  <td >
                                     <%= transaction.orderID.role %>
