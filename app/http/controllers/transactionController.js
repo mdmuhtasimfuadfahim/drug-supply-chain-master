@@ -538,7 +538,7 @@ function transactionController(){
 		   const showTransaction = {transaction: transaction};
 		   const transactions = []
 		   transaction.forEach(function(transaction){
-			   console.log(transaction)
+			  // console.log(transaction)
 			transactions.push({
 			   _id: transaction._id,
 			   orderID: transaction.orderID,

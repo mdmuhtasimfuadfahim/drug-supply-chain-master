@@ -1959,3 +1959,25 @@
 00:01:53.156329 db@open done T·47.216ms
 00:07:37.453667 db@close closing
 00:07:37.504203 db@close done T·55.9955ms
+=============== May 17, 2021 (+06) ===============
+01:42:32.344954 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+01:42:32.345983 version@stat F·[3 2] S·2MiB[101KiB 2MiB] Sc·[0.75 0.02]
+01:42:32.345983 db@open opening
+01:42:32.345983 journal@recovery F·1
+01:42:32.348754 journal@recovery recovering @449
+01:42:32.356971 memdb@flush created L0@451 N·946 S·59KiB "\x01{\xad..\xaa\xae.,v59125":"\xd6\xc5\xff..<\xa4\x0f,v59136"
+01:42:32.373643 version@stat F·[4 2] S·2MiB[160KiB 2MiB] Sc·[1.00 0.02]
+01:42:32.387721 db@janitor F·8 G·0
+01:42:32.387721 db@open done T·41.7379ms
+01:42:32.403082 table@compaction L0·4 -> L1·2 S·2MiB Q·59138
+01:42:32.556003 table@build created L1@454 N·35273 S·2MiB "\x00\x1eN..\x8dX\xd2,v26339":"r\x00\x00..\xbeÆ,v19021"
+01:42:32.569967 table@build created L1@455 N·4993 S·295KiB "r\x00\x00..7Ǌ,v19030":"\xff\xcc\xec..\xd9h\xca,v56709"
+01:42:32.570964 version@stat F·[0 2] S·2MiB[0B 2MiB] Sc·[0.00 0.02]
+01:42:32.571962 table@compaction committed F-4 S-60KiB Ke·0 D·793 T·167.883ms
+01:42:32.585234 table@remove removed @448
+01:42:32.586232 table@remove removed @445
+01:42:32.587238 table@remove removed @442
+01:42:32.588227 table@remove removed @440
+01:42:32.588227 table@remove removed @441
+01:44:48.535369 db@close closing
+01:44:48.540791 db@close done T·19.2576ms

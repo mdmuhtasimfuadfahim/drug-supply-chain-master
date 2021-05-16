@@ -37,27 +37,27 @@ export function initDepotShow(){
         return orders.map(order => {
             return `
                 <tr>
-                <td class="border px-4 py-2 text-green-900">
+                <td class="border px-4 py-2 text-green-900 text-center">
                     <p>${ order._id }</p>
                     <div>${ renderItems(order.drugs) }</div>
                 </td>
-                <td class="border px-4 py-2">${ order.pharmacistId.name }</td>
-                <td class="border px-4 py-2">${ order.pharmacistId.phone }</td>
-                <td class="border px-4 py-2">${ order.pharmacistId.email }</td>               
-                <td class="border px-4 py-2">${ order.address }</td>
-                <td class="border px-4 py-2">
+                <td class="border px-4 py-2 text-center">${ order.pharmacistId.name }</td>
+                <td class="border px-4 py-2 text-center">${ order.pharmacistId.phone }</td>
+                <td class="border px-4 py-2 text-center">${ order.pharmacistId.email }</td>               
+                <td class="border px-4 py-2 text-center">${ order.address }</td>
+                <td class="border px-4 py-2 text-center">
                    ${ order.status }
                 </td>
-                <td class="border px-4 py-2">
+                <td class="border px-4 py-2 text-center">
                    ${ order.dar }
                 </td>
-                <td class="border px-4 py-2">
+                <td class="border px-4 py-2 text-center">
                     ${ moment(order.createdAt).format('MMMM Do YYYY') }
                 </td>
-                <td class="border px-4 py-2">
+                <td class="border px-4 py-2 text-center">
                     ${ moment(order.createdAt).format('hh:mm A') }
                 </td>
-                <td class="border px-4 py-2">
+                <td class="border px-4 py-2 text-center">
                     ${ order.paymentStatus ? 'Paid' : 'Not paid' }
                 </td>
             </tr>

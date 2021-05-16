@@ -363,6 +363,10 @@ nav li a{
     .status-box ul li span::before{
       font-size: 34px;
     }
+    .responsive-head{
+      size: 8px;
+      padding: 0px 0px;
+    }
 }
 
 
@@ -419,9 +423,9 @@ nav li a{
     display: flex;
 }
 .image-vector {
-    width: 50vw;
-    height: 50vh;
-    background: url(/img/undraw-upload.svg) no-repeat center;
+    width: 100vw;
+    height: 100vh;
+    background: url(/img/L8.png) no-repeat center;
     background-size: contain;
   }
 

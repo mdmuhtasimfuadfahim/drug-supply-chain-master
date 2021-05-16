@@ -36,16 +36,16 @@ export function initDepot(socket){
         return ordersPharmacist.map(order => {
             return `
                 <tr>
-                <td class="border px-4 py-2 text-green-900">
+                <td class="border px-4 py-2 text-green-900 text-center">
                     <p>${ order._id }</p>
                     <div>${ renderItemsPharma(order.drugs) }</div>
                 </td>
-                <td class="border px-4 py-2">${ order.pharmacistId.name }</td>
-                <td class="border px-4 py-2">${ order.pharmacistId.phone }</td>
-                <td class="border px-4 py-2">${ order.pharmacistId.email }</td>               
-                <td class="border px-4 py-2">${ order.address }</td>
-                <td class="border px-4 py-2">
-                    <div class="inline-block relative w-64">
+                <td class="border px-4 py-2 text-center">${ order.pharmacistId.name }</td>
+                <td class="border px-4 py-2 text-center">${ order.pharmacistId.phone }</td>
+                <td class="border px-4 py-2 text-center">${ order.pharmacistId.email }</td>               
+                <td class="border px-4 py-2 text-center">${ order.address }</td>
+                <td class="border px-4 py-2 text-center">
+                    <div class="inline-block relative w-64 text-center">
                         <form action="/api/drug/depot/orders/status" method="POST">
                             <input type="hidden" name="orderId" value="${ order._id }">
                             <select name="status" onchange="this.form.submit()"
@@ -75,7 +75,7 @@ export function initDepot(socket){
                         </div>
                     </div>
                 </td>
-                <td class="border px-4 py-2">
+                <td class="border px-4 py-2 text-center">
                     <div class="inline-block relative w-64">
                         <form action="/api/drug/depot/orders/dar" method="POST">
                             <input type="hidden" name="darNum" value="${ order._id }">
@@ -100,13 +100,13 @@ export function initDepot(socket){
                         </div>
                     </div>
                 </td>
-                <td class="border px-4 py-2">
+                <td class="border px-4 py-2 text-center">
                     ${ moment(order.createdAt).format('MMMM Do YYYY') }
                 </td>
                 <td class="border px-4 py-2">
                     ${ moment(order.createdAt).format('hh:mm A') }
                 </td>
-                <td class="border px-4 py-2">
+                <td class="border px-4 py-2 text-center">
                     ${ order.paymentStatus ? 'Paid' : 'Not paid' }
                 </td>
             </tr>

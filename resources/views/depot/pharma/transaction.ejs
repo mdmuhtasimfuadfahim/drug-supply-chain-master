@@ -10,72 +10,74 @@
             <table class="customerT mx-auto table-auto bg-white">
                 <thead>
                     <tr>
-                        <th class="px-4 py-2 text-left">Transaction Hash</th>
-                        <th class="px-4 py-2 text-left">Block Hash</th>
-                        <th class="px-4 py-2 text-left">Order ID</th>
-                        <th class="px-4 py-2 text-left">Order Status</th>
-                        <th class="px-4 py-2 text-left">DAR</th>
-                        <th class="px-4 py-2 text-left">Order Role</th>
-                        <th class="px-4 py-2 text-left"> Block Number</th>
-                        <th class="px-4 py-2 text-left"> Gas Used</th>
-                        <th class="px-4 py-2 text-left"> To</th>
-                        <th class="px-4 py-2 text-left"> Pharmacist ID</th>
-                        <th class="px-4 py-2 text-left"> Type</th>
-                        <th class="px-4 py-2 text-left"> Time</th>
-                        <th class="px-4 py-2 text-left"> Date</th>
+                        <th class="px-4 py-2 text-center">Transaction Hash</th>
+                        <th class="px-4 py-2 text-center">Block Hash</th>
+                        <th class="px-4 py-2 text-center">Order ID</th>
+                        <th class="px-4 py-2 text-center">Order Status</th>
+                        <th class="px-4 py-2 text-center">DAR</th>
+                        <th class="px-4 py-2 text-center">Order Role</th>
+                        <th class="px-4 py-2 text-center"> Block Number</th>
+                        <th class="px-4 py-2 text-center"> Gas Used</th>
+                        <th class="px-4 py-2 text-center"> To</th>
+                        <th class="px-4 py-2 text-center"> Pharmacist ID</th>
+                        <th class="px-4 py-2 text-center"> Type</th>
+                        <th class="px-4 py-2 text-center"> Time</th>
+                        <th class="px-4 py-2 text-center"> Date</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% if(transactions.length) { %>
                         <% transactions.forEach((transaction)=>{ %>
+                            <% if(user._id.equals(transaction.orderID.senderId)) { %>
                             <tr>
-                                <td class="border px-4 py-2">
+                                <td class="border px-4 py-2 text-center">
                                   <%= transaction.transactionHash %>
                                </td>
-                               <td class="border px-4 py-2">
+                               <td class="border px-4 py-2 text-center">
                                 <%= transaction.blockHash %>
                              </td>
-                               <td class="border px-4 py-2">
+                               <td class="border px-4 py-2 text-center">
                                 <%= transaction.orderID._id %>
                              </td>
-                             <td class="border px-4 py-2">
+                             <td class="border px-4 py-2 text-center">
                                 <%= transaction.orderID.status %>
                              </td>
-                             <td class="border px-4 py-2">
+                             <td class="border px-4 py-2 text-center">
                                 <%= transaction.orderID.dar %>
                              </td>
-                             <td class="border px-4 py-2">
+                             <td class="border px-4 py-2 text-center">
                                 <%= transaction.orderID.role %>
                              </td>
 
-                               <td class="border px-4 py-2">
+                               <td class="border px-4 py-2 text-center">
                                 <%= transaction.blockNumber %>
                                </td>
-                                <td class="border px-4 py-2">
+                                <td class="border px-4 py-2 text-center">
                                     <%= transaction.gasUsed %>
                                 </td>
-                                <td class="border px-4 py-2">
+                                <td class="border px-4 py-2 text-center">
                                     <%= transaction.to %>
                                 </td>
                                 <td>
                                     <%= transaction.orderID.pharmacistId %>
                                 </td>
-                                <td class="border px-4 py-2">
+                                <td class="border px-4 py-2 text-center">
                                     <%= transaction.transaction %>
                                 </td>
-                                <td class="border px-4 py-2">
+                                <td class="border px-4 py-2 text-center">
                                     <%= moment(transaction.createdAt).format('hh:mm A') %>
                                 </td>  
-                                <td class="border px-4 py-2">
+                                <td class="border px-4 py-2 text-center">
                                     <%= moment(transaction.createdAt).format('MMMM Do YYYY') %>
                                 </td>  
                             </tr>
+                        <% } %>
                         <% }) %>
-                        
-                    <% } else { %>
+                          <% } else { %>
                         <tr>
                             <td class="p-4">No transactions found</td>
                         </tr>
+
                     <% } %>
                    
                 </tbody>
