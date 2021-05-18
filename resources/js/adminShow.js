@@ -49,6 +49,9 @@ export function initAdminShow(){
                    ${ order.status }
                 </td>
                 <td class="border px-4 py-2">
+                ${ order.role }
+             </td>
+                <td class="border px-4 py-2">
                 ${ order.dar }
              </td>
              <td class="border px-4 py-2">
