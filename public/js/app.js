@@ -2040,7 +2040,7 @@ function updateCart(drug) {
     new (noty__WEBPACK_IMPORTED_MODULE_1___default())({
       type: 'success',
       timeout: 1000,
-      text: 'You Added Drugs into Your Cart',
+      text: 'You Added a Drug into Your Cart',
       progressBar: false
     }).show();
   })["catch"](function (err) {

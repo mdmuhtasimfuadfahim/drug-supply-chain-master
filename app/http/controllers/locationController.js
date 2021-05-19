@@ -438,7 +438,7 @@ var abi = [
 	}
 ];
 
-var accoutOrpaKey = "63486cf0332b231a768b8cb4e1683f352532a22e37f5c778e61f016f3a314038";
+var accoutOrpaKey = process.env.privateKeyOf1;
 function locationController(){
     return{
         

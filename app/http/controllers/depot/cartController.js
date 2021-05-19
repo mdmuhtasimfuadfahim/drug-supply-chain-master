@@ -31,6 +31,15 @@ function cartController(){
                 cart.totalPrice = cart.totalPrice + req.body.price
             }
            return res.json({totalQty: req.session.cart.totalQty})
+        },
+        updateCartAgain(req, res){
+            const quantity = req.body.quantity
+            console.log(quantity)
+            cart.drugs[req.body._id].qty = cart.drugs[req.body._id].qty + req.body.qty
+            cart.totalQty = cart.totalQty + req.body.qty
+            cart.totalPrice = cart.totalPrice + req.body.price
+
+            return res.json({totalQty: req.session.cart.totalQty})
         }
     }
 }

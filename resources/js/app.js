@@ -56,7 +56,7 @@ function updateCart(drug){
         new Noty({
             type: 'success',
             timeout: 1000,
-            text: 'You Added Drugs into Your Cart',
+            text: 'You Added a Drug into Your Cart',
             progressBar: false
         }).show();
     }).catch(err =>{

@@ -32,6 +32,7 @@ function initRoutes(app){
 
     app.get('/cart', auth, cartController().cart)
     app.post('/update_cart', cartController().update)
+    app.post('/cart/update/drug', cartController().updateCartAgain)
     app.get('/transaction',auth, transactionController().depotTransaction)
     app.get('/transaction/pharmacist',auth, transactionController().pharmacistTransaction)
     app.get('/profiles', auth, homeController().getProfiles)
