@@ -509,7 +509,8 @@ function porderController(){
                 console.log(err)
             })
         },
-        showOrderList(req, res){
+      showOrderList(req, res){
+	 
             if(req.query.id){
                 const id = req.query.id
                 PharmacistOrders.findById(id).then(PharmacistOrders =>{
@@ -522,7 +523,7 @@ function porderController(){
                     res.status(500).send({ message: `Error While Retriving User with this ${id}`})
                 })
             } else{
-                PharmacistOrders.find().populate('senderId', '-private_key').populate('pharmacistId', '-private_key').then(PharmacistOrders =>{
+             PharmacistOrders.find().populate('senderId', '-private_key').populate('pharmacistId', '-private_key').then(PharmacistOrders =>{
                     res.send(PharmacistOrders)
                 }).catch(err =>{
                     res.status(500).send({ message: err.message || 'Error Occurred While Sending Drugs Information' })
