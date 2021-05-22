@@ -1,0 +1,54 @@
+<%- include('../../_layouts/header3.ejs') %>
+<%- include('../../toast.ejs') %>
+
+<section class="tutorials">
+<div class="containerHomeMan">
+<%- include('../../_layouts/head.ejs') %>
+<div class="ml-10 accountsCon mt-10 mr-10">
+    <div class="flex items-center justify-between">
+        <h1 class="font-bold md:text-xl mb-4">QR Code Informations (from DB)</h1>
+        <a href="/manufacturer/qrcode/info"><h6 class="bg-white py-1 rounded-full px-4 text-green-700 text-l mb-4">QR Code Informations (from Blockchain DB)</h6></a>
+    </div>
+    <div class="transactionTable">
+        <table class="adminT table">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="px-4 py-2 text-center">ID of QR DB</th>
+                    <th class="px-4 py-2 text-center">Transaction Hash</th>
+                    <th class="px-4 py-2 text-center">Block Hash</th>
+                    <th class="px-4 py-2 text-center">Block Number</th>
+                    <th class="px-4 py-2 text-center">Gas Used</th>
+                    <th class="px-4 py-2 text-center">Created By</th>
+                    <th class="px-4 py-2 text-center">Type</th>
+                    <th class="px-4 py-2 text-center">Time</th>
+                    <th class="px-4 py-2 text-center">Date</th>
+                </tr>
+            </thead>
+            <tbody>     
+            <% qrCodeBlockchainData.forEach(function(qrCodeBlockchainData) { %>
+    
+               <tr>
+                   <td><%= qrCodeBlockchainData.QRCodeID %></td>
+                   <td><%= qrCodeBlockchainData.transactionHash %></td>
+                   <td><%= qrCodeBlockchainData.blockHash %></td>
+                   <td><%= qrCodeBlockchainData.blockNumber %></td>
+                   <td><%= qrCodeBlockchainData.gasUsed %></td>
+                   <td><%= qrCodeBlockchainData.from %></td>
+                   <td><%= qrCodeBlockchainData.status %></td>
+                   <td><%= moment(qrCodeBlockchainData.createdAt).format('hh:mm A') %></td> 
+                   <td><%= moment(qrCodeBlockchainData.createdAt).format('MMMM Do YYYY') %></td> 
+               </tr>
+       
+             <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+    
+</div>
+<%- include('../../_layouts/sidebar.ejs') %>
+</div>
+</section>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/app.js" type="text/javascript" charset="utf-8"></script>

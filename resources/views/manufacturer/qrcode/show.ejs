@@ -1,0 +1,48 @@
+<%- include('../../_layouts/header3.ejs') %>
+<%- include('../../toast.ejs') %>
+
+<section class="tutorials">
+<div class="containerHomeMan">
+<%- include('../../_layouts/head.ejs') %>
+<div class="accountsCon mt-10 mx-auto items-center">
+    <div class="flex items-center justify-between">
+        <h1 class="font-bold md:text-xl mb-4">QR Code Informations (from DB)</h1>
+        <a href="/manufacturer/qrcode/blockchaininfo"><h6 class="bg-white py-1 rounded-full px-4 text-green-700 text-l mb-4">QR Code Informations (from Blockchain DB)</h6></a>
+    </div>
+    <div class="transactionTable">
+        <table class="adminT table">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="px-4 py-2 text-center">ID</th>
+                    <th class="px-4 py-2 text-center">Production ID</th>
+                    <th class="px-4 py-2 text-center">DAR Number</th>
+                    <th class="px-4 py-2 text-center">Secret</th>
+                    <th class="px-4 py-2 text-center">Time</th>
+                    <th class="px-4 py-2 text-center">Date</th>
+                </tr>
+            </thead>
+            <tbody>     
+            <% qrCodeDBInfo.forEach(function(qrCodeDBInfo) { %>
+    
+               <tr>
+                   <td><%= qrCodeDBInfo._id %></td>
+                   <td><%= qrCodeDBInfo.proId %></td>
+                   <td><%= qrCodeDBInfo.dar %></td>
+                   <td><%= qrCodeDBInfo.secret_key %></td>
+                   <td><%= moment(qrCodeDBInfo.createdAt).format('hh:mm A') %></td> 
+                   <td><%= moment(qrCodeDBInfo.createdAt).format('MMMM Do YYYY') %></td> 
+               </tr>
+       
+             <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+    
+</div>
+<%- include('../../_layouts/sidebar.ejs') %>
+</div>
+</section>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/app.js" type="text/javascript" charset="utf-8"></script>

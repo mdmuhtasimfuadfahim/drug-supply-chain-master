@@ -48,8 +48,14 @@ function initRoutes(app){
     app.get('/manufacturer/add_user', manufacturer, mHomeController().adduser)
     app.get('/manufacturer/update_user', manufacturer, mHomeController().updateuser)
     app.get('/manufacturer/requests', manufacturer, mHomeController().requests)
+
+    //--------------------QR Code Routes-------------
     app.get('/manufacturer/generatekey', manufacturer, keyController().key)
     app.post('/manufacturer/generate/qr', keyController().generateQRCode)
+    app.post('/pharmacist/decrypt/qr', keyController().decryptQRCode)
+    app.get('/manufacturer/qrcode/info', manufacturer, keyController().qrCodeInfo)
+    app.get('/manufacturer/qrcode/blockchaininfo', manufacturer, keyController().qrCodeBlockchainInfo)
+
     app.get('/manufacturer/drop', manufacturer, homeController().dropManufacturer)
     app.get('/manufacturer/transaction', transactionController().manufacturerTransaction)
 
