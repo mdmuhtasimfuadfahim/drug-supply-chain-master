@@ -1210,6 +1210,7 @@ nav li a{
 
 #update_user .form-group,
 #update_orders .form-group,
+#generate_qrtag .form-group,
 #update_drugs .form-group,
 #update_drugstorage .form-group,
 #add_user .form-group{
@@ -1218,6 +1219,7 @@ nav li a{
 
 #update_user .form-group input[type="text"],
 #update_drugs .form-group input[type="text"],
+#generate_qrtag .form-group input[type="text"],
 #update_drugstorage .form-group input[type="text"],
 #update_orders .form-group input[type="text"],
 #add_user .form-group input[type="text"]{
@@ -1279,6 +1281,7 @@ nav li a{
 #update_user .form-group .btn,
 #update_drugs .form-group .btn,
 #update_orders .form-group .btn,
+#generate_qrtag .form-group .btn,
 #update_drugstorage .form-group .btn,
 #add_user .form-group .btn{
   width: 100%;
@@ -1294,6 +1297,7 @@ nav li a{
 
 #update_user .form-group .btn:hover,
 #update_drugs .form-group .btn:hover,
+#generate_qrtag .form-group .btn:hover,
 #update_orders .form-group .btn:hover,
 #update_drugstorage .form-group .btn:hover,
 #add_user .form-group .btn:hover{

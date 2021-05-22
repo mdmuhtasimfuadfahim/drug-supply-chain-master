@@ -1,0 +1,60 @@
+<%- include('../../_layouts/header3.ejs') %>
+<%- include('../../toast.ejs') %>
+
+<section class="tutorials">
+    <div class="containerHomeMan">
+    <%- include('../../_layouts/head.ejs') %>
+    <div class="accountsCon">
+        <div id="header2">
+            <nav>
+                <div class="container3 text-3xl font-bold">
+                    <div class="text-center">
+                        <a href="/manufacturer/generatekey" class="nav-brand text-dark">Encrypted QR Code</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        
+        <div id="site-main">
+            <div class="ml-10 container4">
+    
+                <div class="form-title text-center">
+                    <h2 class="text-2xl font-bold text-dark">Generate QR Code</h2>
+                    <span class="text-light">Use the below form to generate an encrypted QR tag</span>
+                </div>
+
+                <form id="generate_qrtag" action="/manufacturer/generate/qr" class="py-8" method="POST">
+                    <div class="new_user">
+                    <% if(messages.error){ %>
+                            <span class="text-red-500 text-sm"><%= messages.error %></span> 
+                    <% } %>
+                     <div class="form-group">
+                        <label for="proId" class="text-light">Production ID</label>
+                        <input type="text" name="proId" value="<%= messages.proId %>" placeholder="1">
+                    </div>
+    
+                     <div class="form-group">
+                         <label for="dar" class="text-light">DAR Number</label>
+                         <input type="text" name="dar" value="<%= messages.dar %>" placeholder="1123-9128-12323">
+                     </div>
+
+                     <div class="form-group">
+                         <label for="secret_key" class="text-light">Secret Key</label>
+                         <input type="text" name="secret_key" value="<%= messages.secret_key %>" placeholder="My Secret">
+                     </div>
+
+                     <div class="form-group">
+                         <button type="submit" class="btn update">Save</button>
+                     </div>
+                 </div>
+             </form>
+                 
+            </div>
+        </div>
+    </div>
+    <%- include('../../_layouts/sidebar.ejs') %>
+    </div>
+    </section>
+
+    <script src="/socket.io/socket.io.js"></script>
+<script src="/js/app.js" type="text/javascript" charset="utf-8"></script>

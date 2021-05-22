@@ -46,11 +46,12 @@ function initRoutes(app){
     app.get('/manufacturer/home', manufacturer, mHomeController().home)
     app.get('/manufacturer/accounts', manufacturer, mHomeController().accounts)
     app.get('/manufacturer/add_user', manufacturer, mHomeController().adduser)
-    app.get('/manufacturer/update_user',manufacturer, mHomeController().updateuser)
-    app.get('/manufacturer/requests',manufacturer, mHomeController().requests)
-    app.get('/manufacturer/generatekey',manufacturer, keyController().key)
+    app.get('/manufacturer/update_user', manufacturer, mHomeController().updateuser)
+    app.get('/manufacturer/requests', manufacturer, mHomeController().requests)
+    app.get('/manufacturer/generatekey', manufacturer, keyController().key)
+    app.post('/manufacturer/generate/qr', keyController().generateQRCode)
     app.get('/manufacturer/drop', manufacturer, homeController().dropManufacturer)
-    app.get('/manufacturer/transaction',transactionController().manufacturerTransaction)
+    app.get('/manufacturer/transaction', transactionController().manufacturerTransaction)
 
     //--------------Manufacturer Control Drugs-----------
     app.get('/manufacturer/drugs',manufacturer,drugController().seeDrugs)
