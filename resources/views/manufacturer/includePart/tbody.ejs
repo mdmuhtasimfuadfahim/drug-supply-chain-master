@@ -2,7 +2,7 @@
 <% for(var i = 0; i < users.length; i++) { %>
     
 <tr>
-    <td><img class="rounded-full" src="/img/<%= users[i].image %>" height="40px" width="40px" alt=""></td>
+    <td><img style="border-radius: 5px" src="/img/<%= users[i].image %>" height="40px" width="45px" alt=""></td>
     <td><%= i + 1  %></td>
     <td><%= users[i].name %></td>
     <td><%= users[i].email %></td>

@@ -1,0 +1,83 @@
+<%- include('../../_layouts/header3.ejs') %>
+<%- include('../../toast.ejs') %>
+
+<section class="tutorials">
+<div class="containerHomeMan">
+<%- include('../../_layouts/head.ejs') %>
+<%- include('../../_layouts/sidebar.ejs') %>
+   <div class="accountsCon">
+    <div id="header2">
+        <nav>
+            <div class="container3 text-3xl font-bold">
+                <div class="text-center">
+                    <a href="/manufacturer/production/control" class="nav-brand text-dark">Update Drug Production</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    <div id="site-main">
+        <div class="ml-10 container4">
+
+            <div class="form-title text-center">
+                <h2  class="text-2xl font-bold text-dark">Update Prodcution</h2>
+                <span class="text-light">Use the below form to update drug production</span>
+            </div>
+    
+            <form id="production_control" action="/manufacturer/production/control" class="py-8" method="POST">
+                <div class="new_user">
+                <% if(messages.error){ %>
+                        <span class="text-red-500 text-sm"><%= messages.error %></span> 
+                <% } %>
+                <div class="form-group">
+                    <label for="drugName" class="text-light">Drug Name</label>
+                    <select name="drugName">
+                        <option value="Octreotide">Octreotide</option>
+                        <option value="Pramlintide">Pramlintide</option>
+                        <option value="Admelog">Admelog</option>
+                        <option value="Levemir">Levemir</option>
+                        <option value="Tresiba">Tresiba</option>
+                        <option value="Carboplatin">Carboplatin</option>
+                        <option value="Cosmegen">Cosmegen</option>
+                        <option value="Toposar">Toposar</option>
+                        <option value="Rifadin">Rifadin</option>
+                        <option value="Adriamycin">Adriamycin</option>
+                        <option value="Flagyl">Flagyl</option>
+                        <option value="Cubicin">Cubicin</option>
+                        <option value="Vancocin">Vancocin</option>
+                        <option value="Tazicef">Tazicef</option>
+                        <option value="Lunesta">Lunesta</option>
+                        <option value="Restoril">Restoril</option>
+                        <option value="Ativan">Ativan</option>
+                        <option value="Halcion">Halcion</option>
+                        <option value="Rozerem">Rozerem</option>
+                        <option value="Plavix">Plavix</option>
+                        <option value="Ecotrin">Ecotrin</option>
+                        <option value="Bufferin">Bufferin</option>
+                        <option value="Easprin">Easprin</option>
+                        <option value="Dabigatran">Dabigatran</option>
+                        <option value="Leukeran">Leukeran</option>
+                        <option value="Aspirtab">Aspirtab</option>
+                    </select>
+                </div>
+
+                 <div class="form-group">
+                    <label for="production" class="text-light">Production</label>
+                    <input type="text" name="production" value="<%= messages.production %>" placeholder="50">
+                </div>
+
+                 <div class="form-group">
+                     <button type="submit" class="btn update">Save</button>
+                 </div>
+             </div>
+            </form>
+ 
+
+        </div>
+    </div>
+   </div>
+
+</div>
+</section>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/app.js" type="text/javascript" charset="utf-8"></script>

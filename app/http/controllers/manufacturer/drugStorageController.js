@@ -103,6 +103,28 @@ function drugStorageController(){
             }).catch(err =>{
                 res.status(500).send({ message: `Cound not Delete Drug Storage Info with this ${id}}`})
             })
+        },
+        productionControl(req, res){
+            res.render('manufacturer/production/drug')
+        },
+        async productionUpdate(req, res){
+            const {drugName, production} = req.body
+
+            if(!drugName || !production){
+                req.flash('error', 'All Fields are Required to Update Production')
+                req.flash('drugName', drugName)
+                req.flash('production', production)
+                return res.redirect('/manufacturer/production/control')
+            }
+            //console.log(drugName + '\n' + '\n' + production + '\n' + '\n')
+            const drugStorage = await drugStore.findOne({drugName})
+           // console.log(drugStorage.drugName + '\n' + drugStorage.production) 
+
+           const newProduction = drugStorage.production - production
+           
+           const response = await drugStore.updateOne({drugName}, {production: newProduction})
+           //console.log(response)
+            return res.redirect('/manufacturer/drugstorage')
         }
     }
 }

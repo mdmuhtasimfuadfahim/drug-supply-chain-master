@@ -8,6 +8,7 @@ const storageSchema = new Schema({
         ref: 'Drug',
         required: true
     },
+    drugName: {type: String, required: true},
     productionID:{type: String, required: true},
     batchNum: {type: String, required: true},
     darNum: {type: String, required: true},

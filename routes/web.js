@@ -78,6 +78,9 @@ function initRoutes(app){
     app.put('/manufacturer/drugstorage/:id',drugStorageController().drugStorageUpdate)
     app.delete('/manufacturer/drugstorage/:id',drugStorageController().drugStorageDelete)
 
+    app.get('/manufacturer/production/control', manufacturer,drugStorageController().productionControl)
+    app.post('/manufacturer/production/control', manufacturer, drugStorageController().productionUpdate)
+
     //-----------------Manufacturer Order Control Routes-------------
     app.get('/manufacturer/orders', manufacturer, manufacturerOrderController().index)
     app.get('/manufacturer/orders/find', manufacturerOrderController().orderDrugFind)
