@@ -16,7 +16,7 @@ const ContractGet = require('./app/models/contract')
 // console.log(Web3.version)
 
 
-var accountOrpaKey = "63486cf0332b231a768b8cb4e1683f352532a22e37f5c778e61f016f3a314038";
+var accountOrpaKey = process.env.privateKeyOf1;
 
 var abi = [
 	{
