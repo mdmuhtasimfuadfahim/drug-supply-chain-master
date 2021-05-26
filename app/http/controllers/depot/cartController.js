@@ -34,12 +34,19 @@ function cartController(){
         },
         updateCartAgain(req, res){
             const quantity = req.body.quantity
-            console.log(quantity)
-            cart.drugs[req.body._id].qty = cart.drugs[req.body._id].qty + req.body.qty
-            cart.totalQty = cart.totalQty + req.body.qty
-            cart.totalPrice = cart.totalPrice + req.body.price
-
-            return res.json({totalQty: req.session.cart.totalQty})
+            const id = req.body.cartID
+            console.log(req.body)
+            
+            let cart = req.session.cart
+            console.log(cart)
+           
+       
+           const cartPrice = cart.drugs[id].qty * cart.drugs[id].drug.price
+           cart.drugs[id].qty = cart.drugs[id].qty + parseInt(quantity) 
+           cart.totalQty =  cart.totalQty + parseInt(quantity)
+        
+           cart.totalPrice = (cart.totalPrice - cartPrice) + (cart.drugs[id].qty *  cart.drugs[id].drug.price)
+           return res.redirect('/cart')
         }
     }
 }

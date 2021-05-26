@@ -22,16 +22,18 @@
                    <h2 class="text-xm md:text-xl"><span><%= drug.drug.categoryName %></span></h2> 
                 </div>
                 <form action="/cart/update/drug" method="POST">
-                <select id="qty" name="quantity" class="block appearance-none bg-white border  w-full lg:w-2/3 border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
+                <input type="hidden" name="cartID" value="<%= drug.drug._id %>">
+                <select onchange="this.form.submit()" name="quantity" class="block appearance-none bg-white border  w-full lg:w-2/3 border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none focus:shadow-outline">
                     <option value="<%= drug.qty %>"><%= drug.qty %></option>
+                    <option value="50">50</option>
                     <option value="100">100</option>
                     <option value="200">200</option>
                     <option value="500">500</option>
                     <option value="800">800</option>
                     <option value="1000">1000</option>
                 </select>
-                </form>
-                <span class="font-bold text-xm md:text-xl"><%= drug.drug.price * drug.qty  %> Tk</span>
+            </form> 
+                <span name="price" class="font-bold text-xm md:text-xl"><%= drug.drug.price * drug.qty %> Tk</span>
             </div>
             <% } %>         
         </div>
@@ -95,5 +97,5 @@
 
    
 </section>
-<script src="/socket.io/socket.io.js"></script>
+<script src="socket.io/socket.io.js"></script>
 <script src="js/app.js" type="text/javascript" charset="utf-8"></script>

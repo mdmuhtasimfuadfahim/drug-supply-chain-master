@@ -36,6 +36,7 @@ export function initDepot(socket){
         return ordersPharmacist.map(order => {
             return `
                 <tr>
+                <td class="border px-4 py-2"><img style="border-radius: 5px" height="50px" width="45px" src="/img/${ order.pharmacistId.image }" alt="image"></td>
                 <td class="border px-4 py-2 text-green-900 text-center">
                     <p>${ order._id }</p>
                     <div>${ renderItemsPharma(order.drugs) }</div>
@@ -43,7 +44,7 @@ export function initDepot(socket){
                 <td class="border px-4 py-2 text-center">${ order.pharmacistId.name }</td>
                 <td class="border px-4 py-2 text-center">${ order.pharmacistId.phone }</td>
                 <td class="border px-4 py-2 text-center">${ order.pharmacistId.email }</td>               
-                <td class="border px-4 py-2 text-center">${ order.address }</td>
+                <td class="border px-4 py-2 text-center">${ order.pharmacistId.address }</td>
                 <td class="border px-4 py-2 text-center">
                     <div class="inline-block relative w-64 text-center">
                         <form action="/api/drug/depot/orders/status" method="POST">

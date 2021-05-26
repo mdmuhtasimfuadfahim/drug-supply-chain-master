@@ -37,6 +37,7 @@ export function initDepotShow(){
         return orders.map(order => {
             return `
                 <tr>
+                <td class="border px-4 py-2"><img style="border-radius: 5px" height="50px" width="45px" src="/img/${ order.pharmacistId.image }" alt="image"></td>
                 <td class="border px-4 py-2 text-green-900 text-center">
                     <p>${ order._id }</p>
                     <div>${ renderItems(order.drugs) }</div>
@@ -44,7 +45,7 @@ export function initDepotShow(){
                 <td class="border px-4 py-2 text-center">${ order.pharmacistId.name }</td>
                 <td class="border px-4 py-2 text-center">${ order.pharmacistId.phone }</td>
                 <td class="border px-4 py-2 text-center">${ order.pharmacistId.email }</td>               
-                <td class="border px-4 py-2 text-center">${ order.address }</td>
+                <td class="border px-4 py-2 text-center">${ order.pharmacistId.address }</td>
                 <td class="border px-4 py-2 text-center">
                    ${ order.status }
                 </td>

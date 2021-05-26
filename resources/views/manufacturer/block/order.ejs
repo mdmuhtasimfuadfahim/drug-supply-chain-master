@@ -14,6 +14,7 @@
             <table class="adminT table">
                 <thead class="thead-dark">
                     <tr>
+                        <th>Image</th>
                         <th>Block Hash</th>
                         <th>Order ID</th>
                         <th>Order Status</th>
@@ -32,6 +33,9 @@
                     <% if(orders.length) { %>
                         <% orders.forEach((order)=>{ %>
                             <tr>
+                                <td>
+                                    <img style="border-radius: 5px" height="50px" width="45px" src="/img/<%= order.depotId.image %>" alt="image"> 
+                                 </td>
                                 <td>
                                   <%= order.blockHash %>
                                </td>
