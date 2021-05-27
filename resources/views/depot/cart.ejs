@@ -59,7 +59,7 @@
                     <option value="1000">1000</option>
                 </select>
             </form> 
-                <span name="price" class="font-bold text-xm md:text-xl"><%= drug.drug.price * drug.qty %> Tk</span>
+                <span name="price" class="font-bold text-xm md:text-xl">৳ <%= drug.drug.price * drug.qty %></span>
             </div>
             <% } %>         
         </div>
@@ -68,7 +68,7 @@
         <div class="text-right py-9 mr-8">
             <div>
                 <span class="text-lg font-bold">Total Amount:</span>
-                <span class="amount text-2xl font-bold ml-2 color"><%= session.cart.totalPrice %> Tk</span>
+                <span class="amount text-2xl font-bold ml-2 color">৳ <%= session.cart.totalPrice %></span>
             </div>
             
             <div>
