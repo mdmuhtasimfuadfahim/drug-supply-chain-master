@@ -1,4 +1,5 @@
 const Drug = require('../../models/drug')
+const user = require('../../models/user')
 const User = require('../../models/user')
 
 function homeController(){
@@ -81,7 +82,11 @@ function homeController(){
         },
         async getProfiles(req, res){
             const users = await User.find()
+          
+            
             res.render('depot/profiles', {users: users})
+            
+            
         }
     }
 }

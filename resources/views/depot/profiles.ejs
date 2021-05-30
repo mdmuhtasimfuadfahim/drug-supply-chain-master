@@ -3,9 +3,10 @@
 
 <section class="about">
     <div class="cont">
-        <h1 class="headings">Meet Our Users</h1>
+        <h1 class="headings">Meet Our Depot In-charges</h1>
         <div class="card-wrapper">
             <% users.forEach(function(users){ %>
+               <% if(users.role === "Depot In-charge") { %>
             <div class="cards">
                 <img src="/img/backgroundULAB.jpg" alt="card background" class="card-img">
                 <img src="/img/<%= users.image %>" alt="profile image" class="profile-img">
@@ -23,6 +24,7 @@
                     <li><a href="#"><i class="fab fa-google-plus-square"></i></a></li>
                 </ul>
             </div>
+            <% } %>
             <% })%>
         </div>
     </div>

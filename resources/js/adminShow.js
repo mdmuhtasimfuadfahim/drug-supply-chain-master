@@ -37,7 +37,7 @@ export function initAdminShow(){
         return orders.map(order => {
             return `
                 <tr>
-                <td class="border px-4 py-2"><img style="border-radius: 5px" height="50px" width="45px" src="/img/${ order.depotId.image }" alt="image"></td>
+                <td class="border px-4 py-2"><img style="border-radius: 5px; height:70px; width: 55px;" src="/img/${ order.depotId.image }" alt="image"></td>
                 <td class="border px-4 py-2 text-green-900">
                     <p>${ order._id }</p>
                     <div>${ renderItems(order.drugs) }</div>
