@@ -31,7 +31,7 @@ function manufacturerOrderController(){
             })  
         },
         async showBlockchainOrder(req, res){
-            const order =  await Ordertrd.find().populate('orderID', '-private_key').populate('depotId', '-private_key')
+            const order =  await Ordertrd.find().sort({'createdAt': -1}).populate('orderID', '-private_key').populate('depotId', '-private_key')
            // console.log(blockOrder)
            const showorder = {order: order};
 		   const orders = []
@@ -66,7 +66,7 @@ function manufacturerOrderController(){
 
         },
         async showCompleted(req, res){
-            const ordersCompleted = await order.find({status: 'completed'}).populate('depotId', '-private_key').exec((err, orders)=>{
+            const ordersCompleted = await order.find({status: 'completed'}).sort({'createdAt': -1}).populate('depotId', '-private_key').exec((err, orders)=>{
                 if(req.xhr){
                     res.json(orders)
                 }
@@ -77,7 +77,7 @@ function manufacturerOrderController(){
             })
         },
         async showBlockChainCompleted(req, res){
-            const order =  await CompletedOrders.find().populate('orderID', '-private_key')
+            const order =  await CompletedOrders.find().sort({'createdAt': -1}).populate('orderID', '-private_key')
            // console.log(blockOrder)
            const showorder = {order: order};
 		   const orders = []
@@ -104,6 +104,7 @@ function manufacturerOrderController(){
 		   }) 
 	      })
 	      console.log(orders)  
+         
           res.render('manufacturer/block/complete', {orders: orders, moment: moment})
         },
 		orderDrugFind(req, res){

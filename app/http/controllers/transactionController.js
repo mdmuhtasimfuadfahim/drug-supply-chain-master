@@ -500,7 +500,7 @@ function transactionController(){
         },
 
 		async manufacturerTransaction(req, res){
-		   const transaction = await Transaction.find().populate('orderID', '-private_key')
+		   const transaction = await Transaction.find().sort({'createdAt': -1}).populate('orderID', '-private_key')
 		   const showTransaction = {transaction: transaction};
 		   const transactions = []
 		   transaction.forEach(function(transaction){
@@ -534,7 +534,7 @@ function transactionController(){
 
 		},
 	    async pharmacistTransaction(req, res){
-		   const transaction = await PhrTransaction.find().populate('orderID', '-private_key')
+		   const transaction = await PhrTransaction.find().sort({'createdAt': -1}).populate('orderID', '-private_key')
 		   const showTransaction = {transaction: transaction};
 		   const transactions = []
 		   transaction.forEach(function(transaction){

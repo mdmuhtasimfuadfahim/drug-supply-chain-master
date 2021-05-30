@@ -531,7 +531,7 @@ function depotOrderController(){
             })
         },
         async completedOrder(req, res){
-            const ordersCompleted = await PharmacistOrders.find({status: 'completed'}).populate('pharmacistId', '-private_key').exec((err, orders)=>{
+            const ordersCompleted = await PharmacistOrders.find({status: 'completed'}).sort({'createdAt': -1}).populate('pharmacistId', '-private_key').exec((err, orders)=>{
                 if(req.xhr){
 					
                     res.json(orders)
@@ -544,7 +544,7 @@ function depotOrderController(){
             })
         },
 		async showBlockchainOrder(req, res){
-			const order =  await PharmacistOrdersTrd.find().populate('orderID', '-private_key').populate('pharmacistId', '-private_key')
+			const order =  await PharmacistOrdersTrd.find().sort({'createdAt': -1}).populate('orderID', '-private_key').populate('pharmacistId', '-private_key')
 			// console.log(blockOrder)
 			const showorder = {order: order};
 			const orders = []
@@ -578,7 +578,7 @@ function depotOrderController(){
 		  res.render('depot/block/order', {orders: orders, moment: moment})
 		},
 		async completedOrderBlockchain(req, res){
-			const order =  await CompletedOrders.find().populate('orderID', '-private_key')
+			const order =  await CompletedOrders.find().sort({'createdAt': -1}).populate('orderID', '-private_key')
 			// console.log(blockOrder)
 			const showorder = {order: order};
 			const orders = []

@@ -571,6 +571,7 @@ function keyController(){
             }
 
             const decryptedDAR = decrypt(dar)
+			console.log(dar + '\n' + secret_key + '\n' + decryptedDAR)
             res.status(200).send(JSON.stringify(decryptedDAR))
            
         },
