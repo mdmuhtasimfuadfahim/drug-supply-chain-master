@@ -66,7 +66,7 @@ function manufacturerOrderController(){
 
         },
         async showCompleted(req, res){
-            const ordersCompleted = await order.find({status: 'completed'}).sort({'createdAt': -1}).populate('depotId', '-private_key').exec((err, orders)=>{
+            const ordersCompleted = await order.find({status: 'completed'}).sort({'updatedAt': -1}).populate('depotId', '-private_key').exec((err, orders)=>{
                 if(req.xhr){
                     res.json(orders)
                 }
