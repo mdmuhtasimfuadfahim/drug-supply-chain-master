@@ -2858,3 +2858,16 @@
 21:49:36.268958 table@remove removed @638
 21:49:47.285409 db@close closing
 21:49:47.287989 db@close done T·3.5715ms
+=============== Jun 1, 2021 (+06) ===============
+01:10:23.153012 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+01:10:23.156558 version@stat F·[0 1] S·179B[0B 179B] Sc·[0.00 0.00]
+01:10:23.156558 db@open opening
+01:10:23.156558 journal@recovery F·1
+01:10:23.160552 journal@recovery recovering @649
+01:10:23.165073 memdb@flush created L0@652 N·1 S·160B "loc..seq,v402":"loc..seq,v402"
+01:10:23.174576 version@stat F·[1 1] S·339B[160B 179B] Sc·[0.25 0.00]
+01:10:23.190213 db@janitor F·5 G·1
+01:10:23.190213 db@janitor removing table-648
+01:10:23.191401 db@open done T·34.8436ms
+01:10:33.369973 db@close closing
+01:10:33.370494 db@close done T·520.2µs

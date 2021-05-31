@@ -554,14 +554,16 @@ function keyController(){
         },
         async decryptQRCode(req, res){
             const dar = req.body.dar
+			const qrCodeData = await QRCODE.findOne({dar})
+			
+			//const secretDar = qrCodeData.dar
 
-            const qrCodeData = await QRCODE.findOne({dar})
-            const secret_key = qrCodeData.secret_key
-            // console.log(qrCodeData.secret_key)
+			const secret = qrCodeData.secret_key
+            //console.log(secret + '\n' + secretDar)
 
             var crypto = require('crypto'),
                         algorithm = process.env.algorithm,
-                        password = secret_key;
+                        password = secret;
 
             function decrypt(text){
                 var decipher = crypto.createDecipher(algorithm, password)
@@ -571,9 +573,9 @@ function keyController(){
             }
 
             const decryptedDAR = decrypt(dar)
-			console.log(dar + '\n' + secret_key + '\n' + decryptedDAR)
-            res.status(200).send(JSON.stringify(decryptedDAR))
-           
+			//console.log(dar + '\n' + secret + '\n' + decryptedDAR)
+			
+			res.status(200).send(JSON.stringify(decryptedDAR))            
         },
         async qrCodeInfo(req, res){
             const qrCodeDB = await QRCODE.find()

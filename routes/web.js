@@ -11,6 +11,7 @@ const locationController = require('../app/http/controllers/locationController')
 const transactionController = require('../app/http/controllers/transactionController')
 const drugController = require('../app/http/controllers/manufacturer/drugController')
 const drugStorageController = require('../app/http/controllers/manufacturer/drugStorageController')
+const newController = require('../app/http/controllers/depot/newController')
 
 
 //------------------Middlewares---------------
@@ -98,6 +99,9 @@ function initRoutes(app){
     //----------------Depot In-charge Location Control Routes----------------
     app.get('/:id/location', auth, locationController().location)
     app.post('/locationId/location/role', auth, locationController().locationControl)
+
+    //----------------Depot In-charge Check Route-------------
+    app.post('/depot/check/blockchain', newController().newControl)
 
 
 }
