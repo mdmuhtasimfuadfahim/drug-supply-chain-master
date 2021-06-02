@@ -19,7 +19,7 @@ const toast = document.querySelector('.toast');
 
 const baseURL ='http://localhost:3040';
 const uploadURL = `${baseURL}/api/drug/files`;
-const emailURL = `${uploadURL}/send`;
+const emailURL = 'http://localhost:3040/api/drug/files/send';
 
 const maxAllowedSize = 100 * 1024 * 1024; //100mb
 

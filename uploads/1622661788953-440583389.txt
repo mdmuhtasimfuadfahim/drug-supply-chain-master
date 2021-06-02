@@ -1,0 +1,8 @@
+C:\Users\Mohtasim\Downloads\ngrok-stable-windows-amd64
+
+ngrok authtoken 1pwPCQZakkVGUDtbXqiFm4b7QMf_4iTFT7aP1ba3Xy1EN2iKL
+
+ngrok http 3040 -host-header="localhost:3040"
+
+selenium
+ZAP

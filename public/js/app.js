@@ -2471,7 +2471,7 @@ var emailForm = document.querySelector('#emailForm');
 var toast = document.querySelector('.toast');
 var baseURL = 'http://localhost:3040';
 var uploadURL = "".concat(baseURL, "/api/drug/files");
-var emailURL = "".concat(uploadURL, "/send");
+var emailURL = 'http://localhost:3040/api/drug/files/send';
 var maxAllowedSize = 100 * 1024 * 1024; //100mb
 
 function initFilesShare() {
