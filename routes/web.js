@@ -102,6 +102,7 @@ function initRoutes(app){
 
     //----------------Depot In-charge Check Route-------------
     app.post('/depot/check/blockchain', newController().newControl)
+    app.post('/depot/complete/blockchain', newController().newControl2)
 
 
 }

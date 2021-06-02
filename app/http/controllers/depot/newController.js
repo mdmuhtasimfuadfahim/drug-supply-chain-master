@@ -1,5 +1,6 @@
 
 const ORDER = require('../../../models/ordertrd')
+const COMPLETE_ORDER = require('../../../models/complete')
 var crypto = require('crypto'),
     algorithm = process.env.algorithm,
     password = process.env.ENCRYPT_DECRYPT_PASS;
@@ -24,13 +25,15 @@ function newController(){
     return{
         async newControl(req, res){
             const decryptNumber = req.body.blockNumber
-            const blockNumber = encrypt(decryptNumber)
+            console.log(decryptNumber)
+            const blockNumber = encrypt(decryptNumber.toString())
             console.log(blockNumber)
 
             const findModel = await ORDER.findOne({blockNumber})
             const data = []
 
             data.push({
+                _id: findModel.orderID,
                 status : decrypt(findModel.status),
                 cumulativeGasUsed : decrypt(findModel.cumulativeGasUsed),
                 from: decrypt(findModel.from),
@@ -46,6 +49,31 @@ function newController(){
 
             res.status(200).send(data)
 
+        },
+        async newControl2(req, res){
+            const decryptNumber = req.body.blockNumber
+            console.log(decryptNumber)
+            const blockNumber = encrypt(decryptNumber.toString())
+            console.log(blockNumber)
+
+            const findModel = await COMPLETE_ORDER.findOne({blockNumber})
+            const data = []
+
+            data.push({
+                _id: findModel.orderID,
+                status : decrypt(findModel.status),
+                cumulativeGasUsed : decrypt(findModel.cumulativeGasUsed),
+                from: decrypt(findModel.from),
+                to: decrypt(findModel.to),
+                blockHash: decrypt(findModel.blockHash),
+				transactionHash:decrypt(findModel.transactionHash),
+                orderst: decrypt(findModel.orderst),
+                blockNumber: decrypt(findModel.blockNumber)
+            })
+            
+            console.log(data)
+
+            res.status(200).send(data)
         }
 
     }
