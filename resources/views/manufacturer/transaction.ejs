@@ -71,10 +71,10 @@
                                         <%= transaction.transaction %>
                                     </td>
                                     <td>
-                                        <%= moment(transaction.createdAt).format('hh:mm A') %>
+                                        <%= moment(transaction.createdAt).format('hh:mmA') %>
                                     </td> 
                                     <td>
-                                        <%= moment(transaction.createdAt).format('MMMM Do YYYY') %>
+                                        <%= moment(transaction.createdAt).format('DD:MM:YYYY') %>
                                     </td>  
                                 </tr>
                             <% }) %>

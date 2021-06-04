@@ -29,8 +29,8 @@
                    <td><%= qrCodeDBInfo.proId %></td>
                    <td><%= qrCodeDBInfo.dar %></td>
                    <td><%= qrCodeDBInfo.secret_key %></td>
-                   <td><%= moment(qrCodeDBInfo.createdAt).format('hh:mm A') %></td> 
-                   <td><%= moment(qrCodeDBInfo.createdAt).format('MMMM Do YYYY') %></td> 
+                   <td><%= moment(qrCodeDBInfo.createdAt).format('hh:mmA') %></td> 
+                   <td><%= moment(qrCodeDBInfo.createdAt).format('DD:MM:YYYY') %></td> 
                </tr>
        
              <% }) %>

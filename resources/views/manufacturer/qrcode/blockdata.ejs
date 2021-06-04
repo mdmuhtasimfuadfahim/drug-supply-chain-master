@@ -35,8 +35,8 @@
                    <td><%= qrCodeBlockchainData.gasUsed %></td>
                    <td><%= qrCodeBlockchainData.from %></td>
                    <td><%= qrCodeBlockchainData.status %></td>
-                   <td><%= moment(qrCodeBlockchainData.createdAt).format('hh:mm A') %></td> 
-                   <td><%= moment(qrCodeBlockchainData.createdAt).format('MMMM Do YYYY') %></td> 
+                   <td><%= moment(qrCodeBlockchainData.createdAt).format('hh:mmA') %></td> 
+                   <td><%= moment(qrCodeBlockchainData.createdAt).format('DD:MM:YYYY') %></td> 
                </tr>
        
              <% }) %>

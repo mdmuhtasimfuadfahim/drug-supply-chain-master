@@ -43,14 +43,14 @@
                     <tbody>  
                         <% requests.forEach(function(requests){ %>  
                         <tr>
-                            <td><img class="rounded-full" src="<%= requests.image %>" height="40px" width="40px" alt=""></td>
+                            <td><img class="border-radius:5px; height:70px; width: 55px;" src="<%= requests.image %>" alt=""></td>
                             <td><%= requests.name %></td>
                             <td><%= requests.email %></td>
                             <td><%= requests.phone %></td>
                             <td><%= requests.role %></td>
                             <td><%= requests.address %></td>  
-                            <td><%= moment(requests.createdAt).format('hh:mm A') %></td>  
-                            <td><%= moment(requests.createdAt).format('MMMM Do YYYY') %></td>  
+                            <td><%= moment(requests.createdAt).format('hh:mmA') %></td>  
+                            <td><%= moment(requests.createdAt).format('DD:MM:YYYY') %></td>  
                         </tr> 
                         <% }) %>   
                     </tbody>

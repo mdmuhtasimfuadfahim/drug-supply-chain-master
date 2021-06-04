@@ -52,12 +52,13 @@ export function initDepotShow(){
                 <td class="border px-4 py-2 text-center">
                    ${ order.dar }
                 </td>
+               
                 <td class="border px-4 py-2 text-center">
-                    ${ moment(order.createdAt).format('MMMM Do YYYY') }
+                    ${ moment(order.createdAt).format('hh:mmA') }
                 </td>
                 <td class="border px-4 py-2 text-center">
-                    ${ moment(order.createdAt).format('hh:mm A') }
-                </td>
+                ${ moment(order.createdAt).format('DD:MM:YYYY') }
+              </td>
                 <td class="border px-4 py-2 text-center">
                     ${ order.paymentStatus ? 'Paid' : 'Not paid' }
                 </td>

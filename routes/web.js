@@ -101,6 +101,7 @@ function initRoutes(app){
     app.post('/locationId/location/role', auth, locationController().locationControl)
 
     //----------------Depot In-charge Check Route-------------
+    app.get('/depot/check/blockchain', newController().showControl)
     app.post('/depot/check/blockchain', newController().newControl)
     app.post('/depot/complete/blockchain', newController().newControl2)
 

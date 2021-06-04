@@ -3,7 +3,11 @@
 
 <section class="orders light-section">
     <div class="container mx-auto pt-12">
-         <h1 class="font-bold text-lg mb-4"> My Orders</h1>
+        <div class="flex items-center justify-between mb-8">
+            <h1 class="font-bold text-lg mb-4"> My Orders</h1>
+            <a href="/depot/check/blockchain"><h6 class="bg-white py-1 rounded-full px-4 text-green-700 text-l">Search for Transaction History</h6></a>
+        </div>
+         
         <% if(messages.success) { %>
          <div id="success-alert" class="flex items-center bg-green-500 
          text-white text-sm font-bold px-4 py-3" role="alert">
@@ -58,10 +62,10 @@
                                 <%= order.proId %>
                             </td>
                             <td class="border px-4 py-2 text-center">
-                                <%= moment(order.createdAt).format('hh:mm A') %>
+                                <%= moment(order.createdAt).format('hh:mmA') %>
                             </td>
                             <td class="border px-4 py-2 text-center">
-                                <%= moment(order.createdAt).format('MMMM Do YYYY') %>
+                                <%= moment(order.createdAt).format('DD:MM:YYYY') %>
                             </td>
                         </tr>
                     <% }) %>
