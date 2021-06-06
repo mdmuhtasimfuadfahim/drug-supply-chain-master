@@ -6,9 +6,9 @@ export function initTheme(){
         let sunset = new Date().sunset(position.coords.latitude, position.coords.longitude);
         let sunrise = new Date().sunrise(position.coords.latitude, position.coords.longitude);
         if (isDay(sunset, sunrise)) {
-            setTheme('theme-light');
-        } else {
             setTheme('theme-dark');
+        } else {
+            setTheme('theme-light');
         }
     
         function isDay(sunset, sunrise) {
