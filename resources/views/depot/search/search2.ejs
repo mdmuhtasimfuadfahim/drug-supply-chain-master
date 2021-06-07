@@ -5,14 +5,14 @@
 <div class="container tutorials mx-auto pt-12">
    
         <div class="flex items-center justify-between mb-8">
-            <h1 class="font-bold text-lg mb-4">Search for Your Transaction History</h1>
-            <a href="/depot/orders"><h6 class="bg-white py-1 rounded-full px-4 text-green-700 text-l">Back to Order Page</h6></a>
+            <h1 class="font-bold text-lg mb-4">Search for Pharmacist's Transaction History</h1>
+            <a href="/api/drug/depot/orders"><h6 class="bg-white py-1 rounded-full px-4 text-green-700 text-l">Back to Pharmacist's Order Page</h6></a>
         </div>
         <div class="max-w-md mx-auto rounded-lg overflow-hidden md:max-w-xl">
             <div class="bg-gray-300 md:flex">
                 <div class="w-full p-3">
-                    <h3 class="font-bold text-lg mb-2">Give Your's Order ID</h3>
-                    <form action="/depot/check/blockchain" method="POST">
+                    <h3 class="font-bold text-lg mb-2">Give Pharmacist's Order ID</h3>
+                    <form action="/pharmacist/check/blockchain" method="POST">
                     <div class="relative"> <i class="absolute fa fa-search text-gray-400 top-5 left-4"></i> <input id="orderID" type="text" class="bg-white h-14 w-full px-12 rounded-lg focus:outline-none hover:cursor-pointer" name="orderID"> <span class="absolute top-4 right-5 border-l pl-4"><i class="fa fa-microphone text-gray-500 hover:text-green-500 hover:cursor-pointer"></i></span> </div>
                    </form>
                 </div>

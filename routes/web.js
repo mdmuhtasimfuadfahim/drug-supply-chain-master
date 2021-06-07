@@ -103,6 +103,7 @@ function initRoutes(app){
     //----------------Depot In-charge Check Route-------------
     app.get('/depot/check/blockchain', newController().showControl)
     app.post('/depot/check/blockchain', newController().newControl)
+    app.get('/pharmacist/check/blockchain', newController().showControl2)
     app.post('/pharmacist/check/blockchain', newController().newControl2)
 
 

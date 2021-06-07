@@ -31,6 +31,9 @@ function newController(){
         showControl(req, res){
             res.render('depot/search/search')
         },
+        showControl2(req, res){
+            res.render('depot/search/search2')
+        },
         async newControl(req, res){
             const orderID = req.body.orderID
     
@@ -154,7 +157,9 @@ function newController(){
                
             })
             console.log(data, + '\n' + data2 + '\n' + data3)
-            res.status(200).send({data: data, data2: data2, data3: data3, moment: moment})
+            res.render('depot/search/result2', {data: data, data2: data2, data3: data3, moment: moment})
+
+            // res.status(200).send({data: data, data2: data2, data3: data3, moment: moment})
         }
 
     }
