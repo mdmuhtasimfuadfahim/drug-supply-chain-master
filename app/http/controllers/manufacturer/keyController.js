@@ -573,9 +573,9 @@ function keyController(){
             }
 
             const decryptedDAR = decrypt(dar)
-			//console.log(dar + '\n' + secret + '\n' + decryptedDAR)
+			console.log(dar + '\n' + secret + '\n' + decryptedDAR)
 			
-			res.status(200).send(JSON.stringify(decryptedDAR))            
+			res.status(200).send(JSON.stringify({decryptedDAR: decryptedDAR}))          
         },
         async qrCodeInfo(req, res){
             const qrCodeDB = await QRCODE.find()
