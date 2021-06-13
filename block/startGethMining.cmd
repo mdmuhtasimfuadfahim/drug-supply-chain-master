@@ -1,1 +1,1 @@
-geth --http --http.port "8000" --http.corsdomain "*" --datadir=./data --port "30303" --nodiscover --allow-insecure-unlock --http.api "eth,net,web3,personal,miner,admin" --networkid 23112 --nat "any" --syncmode="fast"
+geth --http --http.port "8000" --http.corsdomain "*" --datadir=./data --port "30303" --nodiscover --allow-insecure-unlock --http.api "eth,net,web3,personal,miner,admin" --networkid 23112 --nat "any" --syncmode="full"
