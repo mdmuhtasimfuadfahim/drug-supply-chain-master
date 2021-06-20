@@ -3422,3 +3422,37 @@
 00:07:13.756998 db@open done T·120.1462ms
 00:07:27.110996 db@close closing
 00:07:27.112000 db@close done T·1.004ms
+=============== Jun 17, 2021 (+06) ===============
+00:20:04.640361 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+00:20:04.672412 version@stat F·[2 2] S·3MiB[50KiB 3MiB] Sc·[0.50 0.04]
+00:20:04.679903 db@open opening
+00:20:04.679903 journal@recovery F·1
+00:20:04.715318 journal@recovery recovering @796
+00:20:04.797001 memdb@flush created L0@798 N·4 S·7KiB "Sna..tor,v90621":"unc..own,v90620"
+00:20:04.803984 version@stat F·[3 2] S·3MiB[58KiB 3MiB] Sc·[0.75 0.04]
+00:20:04.858837 db@janitor F·7 G·0
+00:20:04.903817 db@open done T·223.9136ms
+00:20:22.234525 db@close closing
+00:20:22.236719 db@close done T·2.1945ms
+=============== Jun 20, 2021 (+06) ===============
+01:55:15.350041 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+01:55:15.370967 version@stat F·[3 2] S·3MiB[58KiB 3MiB] Sc·[0.75 0.04]
+01:55:15.370967 db@open opening
+01:55:15.372089 journal@recovery F·1
+01:55:15.376193 journal@recovery recovering @799
+01:55:15.395410 memdb@flush created L0@801 N·4 S·7KiB "Sna..tor,v90626":"unc..own,v90625"
+01:55:15.400292 version@stat F·[4 2] S·3MiB[66KiB 3MiB] Sc·[1.00 0.04]
+01:55:15.412815 db@janitor F·8 G·0
+01:55:15.412815 db@open done T·41.8481ms
+01:55:15.412815 table@compaction L0·4 -> L1·2 S·3MiB Q·90629
+01:55:15.600486 table@build created L1@804 N·38030 S·2MiB "\x00\x1eN..\x8dX\xd2,v26339":"h\x00\x00..\xa3\xaa\xde,v48086"
+01:55:15.690184 table@build created L1@805 N·23731 S·1MiB "h\x00\x00..\xaa\xdet,v48083":"\xff\xcc\xec..\xd9h\xca,v56709"
+01:55:15.690184 version@stat F·[0 2] S·3MiB[0B 3MiB] Sc·[0.00 0.04]
+01:55:15.694121 table@compaction committed F-4 S-39KiB Ke·0 D·238 T·281.3054ms
+01:55:15.695651 table@remove removed @798
+01:55:15.696626 table@remove removed @795
+01:55:15.697624 table@remove removed @792
+01:55:15.697624 table@remove removed @790
+01:55:15.698714 table@remove removed @791
+01:55:43.593844 db@close closing
+01:55:43.594392 db@close done T·548µs
