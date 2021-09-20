@@ -13,10 +13,10 @@ let storage = multer.diskStorage({
     }
 })
 
-
 let upload = multer({
     storage,
 }).single('image')
+
 
 function drugController(){
     return{

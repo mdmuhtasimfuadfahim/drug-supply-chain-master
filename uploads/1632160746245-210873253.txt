@@ -1,0 +1,59 @@
+
+geth --http --http.port "8000" --http.corsdomain "*" --datadir=./data --port "30303" --nodiscover --allow-insecure-unlock --http.api "eth,net,web3,personal,miner,admin" --networkid 87253 --nat "any" --syncmode="fast"
+
+geth -rpc --networkid 15 -rpcport 8545 --rpcapi="db,eth,net,web3,personal" --datadir node1 console 2>>geth.log --allow-insecure-unlock
+
+geth --datadir=./data init muhtasimcertificate.json
+
+geth attach "http://127.0.0.1:8000"
+
+
+personal.newAccount("new1")
+0x1e5b5290cd524f41f8599168b0e26f00eb71624c  --address
+
+
+personal.newAccount("new2")
+0x5e452d1324da0001ff5e65ec8834dd7463bac78f --address
+
+
+personal.newAccount("drugs13")
+0x46b27f1fb7dcf488fc761498abb778d10d0dbd51 --address
+
+
+
+personal.newAccount("drugs13")
+0x2d4883a652e329c11adc552cda8558ac038149bb
+
+personal.unlockAccount(web3.eth.coinbase, "new1")
+
+personal.unlockAccount(web3.eth.coinbase, "drugs2")
+
+
+miner.start()
+
+
+
+web3.fromWei(eth.getBalance(eth.coinbase), "ether")
+
+
+
+miner.setEtherbase(eth.accounts[0])
+personal.listAccounts
+
+eth.sendTransaction({from: eth.accounts[0], to: eth.accounts[1], value: "5000000000000000000"}) //send 5 ether
+
+https://www.edureka.co/community/35848/geth-miner-not-working - question
+
+https://geth.ethereum.org/docs/interface/managing-your-accounts  --- geth Documentation
+
+https://github.com/ethereum/go-ethereum/pull/17037 -- New Changes
+
+
+
+https://github.com/mason1900/SupplyChain-SmartContract/blob/master/SupplyChain.sol   - Solidity code
+
+https://www.programmersought.com/article/23505345571/
+
+
+https://www.edureka.co/blog/ethereum-smart-contract-deployment-web3/ - web3 Help
+https://blog.csdn.net/wo541075754/article/details/79260040 - dev mining solution

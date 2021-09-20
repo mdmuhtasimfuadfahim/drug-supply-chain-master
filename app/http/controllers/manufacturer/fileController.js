@@ -1,10 +1,8 @@
-// const File = require('../../../models/file')
 const File = require('../../../models/file')
 const path = require('path')
 const multer = require('multer')
 const { v4: uuid4 } = require('uuid')
 const fs = require('fs')
-
 //-----------------File Upload Router-------------
 let storage = multer.diskStorage({
     destination: (req, file, cb) => cb(null, 'uploads/'),
@@ -13,7 +11,6 @@ let storage = multer.diskStorage({
         cb(null, uniqueName)
     }
 })
-
 
 let upload = multer({
     storage,

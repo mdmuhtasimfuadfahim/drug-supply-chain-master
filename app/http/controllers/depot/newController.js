@@ -1,4 +1,3 @@
-
 const ORDER = require('../../../models/ordertrd')
 const COMPLETE_ORDER = require('../../../models/complete')
 const TRANSACTION = require('../../../models/transaction')
@@ -6,24 +5,8 @@ const ORDER_PHR = require('../../../models/phrordertrd')
 const COMPLETE_ORDER_PHR = require('../../../models/Phrcomplete')
 const TRANSACTION_PHR = require('../../../models/phrtransaction')
 const moment = require('moment')
-var crypto = require('crypto'),
-    algorithm = process.env.algorithm,
-    password = process.env.ENCRYPT_DECRYPT_PASS;
-
-
-function encrypt(text){
-    var cipher = crypto.createCipher(algorithm, password)
-    var crypted = cipher.update(text, 'utf8', 'hex')
-    crypted += cipher.final('hex');
-    return crypted;
-}
-
-function decrypt(text){
-    var decipher = crypto.createDecipher(algorithm, password)
-    var dec = decipher.update(text, 'hex', 'utf8')
-    dec += decipher.final('utf8');
-    return dec;
-}
+const decryption = require('../../../config/encrptDecrypt')
+var decrypt = decryption.decryption
 
 
 function newController(){

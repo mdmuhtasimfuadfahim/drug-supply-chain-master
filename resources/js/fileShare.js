@@ -18,7 +18,7 @@ const emailForm = document.querySelector('#emailForm');
 const toast = document.querySelector('.toast');
 
 const baseURL ='http://localhost:3040';
-const uploadURL = `${baseURL}/api/drug/files`;
+const uploadURL = 'http://localhost:3040/api/drug/files';
 const emailURL = 'http://localhost:3040/api/drug/files/send';
 
 const maxAllowedSize = 100 * 1024 * 1024; //100mb
@@ -176,8 +176,7 @@ export function initFilesShare(){
                   sharingContainer.style.display = "none"; // hide the box
                 }
               })
-          })
-          
+          })  
         }
         
         let toastTimer;

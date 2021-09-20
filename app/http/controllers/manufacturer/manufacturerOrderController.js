@@ -3,18 +3,9 @@ const moment = require('moment')
 const axios = require('axios')
 const Ordertrd = require('../../../models/ordertrd')
 const CompletedOrders = require('../../../models/complete')
+const decryption = require('../../../config/encrptDecrypt')
+const decrypt = decryption.decryption
 
-var crypto = require('crypto'),
-    algorithm = process.env.algorithm,
-    password = process.env.ENCRYPT_DECRYPT_PASS;
-
-
-function decrypt(text){
-    var decipher = crypto.createDecipher(algorithm, password)
-    var dec = decipher.update(text, 'hex', 'utf8')
-    dec += decipher.final('utf8');
-    return dec;
-}
 
 function manufacturerOrderController(){
     return{

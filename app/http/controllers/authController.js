@@ -1,13 +1,10 @@
 const passport = require('passport')
 const Request = require('../../models/request')
-// const user = require('../../models/user')
 const User = require('../../models/user')
 const path = require('path')
 const multer = require('multer')
 const bcrypt = require('bcrypt')
-// const { v4: uuid4 } = require('uuid')
 const fs = require('fs')
-
 //-----------------File Upload Router-------------
 let storage = multer.diskStorage({
     destination: (req, file, cb) => cb(null, 'public/img'),
@@ -17,12 +14,10 @@ let storage = multer.diskStorage({
     }
 })
 
-
 let upload = multer({
     storage,
 }).single('image')
 
-// var type = upload.single('image')
 
 
 
