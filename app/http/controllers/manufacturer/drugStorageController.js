@@ -13,13 +13,14 @@ function drugStorageController(){
             res.render('manufacturer/drugStore/drugAddStorage')
         },
         drugAddNewStorage(req, res){
-            const {drugId, productionID, batchNum, darNum, production} = req.body
+            const {drugId, drugName, productionID, batchNum, darNum, production} = req.body
 
            
              //---------Validate Request-----------
-             if(!drugId || !productionID || !batchNum || !darNum || !production ){
+             if(!drugId || !drugName || !productionID || !batchNum || !darNum || !production ){
                 req.flash('error', 'All Fields are Required to Add Drug production')
                 req.flash('drugId', drugId)
+                req.flash('drugName', drugName)
                 req.flash('productionID', productionID)
                 req.flash('batchNum', batchNum)
                 req.flash('darNum', darNum)
@@ -30,18 +31,20 @@ function drugStorageController(){
             //----------Add New Drugs to Storage-----------
             const drugstorage = new drugStore({
                 drugId: drugId,
+                drugName: drugName,
                 productionID: productionID,
                 batchNum: batchNum,
                 darNum: darNum,
                 production: production
             })
 
-            console.log(drugstorage)
+            
 
             drugstorage.save().then((drugstorage)=>{
-                res.redirect('/manufacturer/drugstorage')
+                console.log(drugstorage)
+                return res.redirect('/manufacturer/drugstorage')
             }).catch(err=>{
-                res.redirect('/manufacturer/drugstorage/upload')
+                return res.redirect('/manufacturer/drugstorage/upload')
             })
         },
         drugStorageFind(req, res){

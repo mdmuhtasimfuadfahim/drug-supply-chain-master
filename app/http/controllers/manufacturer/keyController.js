@@ -9,14 +9,433 @@ const QRCODE = require('../../../models/qrcode')
 const QRCode = require('qrcode')
 const QRCodeTransaction = require('../../../models/qrtransaction')
 const moment = require('moment')
-const encryption = require('../../../config/encrptDecrypt')
-const encrypt = encryption.encrypt
-const decryption = require('../../../config/encrptDecrypt')
-const decrypt = decryption.decryption
-var getAbi = require('../../../config/abi')
-var abi = getAbi.abi
-var accoutOrpaKey = process.env.privateKeyOf1;
+var crypto = require('crypto'),
+            algorithm = process.env.algorithm,
+            password = process.env.ENCRYPT_DECRYPT_PASS;
 
+
+        function encrypted(text){
+           var cipher = crypto.createCipher(algorithm, password)
+           var crypted = cipher.update(text, 'utf8', 'hex')
+           crypted += cipher.final('hex');
+           return crypted;
+        }
+        function decrypted(text){
+            var decipher = crypto.createDecipher(algorithm, password)
+            var dec = decipher.update(text, 'hex', 'utf8')
+            dec += decipher.final('utf8');
+            return dec;
+        }
+
+var abi = [
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "orderId",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "buyer",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "seller",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "fromAdd",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "toAdd",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "role",
+				"type": "string"
+			}
+		],
+		"name": "logDrugInfo",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "productionId",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "secretKey",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "darNumber",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "role",
+				"type": "string"
+			}
+		],
+		"name": "logQRCodeInfo",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "buyer",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_productionId",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_secretKey",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_darNumber",
+				"type": "string"
+			}
+		],
+		"name": "createQR",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getOrderDAR",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getOrderInfo",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getOrderStatusInfo",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_productionId",
+				"type": "string"
+			}
+		],
+		"name": "getQRInfo",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_orderId",
+				"type": "string"
+			}
+		],
+		"name": "getStoreDrugs",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "isBuyer_",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "isSeller_",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "seller",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_orderId",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_productionIdNums",
+				"type": "string"
+			}
+		],
+		"name": "setOrderDAR",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_orderId",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_status",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_email",
+				"type": "string"
+			}
+		],
+		"name": "setOrderInfo",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_orderId",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_status",
+				"type": "string"
+			}
+		],
+		"name": "setOrderStatusInfo",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_orderId",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_buyer",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_seller",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_fromAdd",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_toAdd",
+				"type": "string"
+			}
+		],
+		"name": "storeDrugs",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_orderId",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_buyer",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_seller",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_fromAdd",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_toAdd",
+				"type": "string"
+			}
+		],
+		"name": "storeDrugsAgain",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}
+];
+var accoutOrpaKey = process.env.privateKeyOf1;
 
 function keyController(){
     return{
@@ -99,16 +518,16 @@ function keyController(){
 
                              const qrCodeTransactionData = new QRCodeTransaction({
                                   QRCodeID: qrCodeId,
-                                  blockHash: encrypt(response.blockHash),
-                                  blockNumber: encrypt(response.blockNumber.toString()),
-                                  cumulativeGasUsed: encrypt(response.cumulativeGasUsed.toString()),
-                                  from: encrypt(response.from.toString()),
-                                  gasUsed: encrypt(response.gasUsed.toString()),
-                                  logsBloom: encrypt(response.logsBloom),
-                                  status: encrypt(response.status.toString()),
-                                  transactionHash: encrypt(response.transactionHash),
-                                  transactionIndex: encrypt(response.transactionIndex.toString()),
-                                  type: encrypt(response.type.toString()),
+                                  blockHash: encrypted(response.blockHash),
+                                  blockNumber: encrypted(response.blockNumber.toString()),
+                                  cumulativeGasUsed: encrypted(response.cumulativeGasUsed.toString()),
+                                  from: encrypted(response.from.toString()),
+                                  gasUsed: encrypted(response.gasUsed.toString()),
+                                  logsBloom: encrypted(response.logsBloom),
+                                  status: encrypted(response.status.toString()),
+                                  transactionHash: encrypted(response.transactionHash),
+                                  transactionIndex: encrypted(response.transactionIndex.toString()),
+                                  type: encrypted(response.type.toString()),
                               })
 
                             const qrCodeTransactionDataSave = await qrCodeTransactionData.save();
@@ -198,16 +617,16 @@ function keyController(){
                qrCodeBlockchainData.push({
                     _id: qrCodeBlockchainInfo._id,
                     QRCodeID: qrCodeBlockchainInfo.QRCodeID,
-                    blockHash: decrypt(qrCodeBlockchainInfo.blockHash),
-                    blockNumber: decrypt(qrCodeBlockchainInfo.blockNumber),
-                    cumulativeGasUsed: decrypt(qrCodeBlockchainInfo.cumulativeGasUsed),
-                    from: decrypt(qrCodeBlockchainInfo.from),
-                    gasUsed: decrypt(qrCodeBlockchainInfo.gasUsed),
-                    logsBloom: decrypt(qrCodeBlockchainInfo.logsBloom),
-                    status: decrypt(qrCodeBlockchainInfo.status),
-                    transactionHash: decrypt(qrCodeBlockchainInfo.transactionHash),
-                    transactionIndex: decrypt(qrCodeBlockchainInfo.transactionIndex),
-                    type: decrypt(qrCodeBlockchainInfo.type),
+                    blockHash: decrypted(qrCodeBlockchainInfo.blockHash),
+                    blockNumber: decrypted(qrCodeBlockchainInfo.blockNumber),
+                    cumulativeGasUsed: decrypted(qrCodeBlockchainInfo.cumulativeGasUsed),
+                    from: decrypted(qrCodeBlockchainInfo.from),
+                    gasUsed: decrypted(qrCodeBlockchainInfo.gasUsed),
+                    logsBloom: decrypted(qrCodeBlockchainInfo.logsBloom),
+                    status: decrypted(qrCodeBlockchainInfo.status),
+                    transactionHash: decrypted(qrCodeBlockchainInfo.transactionHash),
+                    transactionIndex: decrypted(qrCodeBlockchainInfo.transactionIndex),
+                    type: decrypted(qrCodeBlockchainInfo.type),
                     createdAt: qrCodeBlockchainInfo.createdAt
                })
             })

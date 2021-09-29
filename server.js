@@ -133,7 +133,6 @@ eventEmitter.on('orderUpdatedPharmacist', (data)=>{
     io.to(`order_${data.id}`).emit('orderUpdatedPharmacist', data)
 })
 
-
 eventEmitter.on('orderPlaced', (data)=>{
     io.to('manufacturerRoom').emit('orderPlaced', data)
 })

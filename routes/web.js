@@ -73,7 +73,7 @@ function initRoutes(app){
     //-------------Manufacturer Personal Drug Control-----------
     app.get('/manufacturer/drugstorage',manufacturer,drugStorageController().drugStorage)
     app.get('/manufacturer/drugstorage/upload',manufacturer, drugStorageController().drugAddStorage)
-    app.post('/manufacturer/drugstorage/upload',manufacturer, drugStorageController().drugAddNewStorage)
+    app.post('/manufacturer/drugstorage/upload', drugStorageController().drugAddNewStorage)
     app.get('/manufacturer/drugstorage/find', drugStorageController().drugStorageFind)
     app.get('/manufacturer/update_drugstorage',manufacturer, drugStorageController().updateDrugStorage)
     app.put('/manufacturer/drugstorage/:id',drugStorageController().drugStorageUpdate)
@@ -84,7 +84,7 @@ function initRoutes(app){
 
     //-----------------Manufacturer Order Control Routes-------------
     app.get('/manufacturer/orders', manufacturer, manufacturerOrderController().index)
-    app.get('/manufacturer/orders/find', manufacturerOrderController().orderDrugFind)
+    app.get('/manufacturer/orders/find', manufacturer, manufacturerOrderController().orderDrugFind)
     app.get('/manufacturer/update_orders', manufacturer, manufacturerOrderController().updateOrderProduction)
     app.put('/manufacturer/orders/:id', manufacturer, manufacturerOrderController().orderDrugUpdate)
     app.get('/manufacturer/orders/blockchain', manufacturer, manufacturerOrderController().showBlockchainOrder)

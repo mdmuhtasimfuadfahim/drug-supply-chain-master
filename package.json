@@ -28,6 +28,7 @@
     "express-ejs-layouts": "^2.5.0",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.1",
+    "flow": "^0.2.3",
     "fs": "^0.0.1-security",
     "jquery": "^3.6.0",
     "keythereum": "^1.2.0",
