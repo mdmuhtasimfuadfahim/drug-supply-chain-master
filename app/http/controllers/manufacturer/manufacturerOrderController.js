@@ -130,8 +130,8 @@ function manufacturerOrderController(){
             }
 	    },
 		updateOrderProduction(req, res){
-			axios.get(`${process.env.APP_BASE_URL}/manufacturer/orders/find`, { params : { id : req.query.id }}).then(function(orderDrugData){
-                //console.log(drugStoreData.data)
+			axios.get(`http://localhost:3040/manufacturer/orders/find`, { params : { id : req.query.id }}).then(function(orderDrugData){
+                // console.log(drugStoreData.data)
                 res.render('manufacturer/upateOrder', { order : orderDrugData.data})
                }).catch(err =>{
                    res.send(err)

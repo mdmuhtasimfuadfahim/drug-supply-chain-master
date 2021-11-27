@@ -84,8 +84,8 @@ function initRoutes(app){
 
     //-----------------Manufacturer Order Control Routes-------------
     app.get('/manufacturer/orders', manufacturer, manufacturerOrderController().index)
-    app.get('/manufacturer/orders/find', manufacturer, manufacturerOrderController().orderDrugFind)
-    app.get('/manufacturer/update_orders', manufacturer, manufacturerOrderController().updateOrderProduction)
+    app.get('/manufacturer/orders/find', manufacturerOrderController().orderDrugFind)
+    app.get('/manufacturer/update_orders', manufacturerOrderController().updateOrderProduction)
     app.put('/manufacturer/orders/:id', manufacturer, manufacturerOrderController().orderDrugUpdate)
     app.get('/manufacturer/orders/blockchain', manufacturer, manufacturerOrderController().showBlockchainOrder)
     app.post('/manufacturer/order/status', manufacturer, statusController().statusControl)
