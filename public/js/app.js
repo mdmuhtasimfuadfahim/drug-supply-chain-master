@@ -2914,7 +2914,7 @@ function initTheme() {
     var sunrise = new Date().sunrise(position.coords.latitude, position.coords.longitude);
 
     if (isDay(sunset, sunrise)) {
-      setTheme('theme-dark');
+      setTheme('theme-light');
     } else {
       setTheme('theme-light');
     }

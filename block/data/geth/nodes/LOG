@@ -3911,3 +3911,72 @@
 18:26:40.221363 db@open done T·16.5122ms
 18:26:51.503711 db@close closing
 18:26:51.504215 db@close done T·504.2µs
+=============== Dec 16, 2021 (+06) ===============
+11:58:56.197529 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+11:58:56.209976 version@stat F·[2 1] S·499B[320B 179B] Sc·[0.50 0.00]
+11:58:56.210496 db@open opening
+11:58:56.210496 journal@recovery F·1
+11:58:56.213373 journal@recovery recovering @890
+11:58:56.216380 memdb@flush created L0@892 N·1 S·160B "loc..seq,v550":"loc..seq,v550"
+11:58:56.220278 version@stat F·[3 1] S·659B[480B 179B] Sc·[0.75 0.00]
+11:58:56.230526 db@janitor F·6 G·0
+11:58:56.230526 db@open done T·20.0301ms
+12:02:55.428328 db@close closing
+12:02:55.429324 db@close done T·996.3µs
+=============== Dec 16, 2021 (+06) ===============
+13:27:56.714795 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:27:56.715318 version@stat F·[3 1] S·659B[480B 179B] Sc·[0.75 0.00]
+13:27:56.715318 db@open opening
+13:27:56.715834 journal@recovery F·1
+13:27:56.716358 journal@recovery recovering @893
+13:27:56.718381 memdb@flush created L0@895 N·1 S·160B "loc..seq,v552":"loc..seq,v552"
+13:27:56.719380 version@stat F·[4 1] S·819B[640B 179B] Sc·[1.00 0.00]
+13:27:56.726361 db@janitor F·7 G·0
+13:27:56.726361 db@open done T·11.043ms
+13:27:56.728355 table@compaction L0·4 -> L1·1 S·819B Q·553
+13:27:56.737331 table@build created L1@898 N·2 S·179B "loc..seq,v552":"version,v1"
+13:27:56.737331 version@stat F·[0 1] S·179B[0B 179B] Sc·[0.00 0.00]
+13:27:56.738328 table@compaction committed F-4 S-640B Ke·0 D·4 T·4.9862ms
+13:27:56.739326 table@remove removed @892
+13:27:56.739326 table@remove removed @889
+13:27:56.739326 table@remove removed @886
+13:27:56.740323 table@remove removed @885
+13:28:21.295084 db@close closing
+13:28:21.295084 db@close done T·0s
+=============== Dec 28, 2021 (+06) ===============
+23:35:49.366353 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:35:49.400137 version@stat F·[0 1] S·179B[0B 179B] Sc·[0.00 0.00]
+23:35:49.400290 db@open opening
+23:35:49.400290 journal@recovery F·1
+23:35:49.403939 journal@recovery recovering @896
+23:35:49.407077 memdb@flush created L0@899 N·1 S·160B "loc..seq,v554":"loc..seq,v554"
+23:35:49.409428 version@stat F·[1 1] S·339B[160B 179B] Sc·[0.25 0.00]
+23:35:49.415874 db@janitor F·5 G·1
+23:35:49.415874 db@janitor removing table-895
+23:35:49.415874 db@open done T·15.5833ms
+23:40:50.512933 db@close closing
+23:40:50.513177 db@close done T·244.4µs
+=============== Dec 29, 2021 (+06) ===============
+00:00:18.921766 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+00:00:18.922753 version@stat F·[1 1] S·339B[160B 179B] Sc·[0.25 0.00]
+00:00:18.922753 db@open opening
+00:00:18.922753 journal@recovery F·1
+00:00:18.924747 journal@recovery recovering @900
+00:00:18.928741 memdb@flush created L0@902 N·1 S·160B "loc..seq,v556":"loc..seq,v556"
+00:00:18.932732 version@stat F·[2 1] S·499B[320B 179B] Sc·[0.50 0.00]
+00:00:18.945208 db@janitor F·5 G·0
+00:00:18.945208 db@open done T·22.4546ms
+00:15:41.623468 db@close closing
+00:15:41.624029 db@close done T·561.7µs
+=============== Dec 29, 2021 (+06) ===============
+19:01:59.086031 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+19:01:59.102475 version@stat F·[2 1] S·499B[320B 179B] Sc·[0.50 0.00]
+19:01:59.102475 db@open opening
+19:01:59.102475 journal@recovery F·1
+19:01:59.105892 journal@recovery recovering @903
+19:01:59.109167 memdb@flush created L0@905 N·1 S·160B "loc..seq,v558":"loc..seq,v558"
+19:01:59.113355 version@stat F·[3 1] S·659B[480B 179B] Sc·[0.75 0.00]
+19:01:59.121841 db@janitor F·6 G·0
+19:01:59.121841 db@open done T·19.3662ms
+19:16:41.125059 db@close closing
+19:16:41.126055 db@close done T·996.2µs
