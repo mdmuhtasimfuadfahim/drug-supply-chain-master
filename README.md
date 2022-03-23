@@ -1,6 +1,9 @@
-# Drug Guard: Secure and Transparent Supply Chain Management to Prevent Counterfeit Drugs</br>
+# <h1 align="center">Drug Guard: Secure and Transparent Supply Chain Management to Prevent Counterfeit Drugs</h1>
 
 ## Keywords: Counterfeit drug · Blockchain · Security · Encrypted QR Code · Traceability · Transparency</br>
+
+## ResearchGate
+ - [Project and Paper](https://www.researchgate.net/project/Drug-Guard-A-Secure-and-Transparent-Supply-Chain-Management-to-Prevent-Counterfeit-Drugs)
 
 ## Drug supply chain</br>
 This platform provides a secure network where countefeiting of drugs will be reduced or removed. It is a tranparent network through blockchain where all the users can see others activities. I have built a platform over the Ethereum network.
@@ -75,13 +78,13 @@ ALLOWED_CLIENTS = "http://localhost:3040,http://localhost:3060,http://localhost:
 ### Node
    #### Node installation on Windows
 
-   -Just go on [official Node.js website](https://nodejs.org/) and download the installer.
-   -Also, be sure to have `git` available in your PATH, `npm` might need it (You can find git [here](https://git-scm.com/)).
+   - Just go on [official Node.js website](https://nodejs.org/) and download the installer.</br>
+   - Also, be sure to have `git` available in your PATH, `npm` might need it (You can find git [here](https://git-scm.com/)).</br>
      ----------------------------------------------------------------
 ### Geth
    #### Geth installation on Windows
 
-    Just go on [official Geth website](https://geth.ethereum.org/) and download the installer.
+   - Just go on [official Geth website](https://geth.ethereum.org/) and download the installer.</br>
     ----------------------------------------------------------------
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
