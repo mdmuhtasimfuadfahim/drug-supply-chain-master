@@ -13,29 +13,25 @@ This platform provides a secure network where countefeiting of drugs will be red
  
 ## Technology satcks and tools
 
-<h4 align="left">
+
 #### Backend
  - Node.JS
  - Express.JS
  - Laravel Mix
  - MongoDB (DB)
-</h4>
 
-<h4 align="center">
 #### Frontend
  - EJS
  - SCSS
  - Tailwind CSS
  - JavaScript
-</h4>
 
-<h4 align="right">
 #### Blockchain
  - Language: Solidity
  - Platform: Ethereum
  - Packages: Web3.js
  - Node & TestRPC: Geth
-</h4>
+
 
 ## Features</br>
  - Place order for pharmacist or depot in-charge.</br>
