@@ -2,11 +2,40 @@
 
 ## Keywords: Counterfeit drug · Blockchain · Security · Encrypted QR Code · Traceability · Transparency</br>
 
+## Drug supply chain</br>
+This platform provides a secure network where countefeiting of drugs will be reduced or removed. It is a tranparent network through blockchain where all the users can see others activities. I have built a platform over the Ethereum network.
+
 ## ResearchGate
  - [Project and Paper](https://www.researchgate.net/project/Drug-Guard-A-Secure-and-Transparent-Supply-Chain-Management-to-Prevent-Counterfeit-Drugs)
 
-## Drug supply chain</br>
-This platform provides a secure network where countefeiting of drugs will be reduced or removed. It is a tranparent network through blockchain where all the users can see others activities. I have built a platform over the Ethereum network.
+## Project demo video
+ - [Link](https://drive.google.com/file/d/1RPKnCdRp2FT4k20m16M9HxriwzdFAgmx/view)
+ 
+## Technology satcks and tools
+
+<h4 align="left">
+#### Backend
+ - Node.JS
+ - Express.JS
+ - Laravel Mix
+ - MongoDB (DB)
+</h4>
+
+<h4 align="center">
+#### Frontend
+ - EJS
+ - SCSS
+ - Tailwind CSS
+ - JavaScript
+</h4>
+
+<h4 align="right">
+#### Blockchain
+ - Language: Solidity
+ - Platform: Ethereum
+ - Packages: Web3.js
+ - Node & TestRPC: Geth
+</h4>
 
 ## Features</br>
  - Place order for pharmacist or depot in-charge.</br>
@@ -78,13 +107,17 @@ ALLOWED_CLIENTS = "http://localhost:3040,http://localhost:3060,http://localhost:
 ### Node
    #### Node installation on Windows
 
-   - Just go on [official Node.js website](https://nodejs.org/) and download the installer.</br>
-   - Also, be sure to have `git` available in your PATH, `npm` might need it (You can find git [here](https://git-scm.com/)).</br>
+   -Just go on [official Node.js website](https://nodejs.org/) and download the installer.</br>
+   -Also, be sure to have `git` available in your PATH, `npm` might need it (You can find git [here](https://git-scm.com/)).</br>
      ----------------------------------------------------------------
 ### Geth
    #### Geth installation on Windows
 
-   - Just go on [official Geth website](https://geth.ethereum.org/) and download the installer.</br>
+   -Just go on [official Geth website](https://geth.ethereum.org/) and download the installer.</br>
+    ----------------------------------------------------------------
+### MongoDB
+
+   -Just go on [official MongoDB website](https://www.mongodb.com/) and download the Compass or create MongoDB Atlas project..</br>
     ----------------------------------------------------------------
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
