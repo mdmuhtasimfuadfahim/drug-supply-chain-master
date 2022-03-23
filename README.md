@@ -75,14 +75,14 @@ ALLOWED_CLIENTS = "http://localhost:3040,http://localhost:3060,http://localhost:
 ### Node
    #### Node installation on Windows
 
-   Just go on [official Node.js website](https://nodejs.org/) and download the installer.
-   Also, be sure to have `git` available in your PATH, `npm` might need it (You can find git [here](https://git-scm.com/)).
-   ----------------------------------------------------------------
+     Just go on [official Node.js website](https://nodejs.org/) and download the installer.
+     Also, be sure to have `git` available in your PATH, `npm` might need it (You can find git [here](https://git-scm.com/)).
+     ----------------------------------------------------------------
 ### Geth
    #### Geth installation on Windows
 
-  Just go on [official Geth website](https://geth.ethereum.org/) and download the installer.
-----------------------------------------------------------------
+    Just go on [official Geth website](https://geth.ethereum.org/) and download the installer.
+    ----------------------------------------------------------------
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
 
