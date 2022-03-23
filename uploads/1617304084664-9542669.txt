@@ -1,0 +1,75 @@
+import axios from 'axios'
+import moment from 'moment'
+
+
+export function initDepot(){
+
+
+    const locationPage = document.querySelector('#tableforLocation')
+    let locations = []
+
+    let markupLocation
+
+    axios.get('/:id/location', {
+        headers: {
+            "X-Requested-With": "XMLHttpRequest"
+        },
+
+    }).then(res =>{
+        locations = res.data
+        markupLocation = generateMarkupLocation(locations)
+        locationPage.innerHTML = markupLocation
+    }).catch(err =>{
+        console.log(err)
+    })
+
+
+    function generateMarkupLocation(locations){
+
+            return `
+            <div class="flex items-center justify-between mb-12">
+                <h1 class="text-xl font-bold">Location Status</h1>     
+                <div class="inline-block relative w-64">
+                    <form action="/locationId/location/update" method="POST">
+                        <input type="hidden" name="locationID" value="${ locations._id }">
+                        <select name="role" onchange="this.form.submit()"
+                            class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                            <option value="Manufacturer"
+                                ${ locations.role === 'Manufacturer' ? 'selected' : '' }>
+                                Manufacturer</option>
+                            <option value="Depot In-charge" ${ locations.role === 'Depot In-charge' ? 'selected' : '' }>
+                            Depot In-charge</option>
+                            <option value="prepared" ${ locations.role === 'Pharmacist' ? 'selected' : '' }>
+                            Pharmacist</option>
+                        </select>
+                    </form>
+                    <div
+                        class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20">
+                            <path
+                                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="grid status-box-2 items-center px-10">
+          
+            <div class="myImages">
+                <img class="im1" src="/img/${ locations.sender.image }" alt="">
+                <img class="im2" src="/img/${ locations.receiver.image }" alt="">
+            </div>
+            <div class="lines"> 
+              <ul>
+                  <li class="status-line-2 text-xm md:text-xl pb-16"><span>${locations.sender.role }<pre> ${ moment(locations.createdAt).format('hh:mm A') }</pre> </span></li>
+                  <li class="status-line-2 text-xm md:text-xl pb-16"><span>${locations.receiver.role }</span></li>
+              </ul>
+            </div>
+            
+        </div> 
+          
+    `
+    
+       
+    }
+}
