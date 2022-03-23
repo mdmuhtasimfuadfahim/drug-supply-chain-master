@@ -1,4 +1,5 @@
-# <h1 align="center">Drug Guard: Secure and Transparent Supply Chain Management to Prevent Counterfeit Drugs</h1>
+# ![image](https://user-images.githubusercontent.com/69357704/159665149-11d0993a-db6f-4422-8554-94a16406d87a.png)
+<h1 align="center">Drug Guard: Secure and Transparent Supply Chain Management to Prevent Counterfeit Drugs</h1>
 
 ## Keywords: Counterfeit drug · Blockchain · Security · Encrypted QR Code · Traceability · Transparency</br>
 
