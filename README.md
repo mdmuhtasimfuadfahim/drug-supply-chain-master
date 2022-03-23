@@ -18,7 +18,7 @@ This platform provides a secure network where countefeiting of drugs will be red
 **Step 1: Clone the repo by: `git clone https://github.com/mdmuhtasimfuadfahim/drug-supply-chain-master` or download the repository.**</br>
 **Step 2: Change PORT according to your preference or leave it as it is.**</br>
 **Step 3: Install all the dependencies (from root directory) by: `yarn install or npm install`.**</br>
->If you download the repo then you have to install all the dependencies of *package.json* file.></br>
+>If you download the repo then you have to install all the dependencies of *package.json* file.
 **Step 4: Run the development server by: `yarn dev or npm run dev` and for production: `yarn serve or npm run serve`.**</br>
 **Step 5: Run the *laravel-mix* server by: `yarn watch or npm run watch` and for production: `yarn produciton or npm run produciton`.**</br>
 
