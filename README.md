@@ -105,8 +105,8 @@ This platform provides a secure network where countefeiting of drugs will be red
   **Step 5: Change the geth server and create your own blockchain account by the following commands:**
 
   ```shell
-  mkdir blockchain
-  cd blockchain
+  mkdir block
+  cd block
   mkdir data
   puppeth
   
@@ -119,9 +119,10 @@ This platform provides a secure network where countefeiting of drugs will be red
 
   geth --datadir=./data init yourJSON_Name.json
 
-  geth --http --http.port "8000" --http.corsdomain "*" --datadir=./data --port "30303" --nodiscover --allow-insecure-unlock --http.api "eth,net,web3,personal,miner,admin" --networkid your_networkID --nat "any" --syncmode="fast"
+  geth --http --http.port "8000" --http.corsdomain "*" --datadir=./data --port "30303" --nodiscover --allow-insecure-unlock --http.api     "eth,net,web3,personal,miner,admin" --networkid your_networkID --nat "any" --syncmode="fast"
 
   geth attach "http://127.0.0.1:8000"
+  
   personal.newAccount("password")
   miner.start()
   miner.stop()
