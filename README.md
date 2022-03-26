@@ -158,9 +158,10 @@ This platform provides a secure network where countefeiting of drugs will be red
    -Just go on [official MongoDB website](https://www.mongodb.com/) and download the Compass or create MongoDB Atlas project..</br>
     ----------------------------------------------------------------
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+  - [MIT](https://choosealicense.com/licenses/mit/)
 
-## Contribution</br>
+## Contribution
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.</br>
 Please make sure to update tests as appropriate.</br>
 
