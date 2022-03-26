@@ -43,59 +43,100 @@ This platform provides a secure network where countefeiting of drugs will be red
  - Add manufactured drugs information and add secret informations about any production.</br>
  
 ## Getting started</br>
-**Step 1: Clone the repo by: `git clone https://github.com/mdmuhtasimfuadfahim/drug-supply-chain-master` or download the repository.**</br>
-**Step 2: Change PORT according to your preference or leave it as it is.**</br>
-**Step 3: Install all the dependencies (from root directory) by: `yarn install` or `npm install`.**</br>
->If you download the repo then you have to install all the dependencies of *package.json* file.</br>
+**Step 1: Download the repository or clone it by:**
+  ```shell
+  git clone https://github.com/bitecUGC/icvbd
+  ```
 
-**Step 4: Run the development server by: `yarn dev` or `npm run dev` and for production: `yarn serve` or `npm run serve`.**</br>
-**Step 5: Run the *laravel-mix* server by: `yarn watch` or `npm run watch` and for production: `yarn produciton` or `npm run produciton`.**</br>
+  **Step 2: Run the following commands from the root directory to install all dependencies:**
+  ```shell
+  yarn install 
+  # or
+  npm install
+  ```
 
-## Environment variables</br>
-Open or create a .env file then edit add these settings</br>
-```
-COOKIE_SECRET = secret_goes_here
-MONGO_CONNECTION_URL = "mongo_url_goes_here"
-APP_BASE_URL = http://localhost:3040 or change it
-SMTP_HOST = host_goes_here
-SMTP_PORT = port_goes_here
-MAIL_USER = mail_user_goes_here
-MAIL_PASSWORD = password_goes_here
-algorithm = aes-256-ctr
-ENCRYPT_DECRYPT_PASS = d6F3fequee92hd
+  **Step 3: Change the PORT number or leave it as it is.**
+  **Step 4: Create and setting up the .env variables.**
 
-privateKeyOf1 = accounts_password_goes_here
-privateKeyOf2 = accounts_password_goes_here
-privateKeyOf3 = accounts_password_goes_here
-privateKeyOf4 = accounts_password_goes_here
-privateKeyOfTestAccount1 = accounts_password_goes_here
-privateKeyOfTestAccount2 = accounts_password_goes_here
-privateKeyOfTestAccount3 = accounts_password_goes_here
-privateKeyOfTestAccount4 = accounts_password_goes_here
+  ```shell
+  COOKIE_SECRET = secret_goes_here
+  MONGO_CONNECTION_URL = "mongo_url_goes_here"
+  APP_BASE_URL = http://localhost:3040 or change it
+  SMTP_HOST = host_goes_here
+  SMTP_PORT = port_goes_here
+  MAIL_USER = mail_user_goes_here
+  MAIL_PASSWORD = password_goes_here
+  algorithm = aes-256-ctr
+  ENCRYPT_DECRYPT_PASS = d6F3fequee92hd
 
-accountOrpa = account_address_goes_here
-accountOrpaPass = pass_goes_here
-accountMe = account_address_goes_here 
-accountMePass = pass_goes_here
-accountFaisal = account_address_goes_here 
-accountFaisalPass = pass_goes_here
-accountTusu = account_address_goes_here
-accountTusuPass = pass_goes_here
-testAccount1 = account_address_goes_here
-accountPass1 = pass_goes_here
-testAccount2 = account_address_goes_here
-accountPass2 = pass_goes_here
-testAccount3 = account_address_goes_here
-accountPass3 = pass_goes_here
-testAccount4 = account_address_goes_here
-accountPass4 = pass_goes_here
-testAccount5 = account_address_goes_here
-accountPass5 = pass_goes_here
+  privateKeyOf1 = accounts_password_goes_here
+  privateKeyOf2 = accounts_password_goes_here
+  privateKeyOf3 = accounts_password_goes_here
+  privateKeyOf4 = accounts_password_goes_here
+  privateKeyOfTestAccount1 = accounts_password_goes_here
+  privateKeyOfTestAccount2 = accounts_password_goes_here
+  privateKeyOfTestAccount3 = accounts_password_goes_here
+  privateKeyOfTestAccount4 = accounts_password_goes_here
+
+  accountOrpa = account_address_goes_here
+  accountOrpaPass = pass_goes_here
+  accountMe = account_address_goes_here 
+  accountMePass = pass_goes_here
+  accountFaisal = account_address_goes_here 
+  accountFaisalPass = pass_goes_here
+  accountTusu = account_address_goes_here
+  accountTusuPass = pass_goes_here
+  testAccount1 = account_address_goes_here
+  accountPass1 = pass_goes_here
+  testAccount2 = account_address_goes_here
+  accountPass2 = pass_goes_here
+  testAccount3 = account_address_goes_here
+  accountPass3 = pass_goes_here
+  testAccount4 = account_address_goes_here
+  accountPass4 = pass_goes_here
+  testAccount5 = account_address_goes_here
+  accountPass5 = pass_goes_here
 
 
-ALLOWED_CLIENTS = "http://localhost:3040,http://localhost:3060,http://localhost:3080"
-```
-> You have to create geth accounts and private key by your own. Use your own account addresses name and password.
+  ALLOWED_CLIENTS = "http://localhost:3040,http://localhost:3060,http://localhost:3080"
+  ```
+  > You have to create geth accounts and private key by your own. Use your own account addresses name and password.
+
+  **Step 5: Change the geth server and create your own blockchain account by the following commands:**
+
+  ```shell
+  mkdir blockchain
+  cd blockchain
+  mkdir data
+  puppeth
+  
+  2. Configure new genesis
+  1. Create new genesis from scratch
+  1. Etash - proof-of-work
+  give your network ID (ex: 3452)
+  2. Manage existing genesis
+  2. Export genesis configurations
+
+  geth --datadir=./data init yourJSON_Name.json
+
+  geth --http --http.port "8000" --http.corsdomain "*" --datadir=./data --port "30303" --nodiscover --allow-insecure-unlock --http.api "eth,net,web3,personal,miner,admin" --networkid your_networkID --nat "any" --syncmode="fast"
+
+  geth attach "http://127.0.0.1:8000"
+  personal.newAccount("password")
+  miner.start()
+  miner.stop()
+  ```
+  **Step 6: Run the nodejs and laravel-mix server by:**
+  ```shell
+  yarn serve
+  # or
+  npm run serve
+
+  yarn production
+  # or
+  npm run production
+  ```
+
 
 ## Requiments
 
