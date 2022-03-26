@@ -45,7 +45,7 @@ This platform provides a secure network where countefeiting of drugs will be red
 ## Getting started</br>
 **Step 1: Download the repository or clone it by:**
   ```shell
-  git clone https://github.com/bitecUGC/icvbd
+  git clone https://github.com/mdmuhtasimfuadfahim/drug-supply-chain-master
   ```
 
   **Step 2: Run the following commands from the root directory to install all dependencies:**
